@@ -2,6 +2,7 @@ import path from "path"
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import {defineConfig} from "vite"
+// import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
@@ -14,7 +15,6 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'dgz-ui',
-      formats: ['es', 'umd'],
       fileName: (format) => `dgz-ui.${format}.js`
     },
     rollupOptions: {
