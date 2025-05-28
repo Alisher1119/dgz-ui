@@ -26,6 +26,8 @@
     "declarationMap": true,
     "outDir": "dist",
 
+    "removeComments": false,
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
