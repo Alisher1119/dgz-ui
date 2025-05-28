@@ -1,2 +1,1 @@
-npm pack
 npx publish:patch
