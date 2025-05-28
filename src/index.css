@@ -269,59 +269,59 @@
     --radius-xs: 0.125rem;
 
     --color-neutral-alpha-0: rgb(
-            from var(--color-neutral-alpha-base) r g b / 0.01%
+      from var(--color-neutral-alpha-base) r g b / 0.01%
     );
     --color-neutral-alpha-1: rgb(
-            from var(--color-neutral-alpha-base) r g b / 3%
+      from var(--color-neutral-alpha-base) r g b / 3%
     );
     --color-neutral-alpha-2: rgb(
-            from var(--color-neutral-alpha-base) r g b / 5%
+      from var(--color-neutral-alpha-base) r g b / 5%
     );
     --color-neutral-alpha-3: rgb(
-            from var(--color-neutral-alpha-base) r g b / 7%
+      from var(--color-neutral-alpha-base) r g b / 7%
     );
     --color-neutral-alpha-4: rgb(
-            from var(--color-neutral-alpha-base) r g b / 10%
+      from var(--color-neutral-alpha-base) r g b / 10%
     );
     --color-neutral-alpha-5: rgb(
-            from var(--color-neutral-alpha-base) r g b / 16%
+      from var(--color-neutral-alpha-base) r g b / 16%
     );
     --color-neutral-alpha-6: rgb(
-            from var(--color-neutral-alpha-base) r g b / 20%
+      from var(--color-neutral-alpha-base) r g b / 20%
     );
     --color-neutral-alpha-7: rgb(
-            from var(--color-neutral-alpha-base) r g b / 24%
+      from var(--color-neutral-alpha-base) r g b / 24%
     );
     --color-neutral-alpha-8: rgb(
-            from var(--color-neutral-alpha-base) r g b / 28%
+      from var(--color-neutral-alpha-base) r g b / 28%
     );
     --color-neutral-alpha-9: rgb(
-            from var(--color-neutral-alpha-base) r g b / 32%
+      from var(--color-neutral-alpha-base) r g b / 32%
     );
     --color-neutral-alpha-10: rgb(
-            from var(--color-neutral-alpha-base) r g b / 40%
+      from var(--color-neutral-alpha-base) r g b / 40%
     );
     --color-neutral-alpha-11: rgb(
-            from var(--color-neutral-alpha-base) r g b / 48%
+      from var(--color-neutral-alpha-base) r g b / 48%
     );
     --color-neutral-alpha-12: rgb(
-            from var(--color-neutral-alpha-base) r g b / 56%
+      from var(--color-neutral-alpha-base) r g b / 56%
     );
     --color-neutral-alpha-13: rgb(
-            from var(--color-neutral-alpha-base) r g b / 64%
+      from var(--color-neutral-alpha-base) r g b / 64%
     );
     --color-neutral-alpha-14: rgb(
-            from var(--color-neutral-alpha-base) r g b / 72%
+      from var(--color-neutral-alpha-base) r g b / 72%
     );
     --color-neutral-alpha-15: rgb(
-            from var(--color-neutral-alpha-base) r g b / 80%
+      from var(--color-neutral-alpha-base) r g b / 80%
     );
     --color-neutral-alpha-16: rgb(
-            from var(--color-neutral-alpha-base) r g b / 88%
+      from var(--color-neutral-alpha-base) r g b / 88%
     );
 
     --color-neutral-inverted-0: rgb(
-            from var(--color-neutral-base) r g b / 0.01%
+      from var(--color-neutral-base) r g b / 0.01%
     );
     --color-neutral-inverted-1: rgb(from var(--color-neutral-base) r g b / 3%);
     --color-neutral-inverted-2: rgb(from var(--color-neutral-base) r g b / 5%);
@@ -333,25 +333,25 @@
     --color-neutral-inverted-8: rgb(from var(--color-neutral-base) r g b / 28%);
     --color-neutral-inverted-9: rgb(from var(--color-neutral-base) r g b / 32%);
     --color-neutral-inverted-10: rgb(
-            from var(--color-neutral-base) r g b / 40%
+      from var(--color-neutral-base) r g b / 40%
     );
     --color-neutral-inverted-11: rgb(
-            from var(--color-neutral-base) r g b / 48%
+      from var(--color-neutral-base) r g b / 48%
     );
     --color-neutral-inverted-12: rgb(
-            from var(--color-neutral-base) r g b / 56%
+      from var(--color-neutral-base) r g b / 56%
     );
     --color-neutral-inverted-13: rgb(
-            from var(--color-neutral-base) r g b / 64%
+      from var(--color-neutral-base) r g b / 64%
     );
     --color-neutral-inverted-14: rgb(
-            from var(--color-neutral-base) r g b / 72%
+      from var(--color-neutral-base) r g b / 72%
     );
     --color-neutral-inverted-15: rgb(
-            from var(--color-neutral-base) r g b / 80%
+      from var(--color-neutral-base) r g b / 80%
     );
     --color-neutral-inverted-16: rgb(
-            from var(--color-neutral-base) r g b / 88%
+      from var(--color-neutral-base) r g b / 88%
     );
 
     --color-item-primary: var(--color-neutral-950);
@@ -488,7 +488,7 @@
     --color-shadow-drop-4: rgba(0, 0, 0, 0.36);
     --color-shadow-card-border: rgb(from var(--color-neutral-base) r g b / 12%);
     --color-shadow-card-border-2: rgb(
-            from var(--color-neutral-base) r g b / 0%
+      from var(--color-neutral-base) r g b / 0%
     );
 
     --color-border-alpha-strong: var(--color-neutral-inverted-6);
