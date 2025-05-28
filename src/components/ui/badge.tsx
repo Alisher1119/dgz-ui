@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils.ts";
  * @property {'sm' | 'lg'} size - The size of the badge.
  * @property {'default' | 'full'} rounded - The border-radius of the badge.
  */
-const badgeVariants = cva(
+export const badgeVariants = cva(
     "inline-flex flex-nowrap whitespace-nowrap justify-center items-center border px-2.5 text-body-2xs-medium dark:border [&>svg]:size-3.5 gap-1",
     {
       variants: {
@@ -102,4 +102,6 @@ function Badge({
   );
 }
 
-export { Badge, badgeVariants };
+Badge.displayName = "Badge";
+
+export default Badge;

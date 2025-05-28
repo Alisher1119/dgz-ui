@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "files": [
     "dist"
@@ -39,7 +39,10 @@
     "test": "vitest run",
     "preview": "vite preview",
     "build-lib": "vite build",
-    "prepublishOnly": "npm run build-lib"
+    "prepublishOnly": "npm run build-lib",
+    "publish:major": "npm version major && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:patch": "npm version patch && npm publish"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
