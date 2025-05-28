@@ -1,2 +1,2 @@
 npm pack
-npm run publish:patch
+npx publish:patch
