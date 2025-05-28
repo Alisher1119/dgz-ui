@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alisher1119/dgz-ui"
+    "url": "git+https://github.com/Alisher1119/dgz-ui.git"
   },
   "main": "./dist/dgz-ui.umd.js",
   "module": "./dist/dgz-ui.es.js",
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc -b",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview",
