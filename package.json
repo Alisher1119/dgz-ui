@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "type": "module",
   "files": [
     "dist"
