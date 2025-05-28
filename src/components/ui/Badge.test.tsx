@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import {describe, expect, it} from "vitest";
-import Badge from "@/components/ui/badge.tsx";
+import Badge from "./badge.tsx";
 
 describe("Badge Component", () => {
     it("renders with default props", () => {

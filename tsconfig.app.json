@@ -29,9 +29,6 @@
     "removeComments": false,
 
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
   },
   "include": ["src"]
 }
