@@ -1,1 +1,1 @@
-npx publish:patch
+npm run publish:patch
