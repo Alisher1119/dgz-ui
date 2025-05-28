@@ -22,6 +22,9 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": [
