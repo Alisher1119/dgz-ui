@@ -1,2 +1,4 @@
-export * from "@/components/ui/button";
-export * from "@/components/ui/badge";
+import Button from "@/components/ui/button.tsx";
+import Badge from "@/components/ui/badge.tsx";
+
+export {Button, Badge}
