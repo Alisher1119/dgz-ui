@@ -1,7 +1,7 @@
-import * as React from "react";
 import {Slot} from "@radix-ui/react-slot";
 import {cva, type VariantProps} from "class-variance-authority";
 import {cn} from "@/lib/utils.ts";
+import {forwardRef} from "react";
 
 /**
  * Button variants generated using class-variance-authority (CVA).
@@ -72,7 +72,7 @@ export interface ButtonProps
  * <Button asChild><a href="/next-step">Continue</a></Button>
  * ```
  */
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({className, variant, size, asChild = false, ...props}, ref) => {
         const Comp = asChild ? Slot : "button";
         return (

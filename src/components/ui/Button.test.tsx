@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Button } from "./button";
-import {describe, expect, it, vi} from "vitest"; // If you're using Vitest, else use `jest.fn()` for Jest
+import {describe, expect, it, vi} from "vitest";
 import "@testing-library/jest-dom";
+import Button from "@/components/ui/button.tsx";
 
 describe("Button Component", () => {
     it("renders with default props", () => {

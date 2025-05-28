@@ -23,6 +23,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
     "declarationMap": true,
     "outDir": "dist",
     "baseUrl": ".",

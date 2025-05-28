@@ -23,14 +23,14 @@
   },
   "main": "./dist/dgz-ui.umd.js",
   "module": "./dist/dgz-ui.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/dgz-ui.es.js",
       "require": "./dist/dgz-ui.umd.js"
     },
-    "./dist/style.css": "./dist/dgz-ui.css"
+    "./dist/dgz-ui.css": "./dist/dgz-ui.css"
   },
   "scripts": {
     "dev": "vite",
