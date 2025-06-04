@@ -25,39 +25,24 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        // 'components/ui/button/index': resolve(__dirname, 'src/components/ui/button/index.ts'),
-        // 'components/ui/badge/index': resolve(__dirname, 'src/components/ui/badge/index.ts'),
-        // 'components/ui/avatar/index': resolve(__dirname, 'src/components/ui/avatar/index.ts'),
+        button: resolve(__dirname, "src/components/ui/button/index.ts"),
+        badge: resolve(__dirname, "src/components/ui/badge/index.ts"),
+        avatar: resolve(__dirname, "src/components/ui/avatar/index.ts"),
       },
       formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
-      input: {
-        index: resolve(__dirname, "src/index.ts"),
-        "components/ui/button/index": resolve(
-          __dirname,
-          "src/components/ui/button/index.ts",
-        ),
-        "components/ui/badge/index": resolve(
-          __dirname,
-          "src/components/ui/badge/index.ts",
-        ),
-        "components/ui/avatar/index": resolve(
-          __dirname,
-          "src/components/ui/avatar/index.ts",
-        ),
-      },
       output: [
         {
           format: "es",
-          entryFileNames: "[name].es.js",
           dir: "dist",
+          entryFileNames: "[name].es.js",
         },
         {
           format: "cjs",
-          entryFileNames: "[name].umd.js",
           dir: "dist",
+          entryFileNames: "[name].umd.js",
         },
       ],
     },
