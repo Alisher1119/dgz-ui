@@ -57,7 +57,6 @@ Make sure you have the required peer dependencies installed:
 
 ```bash
 npm install react react-dom
-npm install @radix-ui/react-avatar class-variance-authority clsx tailwind-merge
 ```
 
 ### Shadcn/ui Setup

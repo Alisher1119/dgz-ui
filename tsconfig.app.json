@@ -10,7 +10,7 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-
+    "isolatedModules": true,
     "jsx": "react-jsx",
 
     "strict": true,

@@ -3,9 +3,17 @@ import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import dtsPlugin from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    dtsPlugin({
+      entryRoot: "src",
+      include: ["src/components"],
+    }),
+  ],
   test: {
     globals: true,
     environment: "jsdom",
@@ -29,6 +37,8 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
     },
   },
