@@ -25,9 +25,9 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        "button/index": resolve(__dirname, "src/components/ui/button/index.ts"),
-        "badge/index": resolve(__dirname, "src/components/ui/badge/index.ts"),
-        "avatar/index": resolve(__dirname, "src/components/ui/avatar/index.ts"),
+        "button/index": resolve(__dirname, "src/ui/button/index.ts"),
+        "badge/index": resolve(__dirname, "src/ui/badge/index.ts"),
+        "avatar/index": resolve(__dirname, "src/ui/avatar/index.ts"),
       },
       formats: ["es", "cjs"],
     },

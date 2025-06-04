@@ -1,5 +1,5 @@
-export * from "./components/ui/badge";
-export * from "./components/ui/avatar";
-export * from "./components/ui/button";
+export * from "./ui/badge";
+export * from "./ui/avatar";
+export * from "./ui/button";
 
 import "./index.css";
