@@ -2,7 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import "@testing-library/jest-dom";
 import { createRef } from "react";
-import Avatar, {
+import {
+  Avatar,
   AvatarFallback,
   AvatarImage,
   avatarVariants,

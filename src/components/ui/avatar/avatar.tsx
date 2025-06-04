@@ -64,7 +64,7 @@ export interface AvatarProps
  * @param className - Additional CSS classes to apply
  * @param children - Child components (typically AvatarImage and AvatarFallback)
  */
-const Avatar = React.forwardRef<
+export const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   AvatarProps
 >(({ className, size, ...props }, ref) => (
@@ -143,5 +143,3 @@ export const AvatarFallback = React.forwardRef<
   />
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
-
-export default Avatar;

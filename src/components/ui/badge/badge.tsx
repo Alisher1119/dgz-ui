@@ -98,7 +98,7 @@ export interface BadgeProps
  * @param {React.HTMLAttributes<HTMLDivElement>} props - All other native div props.
  * @returns {JSX.Element} Rendered badge component.
  */
-function Badge({
+export function Badge({
   className,
   variant,
   rounded,
@@ -115,5 +115,3 @@ function Badge({
 }
 
 Badge.displayName = "Badge";
-
-export default Badge;
