@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.1.12",
+  "version": "1.1.11",
   "type": "module",
   "files": [
     "dist",
@@ -32,19 +32,19 @@
       "require": "./dist/index.umd.js"
     },
     "./button": {
-      "types": "./dist/button.d.ts",
-      "import": "./dist/button.es.js",
-      "require": "./dist/button.umd.js"
+      "types": "./dist/types/components/ui/button/index.d.ts",
+      "import": "./dist/button/index.es.js",
+      "require": "./dist/button/index.umd.js"
     },
     "./badge": {
-      "types": "./dist/badge.d.ts",
-      "import": "./dist/badge.es.js",
-      "require": "./dist/badge.umd.js"
+      "types": "./dist/types/components/ui/badge/index.d.ts",
+      "import": "./dist/badge/index.es.js",
+      "require": "./dist/badge/index.umd.js"
     },
     "./avatar": {
-      "types": "./dist/avatar.d.ts",
-      "import": "./dist/avatar.es.js",
-      "require": "./dist/avatar.umd.js"
+      "types": "./dist/types/components/ui/avatar/index.d.ts",
+      "import": "./dist/avatar/index.es.js",
+      "require": "./dist/avatar/index.umd.js"
     },
     "./dist/dgz-ui.css": "./dist/dgz-ui.css"
   },
