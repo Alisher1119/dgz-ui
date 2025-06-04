@@ -15,9 +15,9 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        Button: resolve(__dirname, "src/components/ui/button/index.ts"),
-        Card: resolve(__dirname, "src/components/ui/badge/index.ts"),
-        Modal: resolve(__dirname, "src/components/ui/avatar/index.ts"),
+        button: resolve(__dirname, "src/components/ui/button/index.ts"),
+        badge: resolve(__dirname, "src/components/ui/badge/index.ts"),
+        avatar: resolve(__dirname, "src/components/ui/avatar/index.ts"),
       },
       name: "dgz-ui",
       fileName: (format) => `dgz-ui.${format}.js`,
