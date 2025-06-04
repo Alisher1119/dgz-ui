@@ -1,7 +1,5 @@
-import { Badge } from "./components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
-import { Button } from "./components/ui/button";
-
-export { Button, Badge, Avatar, AvatarFallback, AvatarImage };
+export * from "./components/ui/badge";
+export * from "./components/ui/avatar";
+export * from "./components/ui/button";
 
 import "./index.css";
