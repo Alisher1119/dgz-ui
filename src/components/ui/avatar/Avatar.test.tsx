@@ -1,8 +1,12 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import "@testing-library/jest-dom";
-import Avatar, { AvatarFallback, AvatarImage, avatarVariants } from "./avatar";
 import { createRef } from "react";
+import Avatar, {
+  AvatarFallback,
+  AvatarImage,
+  avatarVariants,
+} from "./avatar.tsx";
 
 describe("Avatar Component", () => {
   describe("Avatar", () => {

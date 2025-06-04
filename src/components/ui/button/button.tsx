@@ -10,7 +10,7 @@ import { cn } from "../../../lib/utils.ts";
  * @property {'default' | 'destructive' | 'secondary' | 'tertiary' | 'ghost'} variant - Controls visual appearance.
  * @property {'lg' | 'default' | 'sm' | 'xs' | 'icon'} size - Controls the height, padding, and font size of the button.
  */
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "inline-flex border border-border-alpha-strong items-center justify-center gap-2 whitespace-nowrap font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg focus:ring-item-primary-focus transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
@@ -47,7 +47,7 @@ const buttonVariants = cva(
  *
  * @property {boolean} [asChild=false] - If true, renders as a child component (useful for Radix Slot integration).
  */
-interface ButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
@@ -87,4 +87,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button, buttonVariants, type ButtonProps };
+export default Button;

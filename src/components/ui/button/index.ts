@@ -1,3 +1,3 @@
-import * as Button from "./button";
+import Button, { buttonVariants, type ButtonProps } from "./button.tsx";
 
-export default Button;
+export { buttonVariants, Button, type ButtonProps };
