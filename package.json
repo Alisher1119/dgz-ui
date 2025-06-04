@@ -31,21 +31,6 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
     },
-    "./button": {
-      "types": "./dist/components/ui/button/index.d.ts",
-      "import": "./dist/components/ui/button/index.es.js",
-      "require": "./dist/components/ui/button/index.umd.js"
-    },
-    "./badge": {
-      "types": "./dist/components/ui/badge/index.d.ts",
-      "import": "./dist/components/ui/badge/index.es.js",
-      "require": "./dist/components/ui/badge/index.umd.js"
-    },
-    "./avatar": {
-      "types": "./dist/components/ui/avatar/index.d.ts",
-      "import": "./dist/components/ui/avatar/index.es.js",
-      "require": "./dist/components/ui/avatar/index.umd.js"
-    },
     "./dist/dgz-ui.css": "./dist/dgz-ui.css"
   },
   "scripts": {
