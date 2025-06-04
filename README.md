@@ -12,7 +12,6 @@ A modern, accessible, and customizable React component library built with TypeSc
   - [Badge](#badge)
   - [Avatar](#avatar)
 - [Development](#️-development)
-- [Documentation](#-documentation)
 - [License](#-license)
 
 ## ⚡ Quick Start
@@ -241,10 +240,6 @@ npm run build
 # or
 yarn build
 ```
-
-## 📖 Documentation
-
-For more detailed documentation and examples, visit our [Storybook](your-storybook-url) or check out the individual component files.
 
 ## 🤝 Acknowledgments
 
