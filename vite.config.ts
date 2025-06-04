@@ -3,9 +3,19 @@ import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import dtsPlugin from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    dtsPlugin({
+      include: ["src/**/*"],
+      exclude: ["src/**/*.test.*", "src/**/*.spec.*"],
+      outDir: "dist",
+      insertTypesEntry: true,
+    }),
+  ],
   test: {
     globals: true,
     environment: "jsdom",
@@ -15,19 +25,41 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, "src/index.ts"),
-        button: resolve(__dirname, "src/components/ui/button/index.ts"),
-        badge: resolve(__dirname, "src/components/ui/badge/index.ts"),
-        avatar: resolve(__dirname, "src/components/ui/avatar/index.ts"),
+        // 'components/ui/button/index': resolve(__dirname, 'src/components/ui/button/index.ts'),
+        // 'components/ui/badge/index': resolve(__dirname, 'src/components/ui/badge/index.ts'),
+        // 'components/ui/avatar/index': resolve(__dirname, 'src/components/ui/avatar/index.ts'),
       },
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
+      input: {
+        index: resolve(__dirname, "src/index.ts"),
+        "components/ui/button/index": resolve(
+          __dirname,
+          "src/components/ui/button/index.ts",
+        ),
+        "components/ui/badge/index": resolve(
+          __dirname,
+          "src/components/ui/badge/index.ts",
+        ),
+        "components/ui/avatar/index": resolve(
+          __dirname,
+          "src/components/ui/avatar/index.ts",
+        ),
       },
+      output: [
+        {
+          format: "es",
+          entryFileNames: "[name].es.js",
+          dir: "dist",
+        },
+        {
+          format: "cjs",
+          entryFileNames: "[name].umd.js",
+          dir: "dist",
+        },
+      ],
     },
   },
 });

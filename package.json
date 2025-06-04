@@ -51,6 +51,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -b",
+    "build:test": "npm run build && npm link",
     "test": "vitest run",
     "preview": "vite preview",
     "format": "prettier . --write",
