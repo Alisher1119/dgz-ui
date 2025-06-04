@@ -3,17 +3,9 @@ import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import dtsPlugin from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    dtsPlugin({
-      entryRoot: "src",
-      include: ["src/components"],
-    }),
-  ],
+  plugins: [react(), tailwindcss()],
   test: {
     globals: true,
     environment: "jsdom",
@@ -27,8 +19,6 @@ export default defineConfig({
         badge: resolve(__dirname, "src/components/ui/badge/index.ts"),
         avatar: resolve(__dirname, "src/components/ui/avatar/index.ts"),
       },
-      name: "dgz-ui",
-      fileName: (format) => `dgz-ui.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -37,8 +27,6 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
-        preserveModules: true,
-        preserveModulesRoot: "src",
       },
     },
   },

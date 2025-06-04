@@ -3,11 +3,12 @@
   "version": "1.1.8",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "dist/components"
   ],
   "author": "alisher1119",
   "keywords": [
-    "shadcn",
+    "shadcn/ui",
     "styled-components",
     "tailwindcss@4",
     "dgz-ui",
@@ -15,20 +16,20 @@
     "react.js",
     "typescript"
   ],
-  "description": "Custom ui library using React.js, Shadcn, TailwindCSS, Typescript",
-  "license": "ISC",
+  "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alisher1119/dgz-ui.git"
   },
-  "main": "./dist/dgz-ui.umd.js",
-  "module": "./dist/dgz-ui.es.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/dgz-ui.es.js",
-      "require": "./dist/dgz-ui.umd.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
     },
     "./button": {
       "types": "./dist/components/ui/button/index.d.ts",
