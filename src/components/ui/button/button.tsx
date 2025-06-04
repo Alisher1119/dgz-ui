@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
-import { cn } from "../../lib/utils.ts";
+import { cn } from "../../../lib/utils.ts";
 
 /**
  * Button variants generated using class-variance-authority (CVA).
@@ -10,7 +10,7 @@ import { cn } from "../../lib/utils.ts";
  * @property {'default' | 'destructive' | 'secondary' | 'tertiary' | 'ghost'} variant - Controls visual appearance.
  * @property {'lg' | 'default' | 'sm' | 'xs' | 'icon'} size - Controls the height, padding, and font size of the button.
  */
-export const buttonVariants = cva(
+const buttonVariants = cva(
   "inline-flex border border-border-alpha-strong items-center justify-center gap-2 whitespace-nowrap font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg focus:ring-item-primary-focus transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
@@ -47,7 +47,7 @@ export const buttonVariants = cva(
  *
  * @property {boolean} [asChild=false] - If true, renders as a child component (useful for Radix Slot integration).
  */
-export interface ButtonProps
+interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
@@ -87,4 +87,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export default Button;
+export { Button, buttonVariants, type ButtonProps };
