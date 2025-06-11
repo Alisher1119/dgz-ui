@@ -2,15 +2,29 @@ import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import {
+  type Control,
   Controller,
   type ControllerProps,
   type FieldPath,
   type FieldValues,
   FormProvider,
+  type RegisterOptions,
   useFormContext,
+  type UseFormRegister,
 } from "react-hook-form";
 import { cn } from "../../lib/utils.ts";
 import { Label } from "./label.tsx";
+import type { ReactNode } from "react";
+
+export interface FormItemProps<TFieldValues extends FieldValues> {
+  register?: UseFormRegister<TFieldValues>;
+  control?: Control<TFieldValues>;
+  name?: FieldPath<TFieldValues>;
+  rules?: RegisterOptions<TFieldValues, FieldPath<TFieldValues>>;
+  label?: ReactNode;
+  helperText?: ReactNode;
+  floatingError?: boolean;
+}
 
 const Form = FormProvider;
 

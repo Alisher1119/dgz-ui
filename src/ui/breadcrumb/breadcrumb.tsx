@@ -4,6 +4,13 @@ import { MoreHorizontal } from "lucide-react";
 import { RiArrowRightSLine } from "@remixicon/react";
 import { cn } from "../../lib/utils.ts";
 import { Link, type LinkProps } from "react-router-dom";
+import type { ReactNode } from "react";
+
+export interface BreadcrumbInterface {
+  path: string;
+  name: ReactNode;
+  isActive?: boolean;
+}
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,

@@ -18,4 +18,7 @@ export * from "./ui/tab";
 export * from "./ui/table";
 export * from "./ui/tooltip";
 
+// Util functions
+export * from "./lib/utils.ts";
+
 import "./index.css";

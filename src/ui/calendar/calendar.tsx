@@ -12,6 +12,8 @@ import { cn } from "../../lib/utils.ts";
 import { Button, buttonVariants } from "../button";
 import * as dayjs from "dayjs";
 
+export const DATE = "DD.MM.YYYY";
+
 type CalendarProps = DayPickerProps & {
   selectedFromDate?: Date;
   selectedToDate?: Date;
