@@ -65,12 +65,12 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
   }
 `;
 
-export type FileUploadProps = FilePondProps & {
+type FileUploadProps = FilePondProps & {
   variant?: "default" | "failure";
   containerClassName?: string;
 };
 
-export function FileUpload({
+function FileUpload({
   variant = "default",
   containerClassName,
   ...props
@@ -86,3 +86,5 @@ export function FileUpload({
 }
 
 FileUpload.displayName = "FileUpload";
+
+export { FileUpload, type FileUploadProps };

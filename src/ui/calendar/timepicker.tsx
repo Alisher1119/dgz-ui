@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useMemo, useState } from "react";
 import { Dayjs } from "dayjs";
 import { RiTimeLine } from "@remixicon/react";
 import * as dayjs from "dayjs";
-import ReactSelect from "../form/react-select.tsx";
+import { ReactSelect } from "../form";
 import { cn } from "../../lib/utils.ts";
 
 export const HOUR = "HH";

@@ -36,7 +36,7 @@ export interface ReactSelectProps
   canAddItem?: boolean;
 }
 
-const ReactSelect = ({
+export const ReactSelect = ({
   options = [],
   label,
   required,
@@ -223,5 +223,3 @@ const ReactSelect = ({
     />
   );
 };
-
-export default ReactSelect;
