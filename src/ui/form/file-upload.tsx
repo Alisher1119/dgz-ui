@@ -1,18 +1,6 @@
-import * as ReactFilePond from "react-filepond";
 import styled from "styled-components";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
-import FilePondPluginFileValidateSize from "filepond-plugin-file-validate-size";
-import FilePondPluginImageResize from "filepond-plugin-image-resize";
 import "filepond/dist/filepond.min.css";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-
-ReactFilePond.registerPlugin(
-  FilePondPluginFileValidateType,
-  FilePondPluginImagePreview,
-  FilePondPluginImageResize,
-  FilePondPluginFileValidateSize,
-);
+import { FilePond, type FilePondProps } from "react-filepond";
 
 const FilePondContainer = styled.div<{ $invalid: boolean }>`
   .filepond {
@@ -65,7 +53,7 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
   }
 `;
 
-type FileUploadProps = ReactFilePond.FilePondProps & {
+type FileUploadProps = FilePondProps & {
   variant?: "default" | "failure";
   containerClassName?: string;
 };
@@ -80,11 +68,7 @@ function FileUpload({
       $invalid={variant === "failure"}
       className={containerClassName}
     >
-      <ReactFilePond.FilePond
-        credits={false}
-        instantUpload={false}
-        {...props}
-      />
+      <FilePond credits={false} instantUpload={false} {...props} />
     </FilePondContainer>
   );
 }
