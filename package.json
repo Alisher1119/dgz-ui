@@ -125,6 +125,11 @@
       "import": "./dist/tooltip/index.es.js",
       "require": "./dist/tooltip/index.umd.js"
     },
+    "./skeleton": {
+      "types": "./dist/types/ui/skeleton/index.d.ts",
+      "import": "./dist/skeleton/index.es.js",
+      "require": "./dist/skeleton/index.umd.js"
+    },
     "./dist/dgz-ui.css": "./dist/dgz-ui.css"
   },
   "sideEffects": false,

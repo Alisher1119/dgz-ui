@@ -47,6 +47,7 @@ export default defineConfig({
         "tab/index": resolve(__dirname, "src/ui/tab/index.ts"),
         "table/index": resolve(__dirname, "src/ui/table/index.ts"),
         "tooltip/index": resolve(__dirname, "src/ui/tooltip/index.ts"),
+        "skeleton/index": resolve(__dirname, "src/ui/skeleton/index.ts"),
       },
       formats: ["es", "cjs"],
     },
