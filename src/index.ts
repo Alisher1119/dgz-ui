@@ -17,6 +17,7 @@ export * from "./ui/sheet";
 export * from "./ui/tab";
 export * from "./ui/table";
 export * from "./ui/tooltip";
+export * from "./ui/skeleton";
 
 // Util functions
 export * from "./lib/utils.ts";
