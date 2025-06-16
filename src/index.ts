@@ -18,6 +18,7 @@ export * from "./ui/tab";
 export * from "./ui/table";
 export * from "./ui/tooltip";
 export * from "./ui/skeleton";
+export * from "./ui/collapsible";
 
 // Util functions
 export * from "./lib/utils.ts";
