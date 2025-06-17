@@ -1,10 +1,8 @@
+import type { ReactNode } from "react";
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { MoreHorizontal } from "lucide-react";
 import { RiArrowRightSLine } from "@remixicon/react";
 import { cn } from "../../lib/utils.ts";
-import { Link, type LinkProps } from "react-router-dom";
-import type { ReactNode } from "react";
 
 export interface BreadcrumbInterface {
   path: string;
@@ -43,27 +41,6 @@ const BreadcrumbItem = React.forwardRef<
   />
 ));
 BreadcrumbItem.displayName = "BreadcrumbItem";
-
-const BreadcrumbLink = React.forwardRef<
-  HTMLAnchorElement,
-  LinkProps & {
-    asChild?: boolean;
-  }
->(({ asChild, className, ...props }, ref) => {
-  const Comp = asChild ? Slot : Link;
-
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        "transition-colors text-body-md-regular text-secondary hover:text-primary",
-        className,
-      )}
-      {...props}
-    />
-  );
-});
-BreadcrumbLink.displayName = "BreadcrumbLink";
 
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
@@ -116,7 +93,6 @@ export {
   Breadcrumb,
   BreadcrumbList,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
