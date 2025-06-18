@@ -1,10 +1,9 @@
 {
   "name": "dgz-ui",
-  "version": "1.1.13",
+  "version": "1.2.9",
   "type": "module",
   "files": [
-    "dist",
-    "dist/components"
+    "dist"
   ],
   "author": "alisher1119",
   "keywords": [
@@ -31,20 +30,110 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
     },
-    "./button": {
-      "types": "./dist/types/components/ui/button/index.d.ts",
-      "import": "./dist/button/index.es.js",
-      "require": "./dist/button/index.umd.js"
+    "./alert": {
+      "types": "./dist/types/ui/alert/index.d.ts",
+      "import": "./dist/alert/index.es.js",
+      "require": "./dist/alert/index.umd.js"
+    },
+    "./alert-dialog": {
+      "types": "./dist/types/ui/alert-dialog/index.d.ts",
+      "import": "./dist/alert-dialog/index.es.js",
+      "require": "./dist/alert-dialog/index.umd.js"
+    },
+    "./avatar": {
+      "types": "./dist/types/ui/avatar/index.d.ts",
+      "import": "./dist/avatar/index.es.js",
+      "require": "./dist/avatar/index.umd.js"
     },
     "./badge": {
-      "types": "./dist/types/components/ui/badge/index.d.ts",
+      "types": "./dist/types/ui/badge/index.d.ts",
       "import": "./dist/badge/index.es.js",
       "require": "./dist/badge/index.umd.js"
     },
-    "./avatar": {
-      "types": "./dist/types/components/ui/avatar/index.d.ts",
-      "import": "./dist/avatar/index.es.js",
-      "require": "./dist/avatar/index.umd.js"
+    "./breadcrumb": {
+      "types": "./dist/types/ui/breadcrumb/index.d.ts",
+      "import": "./dist/breadcrumb/index.es.js",
+      "require": "./dist/breadcrumb/index.umd.js"
+    },
+    "./button": {
+      "types": "./dist/types/ui/button/index.d.ts",
+      "import": "./dist/button/index.es.js",
+      "require": "./dist/button/index.umd.js"
+    },
+    "./card": {
+      "types": "./dist/types/ui/card/index.d.ts",
+      "import": "./dist/card/index.es.js",
+      "require": "./dist/card/index.umd.js"
+    },
+    "./calendar": {
+      "types": "./dist/types/ui/calendar/index.d.ts",
+      "import": "./dist/calendar/index.es.js",
+      "require": "./dist/calendar/index.umd.js"
+    },
+    "./collapsible": {
+      "types": "./dist/types/ui/collapsible/index.d.ts",
+      "import": "./dist/collapsible/index.es.js",
+      "require": "./dist/collapsible/index.umd.js"
+    },
+    "./dialog": {
+      "types": "./dist/types/ui/dialog/index.d.ts",
+      "import": "./dist/dialog/index.es.js",
+      "require": "./dist/dialog/index.umd.js"
+    },
+    "./dropdown": {
+      "types": "./dist/types/ui/dropdown/index.d.ts",
+      "import": "./dist/dropdown/index.es.js",
+      "require": "./dist/dropdown/index.umd.js"
+    },
+    "./form": {
+      "types": "./dist/types/ui/form/index.d.ts",
+      "import": "./dist/form/index.es.js",
+      "require": "./dist/form/index.umd.js"
+    },
+    "./pagination": {
+      "types": "./dist/types/ui/pagination/index.d.ts",
+      "import": "./dist/pagination/index.es.js",
+      "require": "./dist/pagination/index.umd.js"
+    },
+    "./popover": {
+      "types": "./dist/types/ui/popover/index.d.ts",
+      "import": "./dist/popover/index.es.js",
+      "require": "./dist/popover/index.umd.js"
+    },
+    "./scroll-area": {
+      "types": "./dist/types/ui/scroll-area/index.d.ts",
+      "import": "./dist/scroll-area/index.es.js",
+      "require": "./dist/scroll-area/index.umd.js"
+    },
+    "./separator": {
+      "types": "./dist/types/ui/separator/index.d.ts",
+      "import": "./dist/separator/index.es.js",
+      "require": "./dist/separator/index.umd.js"
+    },
+    "./sheet": {
+      "types": "./dist/types/ui/sheet/index.d.ts",
+      "import": "./dist/sheet/index.es.js",
+      "require": "./dist/sheet/index.umd.js"
+    },
+    "./skeleton": {
+      "types": "./dist/types/ui/skeleton/index.d.ts",
+      "import": "./dist/skeleton/index.es.js",
+      "require": "./dist/skeleton/index.umd.js"
+    },
+    "./tab": {
+      "types": "./dist/types/ui/tab/index.d.ts",
+      "import": "./dist/tab/index.es.js",
+      "require": "./dist/tab/index.umd.js"
+    },
+    "./table": {
+      "types": "./dist/types/ui/table/index.d.ts",
+      "import": "./dist/table/index.es.js",
+      "require": "./dist/table/index.umd.js"
+    },
+    "./tooltip": {
+      "types": "./dist/types/ui/tooltip/index.d.ts",
+      "import": "./dist/tooltip/index.es.js",
+      "require": "./dist/tooltip/index.umd.js"
     },
     "./dist/dgz-ui.css": "./dist/dgz-ui.css"
   },
@@ -67,13 +156,16 @@
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-checkbox": "^1.3.2",
+    "@radix-ui/react-collapsible": "^1.1.11",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-scroll-area": "^1.2.9",
+    "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.5",
@@ -87,24 +179,20 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
-    "filepond-plugin-file-validate-size": "^2.2.8",
-    "filepond-plugin-file-validate-type": "^1.2.9",
-    "filepond-plugin-image-preview": "^4.6.12",
-    "filepond-plugin-image-resize": "^2.0.10",
+    "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
     "lucide-react": "^0.511.0",
     "next-themes": "^0.4.6",
     "react-day-picker": "^9.7.0",
     "react-filepond": "^7.1.3",
-    "react-hook-form": "^7.56.4",
+    "react-hook-form": "^7.57.0",
     "react-select": "^5.10.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "sonner": "^2.0.3",
     "styled-components": "^6.1.18",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.25.30"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -136,6 +224,7 @@
   },
   "peerDependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "dayjs": "^1.11.13"
   }
 }

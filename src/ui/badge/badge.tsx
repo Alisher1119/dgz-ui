@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "../../../lib/utils.ts";
+import { cn } from "../../lib/utils.ts";
 
 /**
  * Badge variants generated using class-variance-authority (CVA).
