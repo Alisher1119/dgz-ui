@@ -10,7 +10,7 @@ import { twMerge } from "tailwind-merge";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
 import { cn } from "../../lib/utils.ts";
 import { Button, buttonVariants } from "../button";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 export const DATE = "DD.MM.YYYY";
 
