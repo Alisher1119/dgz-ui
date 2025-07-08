@@ -7,3 +7,4 @@ export * from "./react-select.tsx";
 export * from "./switch.tsx";
 export * from "./textarea.tsx";
 export * from "./select.tsx";
+export * from "./radio-group.tsx";
