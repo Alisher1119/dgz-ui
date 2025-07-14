@@ -6,7 +6,6 @@ import {
   useState,
 } from 'react';
 import {
-  type DateRange,
   DayButton,
   DayPicker,
   type DayPickerProps,
@@ -23,7 +22,6 @@ export const DATE = 'DD.MM.YYYY';
 export type CalendarProps = DayPickerProps & {
   selectedFromDate?: Date;
   selectedToDate?: Date;
-  selected: Date | Date[] | DateRange | undefined;
 };
 
 export interface MonthCaptionProps {
@@ -254,15 +252,18 @@ function Calendar({
   );
 
   useEffect(() => {
-    if (props.selected) {
+    // @ts-expect-error prop exists
+    const selected = props.selected;
+    if (selected) {
       setMonth(
-        dayjs(props.selected as Date)
+        dayjs(selected as Date)
           .startOf('month')
           .toDate()
       );
     } else {
       setMonth(dayjs().startOf('month').toDate());
     }
+    // @ts-expect-error prop exists
   }, [props.selected]);
 
   return (
