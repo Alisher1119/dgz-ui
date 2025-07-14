@@ -1,92 +1,92 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import "@testing-library/jest-dom";
-import { Button } from "./button.tsx";
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import '@testing-library/jest-dom';
+import { Button } from './button.tsx';
 
-describe("Button Component", () => {
-  it("renders with default props", () => {
+describe('Button Component', () => {
+  it('renders with default props', () => {
     render(<Button>Click me</Button>);
-    const button = screen.getByRole("button", { name: "Click me" });
+    const button = screen.getByRole('button', { name: 'Click me' });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("bg-item-primary");
+    expect(button).toHaveClass('bg-item-primary');
   });
 
-  it("renders with each variant", () => {
+  it('renders with each variant', () => {
     const variants = [
-      "default",
-      "destructive",
-      "secondary",
-      "tertiary",
-      "ghost",
+      'default',
+      'destructive',
+      'secondary',
+      'tertiary',
+      'ghost',
     ] as const;
     variants.forEach((variant) => {
       const { unmount } = render(
-        <Button role={"button"} variant={variant}>
+        <Button role={'button'} variant={variant}>
           Test
-        </Button>,
+        </Button>
       );
-      const button = screen.getByRole("button", { name: "Test" });
+      const button = screen.getByRole('button', { name: 'Test' });
       expect(button).toBeInTheDocument();
       unmount();
     });
   });
 
-  it("renders with each size", () => {
-    const sizes = ["lg", "default", "sm", "xs", "icon"] as const;
+  it('renders with each size', () => {
+    const sizes = ['lg', 'default', 'sm', 'xs', 'icon'] as const;
     sizes.forEach((size) => {
       const { unmount } = render(
-        <Button role={"button"} size={size}>
+        <Button role={'button'} size={size}>
           Size
-        </Button>,
+        </Button>
       );
-      const button = screen.getByRole("button", { name: "Size" });
+      const button = screen.getByRole('button', { name: 'Size' });
       expect(button).toBeInTheDocument();
       unmount();
     });
   });
 
-  it("applies custom className", () => {
+  it('applies custom className', () => {
     render(
-      <Button role={"button"} className="custom-class">
+      <Button role={'button'} className="custom-class">
         Click
-      </Button>,
+      </Button>
     );
-    const button = screen.getByRole("button", { name: "Click" });
-    expect(button).toHaveClass("custom-class");
+    const button = screen.getByRole('button', { name: 'Click' });
+    expect(button).toHaveClass('custom-class');
   });
 
-  it("handles click events", () => {
+  it('handles click events', () => {
     const handleClick = vi.fn(); // Use jest.fn() if you're using Jest
     render(
-      <Button role={"button"} onClick={handleClick}>
+      <Button role={'button'} onClick={handleClick}>
         Click me
-      </Button>,
+      </Button>
     );
-    const button = screen.getByRole("button", { name: "Click me" });
+    const button = screen.getByRole('button', { name: 'Click me' });
     fireEvent.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it("is disabled when 'disabled' prop is set", () => {
     render(
-      <Button role={"button"} disabled>
+      <Button role={'button'} disabled>
         Disabled
-      </Button>,
+      </Button>
     );
-    const button = screen.getByRole("button", {
-      name: "Disabled",
+    const button = screen.getByRole('button', {
+      name: 'Disabled',
     }) as HTMLButtonElement;
     expect(button).toBeDisabled();
   });
 
-  it("renders using Slot when asChild is true", () => {
+  it('renders using Slot when asChild is true', () => {
     render(
-      <Button asChild role={"link"}>
+      <Button asChild role={'link'}>
         <a href="/test">Link</a>
-      </Button>,
+      </Button>
     );
-    const link = screen.getByRole("link", { name: "Link" });
+    const link = screen.getByRole('link', { name: 'Link' });
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/test");
+    expect(link).toHaveAttribute('href', '/test');
   });
 });

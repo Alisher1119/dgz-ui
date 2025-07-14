@@ -1,31 +1,31 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { RiEyeCloseLine, RiEyeLine } from "@remixicon/react";
-import { cn } from "../../lib/utils.ts";
-import { Button } from "../button";
+import { cva, type VariantProps } from 'class-variance-authority';
+import { RiEyeCloseLine, RiEyeLine } from '@remixicon/react';
+import { cn } from '../../lib/utils.ts';
+import { Button } from '../button';
 
 const inputVariants = cva(
-  "flex h-10 w-full rounded-lg border border-border-alpha-strong px-3 py-2 dark:bg-transparent file:border-0 placeholder:text-secondary placeholder:text-body-sm-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+  'flex h-10 w-full rounded-lg border border-border-alpha-strong px-3 py-2 dark:bg-transparent file:border-0 placeholder:text-secondary placeholder:text-body-sm-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "focus-visible:ring-item-primary",
+        default: 'focus-visible:ring-item-primary',
         failure:
-          "focus-visible:ring-item-destructive bg-item-destructive-focus placeholder:text-item-destructive border-item-destructive text-destructive",
+          'focus-visible:ring-item-destructive bg-item-destructive-focus placeholder:text-item-destructive border-item-destructive text-destructive',
         success:
-          "focus-visible:ring-success bg-success/20 placeholder:text-success/80 border-success text-success",
+          'focus-visible:ring-success bg-success/20 placeholder:text-success/80 border-success text-success',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
-  },
+  }
 );
 
 export interface InputProps
-  extends React.ComponentProps<"input">,
+  extends React.ComponentProps<'input'>,
     VariantProps<typeof inputVariants> {}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -34,27 +34,27 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
-      setIsPassword(type === "password");
+      setIsPassword(type === 'password');
     }, [type]);
     return (
-      <div className={"relative"}>
+      <div className={'relative'}>
         <input
-          type={!showPassword ? type : "text"}
+          type={!showPassword ? type : 'text'}
           className={cn(
             inputVariants({ variant }),
             className,
-            isPassword && "pr-10",
+            isPassword && 'pr-10'
           )}
           ref={ref}
           {...props}
         />
         {isPassword && (
           <Button
-            type={"button"}
-            size={"icon"}
-            variant={"tertiary"}
+            type={'button'}
+            size={'icon'}
+            variant={'tertiary'}
             className={
-              "cursor-pointer absolute top-1 right-1 rounded-md p-2 size-8 !ring-0 !ring-offset-0"
+              'absolute top-1 right-1 size-8 cursor-pointer rounded-md p-2 !ring-0 !ring-offset-0'
             }
             onClick={() => {
               setShowPassword(!showPassword);
@@ -65,8 +65,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  },
+  }
 );
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export { Input, inputVariants };

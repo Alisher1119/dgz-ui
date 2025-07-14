@@ -1,12 +1,12 @@
-import { forwardRef, useEffect, useMemo, useState } from "react";
-import { Dayjs } from "dayjs";
-import { RiTimeLine } from "@remixicon/react";
-import * as dayjs from "dayjs";
-import { ReactSelect } from "../form";
-import { cn } from "../../lib/utils.ts";
+import { forwardRef, useEffect, useMemo, useState } from 'react';
+import { Dayjs } from 'dayjs';
+import { RiTimeLine } from '@remixicon/react';
+import * as dayjs from 'dayjs';
+import { ReactSelect } from '../form';
+import { cn } from '../../lib/utils.ts';
 
-export const HOUR = "HH";
-export const MINUTE = "mm";
+export const HOUR = 'HH';
+export const MINUTE = 'mm';
 export const TIME = `${HOUR}:${MINUTE}`;
 
 export interface TimeState {
@@ -35,7 +35,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
       }
 
       // If timeValue is a string in HH:MM format
-      if (typeof timeValue === "string") {
+      if (typeof timeValue === 'string') {
         const timeDayjs = dayjs(timeValue, TIME);
         if (timeDayjs.isValid()) {
           return {
@@ -69,7 +69,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
 
     const handleSelectChange = (
       newValue: string,
-      type: keyof TimeState,
+      type: keyof TimeState
     ): void => {
       const newTimeState = { ...timeState, [type]: newValue };
       setTimeState(newTimeState);
@@ -89,33 +89,33 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     const hourOptions = useMemo(
       () =>
         Array.from({ length: 24 }, (_, i) => {
-          const val = String(i).padStart(2, "0");
+          const val = String(i).padStart(2, '0');
           return { value: val, label: val };
         }),
-      [],
+      []
     );
 
     const minuteOptions = useMemo(
       () =>
         Array.from({ length: 60 }, (_, i) => {
-          const val = String(i).padStart(2, "0");
+          const val = String(i).padStart(2, '0');
           return { value: val, label: val };
         }),
-      [],
+      []
     );
 
     return (
-      <div className={cn("flex items-center space-x-2", className)} ref={ref}>
+      <div className={cn('flex items-center space-x-2', className)} ref={ref}>
         <RiTimeLine className="size-5" />
-        <div className={cn("flex items-center space-x-2")}>
+        <div className={cn('flex items-center space-x-2')}>
           <ReactSelect
             isClearable={false}
             options={hourOptions}
             value={timeState.hour}
-            onChange={(opt) => handleSelectChange(`${opt}`, "hour")}
+            onChange={(opt) => handleSelectChange(`${opt}`, 'hour')}
             isDisabled={disabled}
-            menuPlacement={"auto"}
-            className={"min-w-20"}
+            menuPlacement={'auto'}
+            className={'min-w-20'}
           />
           <span className="text-lg">:</span>
 
@@ -123,15 +123,15 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
             isClearable={false}
             options={minuteOptions}
             value={timeState.minute}
-            onChange={(opt) => handleSelectChange(`${opt}`, "minute")}
+            onChange={(opt) => handleSelectChange(`${opt}`, 'minute')}
             isDisabled={disabled}
-            menuPlacement={"auto"}
-            className={"min-w-20"}
+            menuPlacement={'auto'}
+            className={'min-w-20'}
           />
         </div>
       </div>
     );
-  },
+  }
 );
 
-TimePicker.displayName = "TimePicker";
+TimePicker.displayName = 'TimePicker';

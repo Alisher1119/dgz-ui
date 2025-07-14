@@ -1,34 +1,34 @@
-import * as React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import * as React from 'react';
+import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "../../lib/utils.ts";
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../lib/utils.ts';
 
 /**
  * Avatar size variants configuration using class-variance-authority.
  * Defines different avatar sizes with corresponding Tailwind CSS classes.
  */
 export const avatarVariants = cva(
-  "relative flex shrink-0 overflow-hidden rounded-full",
+  'relative flex shrink-0 overflow-hidden rounded-full',
   {
     variants: {
       size: {
         /** Small avatar - 32x32px */
-        sm: "size-8",
+        sm: 'size-8',
         /** Default avatar - 40x40px */
-        default: "size-10",
+        default: 'size-10',
         /** Medium avatar - 52x52px */
-        md: "size-13",
+        md: 'size-13',
         /** Large avatar - 64x64px */
-        lg: "size-16",
+        lg: 'size-16',
         /** Extra large avatar - 80x80px */
-        xl: "size-20",
+        xl: 'size-20',
       },
     },
     defaultVariants: {
-      size: "default",
+      size: 'default',
     },
-  },
+  }
 );
 
 /**
@@ -101,7 +101,7 @@ export const AvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}
-    className={cn("aspect-square size-full", className)}
+    className={cn('aspect-square size-full', className)}
     {...props}
   />
 ));
@@ -136,8 +136,8 @@ export const AvatarFallback = React.forwardRef<
   <AvatarPrimitive.Fallback
     ref={ref}
     className={cn(
-      "flex size-full items-center justify-center rounded-full bg-muted",
-      className,
+      'bg-muted flex size-full items-center justify-center rounded-full',
+      className
     )}
     {...props}
   />

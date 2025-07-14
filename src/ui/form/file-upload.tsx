@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import "filepond/dist/filepond.min.css";
-import { FilePond, type FilePondProps } from "react-filepond";
+import styled from 'styled-components';
+import 'filepond/dist/filepond.min.css';
+import { FilePond, type FilePondProps } from 'react-filepond';
 
 const FilePondContainer = styled.div<{ $invalid: boolean }>`
   .filepond {
@@ -8,8 +8,8 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
       label {
         color: ${({ $invalid }) =>
           $invalid
-            ? "var(--color-item-primary-destructive)"
-            : "inherit"} !important;
+            ? 'var(--color-item-primary-destructive)'
+            : 'inherit'} !important;
       }
     }
 
@@ -31,8 +31,8 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
       border: 1px solid
         ${({ $invalid }) =>
           $invalid
-            ? "var(--color-item-primary-destructive)"
-            : "var(--color-border-alpha-strong)"};
+            ? 'var(--color-item-primary-destructive)'
+            : 'var(--color-border-alpha-strong)'};
       background-color: transparent;
       opacity: 1;
       outline-offset: 2px;
@@ -46,26 +46,26 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
         outline: 2px solid
           ${({ $invalid }) =>
             $invalid
-              ? "var(--color-item-primary-destructive)"
-              : "var(--color-item-primary-primary)"};
+              ? 'var(--color-item-primary-destructive)'
+              : 'var(--color-item-primary-primary)'};
       }
     }
   }
 `;
 
 type FileUploadProps = FilePondProps & {
-  variant?: "default" | "failure";
+  variant?: 'default' | 'failure';
   containerClassName?: string;
 };
 
 function FileUpload({
-  variant = "default",
+  variant = 'default',
   containerClassName,
   ...props
 }: FileUploadProps) {
   return (
     <FilePondContainer
-      $invalid={variant === "failure"}
+      $invalid={variant === 'failure'}
       className={containerClassName}
     >
       <FilePond credits={false} instantUpload={false} {...props} />
@@ -73,6 +73,6 @@ function FileUpload({
   );
 }
 
-FileUpload.displayName = "FileUpload";
+FileUpload.displayName = 'FileUpload';
 
 export { FileUpload, type FileUploadProps };
