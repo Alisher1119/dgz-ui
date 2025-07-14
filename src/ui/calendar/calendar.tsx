@@ -8,7 +8,8 @@ import {
 import {
   DayButton,
   DayPicker,
-  type DayPickerProps,
+  type PropsBase,
+  type PropsSingle,
   Weekday,
 } from 'react-day-picker';
 import { twMerge } from 'tailwind-merge';
@@ -19,10 +20,11 @@ import { cn } from '../../lib/utils.ts';
 
 export const DATE = 'DD.MM.YYYY';
 
-export type CalendarProps = DayPickerProps & {
-  selectedFromDate?: Date;
-  selectedToDate?: Date;
-};
+export type CalendarProps = PropsBase &
+  PropsSingle & {
+    selectedFromDate?: Date;
+    selectedToDate?: Date;
+  };
 
 export interface MonthCaptionProps {
   calendarMonth: { date: Date };
@@ -252,7 +254,6 @@ function Calendar({
   );
 
   useEffect(() => {
-    // @ts-expect-error prop exists
     const selected = props.selected;
     if (selected) {
       setMonth(
@@ -263,7 +264,6 @@ function Calendar({
     } else {
       setMonth(dayjs().startOf('month').toDate());
     }
-    // @ts-expect-error prop exists
   }, [props.selected]);
 
   return (
@@ -289,10 +289,7 @@ function Calendar({
           'text-neutral-500 rounded-md w-8 font-normal text-[0.8rem] dark:text-neutral-400 ',
         row: 'flex w-full mt-2',
         cell: cn(
-          'relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-neutral-100 [&:has([aria-selected].day-range-end)]:rounded-r-md dark:[&:has([aria-selected])]:bg-neutral-800',
-          props.mode === 'range'
-            ? '[&:has(>.day-range-end)]:rounded-r-md [&:has(>.day-range-start)]:rounded-l-md first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
-            : '[&:has([aria-selected])]:rounded-md'
+          'relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-neutral-100 [&:has([aria-selected].day-range-end)]:rounded-r-md dark:[&:has([aria-selected])]:bg-neutral-800'
         ),
         day: cn(
           buttonVariants({ variant: 'ghost' }),
