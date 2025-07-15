@@ -15,16 +15,21 @@ import {
 import { twMerge } from 'tailwind-merge';
 import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { Button, buttonVariants } from 'dgz-ui';
-import dayjs from 'dayjs';
-import { cn } from '../../lib/utils.ts';
 
+import { cn } from '../../lib/utils.ts';
+import { dayjs } from '../../lib/day.ts';
 export const DATE = 'DD.MM.YYYY';
 
-export type CalendarProps = PropsBase &
-  PropsSingle & {
-    selectedFromDate?: Date;
-    selectedToDate?: Date;
-  };
+export type CalendarProps = Omit<
+  PropsBase & PropsSingle,
+  'selected' | 'onSelect'
+> & {
+  selectedFromDate?: Date;
+  selectedToDate?: Date;
+  selected?: Date | string;
+  onSelect?: (date: CalendarProps['selected']) => void;
+  format?: string;
+};
 
 export interface MonthCaptionProps {
   calendarMonth: { date: Date };
@@ -144,6 +149,7 @@ function Calendar({
   showOutsideDays = true,
   selectedToDate,
   selectedFromDate,
+  format,
   ...props
 }: CalendarProps) {
   const [month, setMonth] = useState<Date>(dayjs().startOf('month').toDate());
@@ -256,15 +262,15 @@ function Calendar({
   useEffect(() => {
     const selected = props.selected;
     if (selected) {
-      setMonth(
-        dayjs(selected as Date)
-          .startOf('month')
-          .toDate()
-      );
+      if (!format) {
+        setMonth(dayjs(selected).startOf('month').toDate());
+      } else {
+        setMonth(dayjs(selected, format).startOf('month').toDate());
+      }
     } else {
       setMonth(dayjs().startOf('month').toDate());
     }
-  }, [props.selected]);
+  }, [props.selected, format]);
 
   return (
     <DayPicker
@@ -311,9 +317,20 @@ function Calendar({
         day_hidden: 'invisible',
         ...classNames,
       }}
-      month={month}
       components={memoizedComponents}
       {...props}
+      mode={'single'}
+      onSelect={(value) => {
+        if (value && props.onSelect) {
+          if (format) {
+            props.onSelect(dayjs(value).format(format));
+          } else {
+            props.onSelect(value);
+          }
+        }
+      }}
+      selected={dayjs(props.selected, format).toDate()}
+      month={month}
     />
   );
 }

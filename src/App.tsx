@@ -1,9 +1,9 @@
-import { TimePicker } from './ui/calendar';
+import { DatePicker } from './ui/calendar';
 
 function App() {
   return (
     <div>
-      <TimePicker />
+      <DatePicker />
     </div>
   );
 }
