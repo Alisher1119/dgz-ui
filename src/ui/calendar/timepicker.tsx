@@ -1,7 +1,12 @@
-import { forwardRef, useEffect, useMemo, useState } from 'react';
-import { Dayjs } from 'dayjs';
+import {
+  forwardRef,
+  type ReactNode,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import dayjs, { Dayjs } from 'dayjs';
 import { RiTimeLine } from '@remixicon/react';
-import * as dayjs from 'dayjs';
 import { ReactSelect } from '../form';
 import { cn } from '../../lib/utils.ts';
 
@@ -19,11 +24,21 @@ export interface TimePickerProps {
   onChange?: (time: Dayjs) => void;
   disabled?: boolean;
   className?: string;
+  icon?: ReactNode;
 }
 
 // Base TimePicker component that doesn't depend on React Hook Form
 export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
-  ({ value, onChange, disabled = false, className }, ref) => {
+  (
+    {
+      value,
+      onChange,
+      disabled = false,
+      className,
+      icon = <RiTimeLine className="size-5" />,
+    },
+    ref
+  ) => {
     // Parse the time value using dayjs
     const parseTime = (timeValue?: string | Dayjs): TimeState => {
       // If timeValue is a valid dayjs object, use it
@@ -63,7 +78,6 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     // Update internal state when value prop changes
     useEffect(() => {
       const { hour, minute } = parseTime(value);
-      console.log(hour, minute);
       setTimeState({ hour, minute });
     }, [value]);
 
@@ -106,7 +120,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
 
     return (
       <div className={cn('flex items-center space-x-2', className)} ref={ref}>
-        <RiTimeLine className="size-5" />
+        {icon}
         <div className={cn('flex items-center space-x-2')}>
           <ReactSelect
             isClearable={false}
