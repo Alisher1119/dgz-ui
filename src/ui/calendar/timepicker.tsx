@@ -5,7 +5,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import dayjs, { Dayjs } from 'dayjs';
 import { RiTimeLine } from '@remixicon/react';
 import { ReactSelect } from '../form';
 import { cn } from '../../lib/utils.ts';
@@ -20,14 +19,14 @@ export interface TimeState {
 }
 
 export interface TimePickerProps {
-  value?: string | Dayjs;
-  onChange?: (time: Dayjs) => void;
+  value?: string;
+  onChange?: (time: string) => void;
   disabled?: boolean;
   className?: string;
   icon?: ReactNode;
 }
 
-// Base TimePicker component that doesn't depend on React Hook Form
+// Base TimePicker component that works with string format
 export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
   (
     {
@@ -39,32 +38,25 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     },
     ref
   ) => {
-    // Parse the time value using dayjs
-    const parseTime = (timeValue?: string | Dayjs): TimeState => {
-      // If timeValue is a valid dayjs object, use it
-      if (dayjs.isDayjs(timeValue) && timeValue.isValid()) {
-        return {
-          hour: timeValue.format(HOUR),
-          minute: timeValue.format(MINUTE),
-        };
-      }
-
-      // If timeValue is a string in HH:MM format
+    // Parse the time value from string format
+    const parseTime = (timeValue?: string): TimeState => {
+      // If timeValue is a valid string in HH:MM format
       if (typeof timeValue === 'string') {
-        const timeDayjs = dayjs(timeValue, TIME);
-        if (timeDayjs.isValid()) {
+        const timeRegex = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/;
+        const match = timeValue.match(timeRegex);
+        if (match) {
           return {
-            hour: timeDayjs.format(HOUR),
-            minute: timeDayjs.format(MINUTE),
+            hour: match[1].padStart(2, '0'),
+            minute: match[2],
           };
         }
       }
 
       // Default to current time if no valid value
-      const now = dayjs();
+      const now = new Date();
       return {
-        hour: now.format(HOUR),
-        minute: now.format(MINUTE),
+        hour: now.getHours().toString().padStart(2, '0'),
+        minute: now.getMinutes().toString().padStart(2, '0'),
       };
     };
 
@@ -88,15 +80,12 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
       const newTimeState = { ...timeState, [type]: newValue };
       setTimeState(newTimeState);
 
-      // Create a dayjs object with the selected time
-      const timeDayjs = dayjs()
-        .hour(parseInt(newTimeState.hour, 10))
-        .minute(parseInt(newTimeState.minute, 10))
-        .second(0);
+      // Create time string in HH:MM format
+      const timeString = `${newTimeState.hour}:${newTimeState.minute}`;
 
-      // Call onChange with the new dayjs object
+      // Call onChange with the new time string
       if (onChange) {
-        onChange(timeDayjs);
+        onChange(timeString);
       }
     };
 
