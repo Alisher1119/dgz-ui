@@ -14,7 +14,7 @@ import {
 } from 'react-day-picker';
 import { twMerge } from 'tailwind-merge';
 import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
-import { Button, buttonVariants } from 'dgz-ui';
+import { Button, buttonVariants } from '../button';
 
 import { cn } from '../../lib/utils.ts';
 import { dayjs } from '../../lib/day.ts';

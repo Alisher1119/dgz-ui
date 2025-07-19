@@ -50,7 +50,6 @@ export default defineConfig({
         'table/index': resolve(__dirname, 'src/ui/table/index.ts'),
         'tooltip/index': resolve(__dirname, 'src/ui/tooltip/index.ts'),
       },
-      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

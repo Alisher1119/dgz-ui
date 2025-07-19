@@ -7,7 +7,7 @@ import {
 } from 'react';
 import Select, { components, type GroupBase } from 'react-select';
 import { twMerge } from 'tailwind-merge';
-import { get } from 'lodash';
+import { get, isEqual } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 
 export type Option = {
@@ -90,11 +90,13 @@ export const ReactSelect = ({
     } else {
       setSelectedValue(computedProps.value as Option);
     }
-  }, [JSON.stringify([computedProps.value, computedOptions])]);
+  }, [JSON.stringify([computedProps.value]), computedOptions]);
 
   useEffect(() => {
-    setComputedOptions([...options]);
-  }, [JSON.stringify(options)]);
+    setComputedOptions((prevOptions) =>
+      !isEqual(prevOptions, options) ? options : prevOptions
+    );
+  }, [options]);
 
   const handleAddItem = useCallback(
     (inputValue: string) => {
@@ -115,7 +117,7 @@ export const ReactSelect = ({
         }, 500);
       }
     },
-    [JSON.stringify(options), selectedValue, canAddItem]
+    [computedProps.isMulti, selectedValue]
   );
 
   return (
