@@ -7,7 +7,7 @@ import {
 } from 'react';
 import Select, { components, type GroupBase } from 'react-select';
 import { twMerge } from 'tailwind-merge';
-import { get, isEqual } from 'lodash';
+import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 
 export type Option = {
@@ -62,7 +62,7 @@ export const ReactSelect = ({
 
     if (computedProps.value instanceof Array) {
       computedProps.value.forEach((value) => {
-        let tmpOption: Option | null = null;
+        let tmpOption: Option | null;
         if (
           typeof value === 'string' ||
           typeof value === 'number' ||
@@ -80,8 +80,7 @@ export const ReactSelect = ({
       setSelectedValue(values);
     } else if (
       typeof computedProps.value === 'string' ||
-      typeof computedProps.value === 'number' ||
-      typeof computedProps.value === 'boolean'
+      typeof computedProps.value === 'number'
     ) {
       setSelectedValue(
         computedOptions.find((option) => computedProps.value == option.value) ||
@@ -90,17 +89,14 @@ export const ReactSelect = ({
     } else {
       setSelectedValue(computedProps.value as Option);
     }
-  }, [JSON.stringify([computedProps.value]), computedOptions]);
+  }, [JSON.stringify([computedProps.value, computedOptions])]);
 
   useEffect(() => {
-    setComputedOptions((prevOptions) =>
-      !isEqual(prevOptions, options) ? options : prevOptions
-    );
-  }, [options]);
+    setComputedOptions([...options]);
+  }, [JSON.stringify(options)]);
 
   const handleAddItem = useCallback(
     (inputValue: string) => {
-      console.log(inputValue);
       if (inputValue) {
         const newOption = createOption(inputValue);
         setComputedOptions((prevOptions) => [newOption, ...prevOptions]);
