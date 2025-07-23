@@ -1,6 +1,16 @@
-import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { Button } from '../button';
 import { cn } from '../../lib/utils.ts';
 
 const Tabs = TabsPrimitive.Root;
@@ -32,29 +42,150 @@ const tabsListVariants = cva(
 );
 
 export interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>,
+  extends ComponentPropsWithoutRef<typeof TabsPrimitive.List>,
     VariantProps<typeof tabsListVariants> {
-  full?: boolean;
+  full?: true;
+  scrollable?: true;
+  scrollButtonClassName?: string;
 }
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
+const TabsList = forwardRef<
+  ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
->(({ className, rounded, variant, type, full, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(
-      full && '!flex',
-      tabsListVariants({ rounded, variant, type, className })
-    )}
-    {...props}
-  />
-));
+>(
+  (
+    {
+      className,
+      rounded,
+      variant,
+      type,
+      full,
+      scrollable,
+      scrollButtonClassName,
+      ...props
+    },
+    ref
+  ) => {
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [showLeftButton, setShowLeftButton] = useState(false);
+    const [showRightButton, setShowRightButton] = useState(false);
+
+    const checkScrollButtons = useCallback(() => {
+      if (scrollContainerRef.current && scrollable) {
+        const { scrollLeft, scrollWidth, clientWidth } =
+          scrollContainerRef.current;
+        setShowLeftButton(scrollLeft > 0);
+        setShowRightButton(scrollLeft < scrollWidth - clientWidth - 1);
+      }
+    }, [scrollable]);
+
+    useEffect(() => {
+      if (scrollable) {
+        checkScrollButtons();
+        const handleResize = () => checkScrollButtons();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }
+    }, [checkScrollButtons, scrollable]);
+
+    const scrollLeft = () => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+      }
+    };
+
+    const scrollRight = () => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      }
+    };
+
+    if (scrollable) {
+      return (
+        <div className="relative flex items-center">
+          {/* Left Scroll Button */}
+          {showLeftButton && (
+            <Button
+              type="button"
+              size={'icon'}
+              variant="secondary"
+              onClick={scrollLeft}
+              className={cn(
+                'absolute left-0 z-10 h-full w-6',
+                scrollButtonClassName
+              )}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="text-secondary h-4 w-4" />
+            </Button>
+          )}
+
+          {/* Scrollable Container */}
+          <div
+            ref={scrollContainerRef}
+            className="scrollbar-hide overflow-x-auto scroll-smooth"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              paddingLeft: showLeftButton ? '32px' : '0',
+              paddingRight: showRightButton ? '32px' : '0',
+            }}
+            onScroll={checkScrollButtons}
+          >
+            <TabsPrimitive.List
+              ref={ref}
+              className={cn(
+                full && '!flex',
+                'min-w-max',
+                tabsListVariants({ rounded, variant, type, className })
+              )}
+              {...props}
+            />
+          </div>
+
+          {/* Right Scroll Button */}
+          {showRightButton && (
+            <Button
+              type="button"
+              size={'icon'}
+              variant="secondary"
+              onClick={scrollRight}
+              className={cn(
+                'absolute right-0 z-10 h-full w-6',
+                scrollButtonClassName
+              )}
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="text-secondary h-4 w-4" />
+            </Button>
+          )}
+
+          <style>{`
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+        </div>
+      );
+    }
+
+    return (
+      <TabsPrimitive.List
+        ref={ref}
+        className={cn(
+          full && '!flex',
+          tabsListVariants({ rounded, variant, type, className })
+        )}
+        {...props}
+      />
+    );
+  }
+);
 TabsList.displayName = TabsPrimitive.List.displayName;
 
-const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+const TabsTrigger = forwardRef<
+  ElementRef<typeof TabsPrimitive.Trigger>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
@@ -68,9 +199,9 @@ const TabsTrigger = React.forwardRef<
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+const TabsContent = forwardRef<
+  ElementRef<typeof TabsPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
