@@ -156,7 +156,7 @@ const TabsList = forwardRef<
               )}
               aria-label="Scroll right"
             >
-              <ChevronRight className="text-secondary h-4 w-4" />
+              <ChevronRight className="text-secondary size-4" />
             </Button>
           )}
 
@@ -192,7 +192,8 @@ const TabsTrigger = forwardRef<
     className={cn(
       'text-body-xs-medium relative box-border inline-flex h-7 flex-1 cursor-pointer items-center justify-center px-3 py-1 whitespace-nowrap transition-all outline-none disabled:pointer-events-none disabled:opacity-50',
       'data-[state=inactive]:hover:!bg-item-tertiary-hover data-[state=inactive]:hover:text-primary',
-      'data-[state=active]:text-primary'
+      'data-[state=active]:text-primary',
+      className
     )}
     {...props}
   />
