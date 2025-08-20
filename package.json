@@ -227,6 +227,8 @@
   "peerDependencies": {
     "dayjs": "^1.11.13",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "filepond": "^4.32.8",
+    "react-filepond": "^7.1.3"
   }
 }
