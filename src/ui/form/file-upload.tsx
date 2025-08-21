@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import 'filepond/dist/filepond.min.css';
 import { FilePond, type FilePondProps } from 'react-filepond';
 
 const FilePondContainer = styled.div<{ $invalid: boolean }>`
