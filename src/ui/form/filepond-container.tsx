@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FilePond, type FilePondProps } from 'react-filepond';
+import type { HTMLAttributes } from 'react';
 
 const FilePondContainer = styled.div<{ $invalid: boolean }>`
   .filepond {
@@ -52,26 +52,17 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
   }
 `;
 
-type FileUploadProps = FilePondProps & {
+type FilepondContainerProps = HTMLAttributes<HTMLDivElement> & {
   variant?: 'default' | 'failure';
-  containerClassName?: string;
 };
 
-function FileUpload({
+function FilepondContainer({
   variant = 'default',
-  containerClassName,
   ...props
-}: FileUploadProps) {
-  return (
-    <FilePondContainer
-      $invalid={variant === 'failure'}
-      className={containerClassName}
-    >
-      <FilePond credits={false} instantUpload={false} {...props} />
-    </FilePondContainer>
-  );
+}: FilepondContainerProps) {
+  return <FilePondContainer $invalid={variant === 'failure'} {...props} />;
 }
 
-FileUpload.displayName = 'FileUpload';
+FilepondContainer.displayName = 'FilepondContainer';
 
-export { FileUpload, type FileUploadProps };
+export { FilepondContainer, type FilepondContainerProps };

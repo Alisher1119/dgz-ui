@@ -1,6 +1,6 @@
 export * from './checkbox.tsx';
 export * from './input.tsx';
-export * from './file-upload.tsx';
+export * from './filepond-container.tsx';
 export * from './form.tsx';
 export * from './label.tsx';
 export * from './react-select.tsx';
