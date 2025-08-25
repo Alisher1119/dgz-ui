@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import type { HTMLAttributes } from 'react';
 
-const FilePondContainer = styled.div<{ $invalid: boolean }>`
+const FilepondWrapper = styled.div<{ $invalid: boolean }>`
   .filepond {
     &--drop-label {
       label {
@@ -74,7 +74,7 @@ function FilepondContainer({
   variant = 'default',
   ...props
 }: FilepondContainerProps) {
-  return <FilePondContainer $invalid={variant === 'failure'} {...props} />;
+  return <FilepondWrapper $invalid={variant === 'failure'} {...props} />;
 }
 
 FilepondContainer.displayName = 'FilepondContainer';
