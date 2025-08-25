@@ -2,6 +2,9 @@ import * as React from 'react';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Separator - Visual divider for groups of content.
+ */
 const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>

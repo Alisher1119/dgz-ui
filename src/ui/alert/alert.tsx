@@ -2,6 +2,12 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Alert variants configuration.
+ * Controls the tone of the alert via the `variant` prop.
+ *
+ * @property {'default' | 'warning' | 'destructive'} variant - Visual style of the alert.
+ */
 export const alertVariants = cva(
   'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
   {
@@ -20,6 +26,13 @@ export const alertVariants = cva(
   }
 );
 
+/**
+ * Alert component - A container used to display contextual messages.
+ *
+ * @component
+ * @param {React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>} props - Alert props.
+ * @param {'default'|'warning'|'destructive'} [props.variant='default'] - Alert tone.
+ */
 const Alert = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
@@ -33,6 +46,9 @@ const Alert = React.forwardRef<
 ));
 Alert.displayName = 'Alert';
 
+/**
+ * AlertTitle - Title area for the alert content.
+ */
 const AlertTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
@@ -45,6 +61,9 @@ const AlertTitle = React.forwardRef<
 ));
 AlertTitle.displayName = 'AlertTitle';
 
+/**
+ * AlertDescription - Body text area of the alert.
+ */
 const AlertDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>

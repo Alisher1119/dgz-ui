@@ -52,10 +52,24 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
   }
 `;
 
+/**
+ * Props for FilepondContainer component wrapper.
+ * Extends standard div HTML attributes.
+ *
+ * @property {'default' | 'failure'} [variant='default'] - Visual state; when set to 'failure', the inner FilePond drip/label uses destructive colors.
+ */
 type FilepondContainerProps = HTMLAttributes<HTMLDivElement> & {
   variant?: 'default' | 'failure';
 };
 
+/**
+ * Styled wrapper for FilePond root container that adapts styles based on validation state.
+ *
+ * @component
+ * @param {FilepondContainerProps} props - Component props.
+ * @param {'default'|'failure'} [props.variant='default'] - Controls error visualization.
+ * @returns {JSX.Element}
+ */
 function FilepondContainer({
   variant = 'default',
   ...props

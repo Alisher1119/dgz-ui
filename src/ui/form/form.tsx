@@ -16,6 +16,9 @@ import { cn } from '../../lib/utils.ts';
 import { Label } from './label.tsx';
 import type { ReactNode } from 'react';
 
+/**
+ * Common props for form field wrappers.
+ */
 export interface FormItemProps<TFieldValues extends FieldValues> {
   register?: UseFormRegister<TFieldValues>;
   control?: Control<TFieldValues>;
@@ -26,6 +29,9 @@ export interface FormItemProps<TFieldValues extends FieldValues> {
   floatingError?: boolean;
 }
 
+/**
+ * Form - Context provider from react-hook-form for nested fields.
+ */
 const Form = FormProvider;
 
 type FormFieldContextValue<

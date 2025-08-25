@@ -5,28 +5,43 @@ import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Sheet - Drawer-style dialog built on Radix Dialog primitives.
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
 
+/**
+ * SheetTrigger - Element that opens the Sheet when interacted with.
+ */
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
+/**
+ * SheetClose - Element that closes the Sheet.
+ */
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
+/**
+ * SheetPortal - Renders sheet content in a React Portal.
+ */
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
+/**
+ * SheetOverlay - Full-screen overlay behind the Sheet content.
+ */
 function SheetOverlay({
   className,
   ...props
@@ -43,6 +58,9 @@ function SheetOverlay({
   );
 }
 
+/**
+ * SheetContent - The sliding panel content. Configurable side.
+ */
 function SheetContent({
   className,
   children,
@@ -80,6 +98,9 @@ function SheetContent({
   );
 }
 
+/**
+ * SheetHeader - Header area inside the Sheet.
+ */
 function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -90,6 +111,9 @@ function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
+/**
+ * SheetFooter - Footer area inside the Sheet.
+ */
 function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -100,6 +124,9 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
+/**
+ * SheetTitle - Accessible title for the Sheet.
+ */
 function SheetTitle({
   className,
   ...props
@@ -116,6 +143,9 @@ function SheetTitle({
   );
 }
 
+/**
+ * SheetDescription - Additional descriptive text for the Sheet.
+ */
 function SheetDescription({
   className,
   ...props

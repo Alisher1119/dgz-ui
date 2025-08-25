@@ -6,6 +6,10 @@ import { RiEyeCloseLine, RiEyeLine } from '@remixicon/react';
 import { cn } from '../../lib/utils.ts';
 import { Button } from '../button';
 
+/**
+ * Input style variants using CVA.
+ * @property {'default'|'failure'|'success'} variant - Visual state of the input.
+ */
 const inputVariants = cva(
   'flex h-10 w-full rounded-lg border border-border-alpha-strong px-3 py-2 dark:bg-transparent file:border-0 placeholder:text-secondary placeholder:text-body-sm-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
@@ -24,10 +28,16 @@ const inputVariants = cva(
   }
 );
 
+/**
+ * Props for the Input component.
+ */
 export interface InputProps
   extends React.ComponentProps<'input'>,
     VariantProps<typeof inputVariants> {}
 
+/**
+ * Input - Text input with optional password visibility toggle.
+ */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, variant, ...props }, ref) => {
     const [isPassword, setIsPassword] = useState(false);

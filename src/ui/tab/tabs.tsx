@@ -13,6 +13,10 @@ import {
 import { Button } from '../button';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Tabs root component from Radix UI.
+ * Combines with TabsList, TabsTrigger, and TabsContent to build tabbed interfaces.
+ */
 const Tabs = TabsPrimitive.Root;
 
 const tabsListVariants = cva(
@@ -41,6 +45,17 @@ const tabsListVariants = cva(
   }
 );
 
+/**
+ * Props for TabsList component.
+ * Extends Radix Tabs.List props and supports visual variants and behavior flags.
+ *
+ * @property {'default'|'segmented'|'line'} [type] - Visual style of the list.
+ * @property {'default'|'soft'} [variant] - Coloring variant.
+ * @property {'default'|'pill'} [rounded] - Border radius style.
+ * @property {true} [full] - If provided, makes the list expand to full width.
+ * @property {true} [scrollable] - Enables horizontal scroll with navigation buttons.
+ * @property {string} [scrollButtonClassName] - Additional classes for scroll buttons.
+ */
 export interface TabsListProps
   extends ComponentPropsWithoutRef<typeof TabsPrimitive.List>,
     VariantProps<typeof tabsListVariants> {
@@ -49,6 +64,12 @@ export interface TabsListProps
   scrollButtonClassName?: string;
 }
 
+/**
+ * Displays a list of tab triggers with optional segmented, line, and scrollable variants.
+ * When scrollable, left/right buttons appear when content overflows.
+ *
+ * @component
+ */
 const TabsList = forwardRef<
   ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
@@ -183,6 +204,10 @@ const TabsList = forwardRef<
 );
 TabsList.displayName = TabsPrimitive.List.displayName;
 
+/**
+ * A single tab trigger/button.
+ * Forwards refs to Radix Tabs.Trigger.
+ */
 const TabsTrigger = forwardRef<
   ElementRef<typeof TabsPrimitive.Trigger>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
@@ -200,6 +225,10 @@ const TabsTrigger = forwardRef<
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
+/**
+ * Content panel associated with a TabsTrigger.
+ * Forwards refs to Radix Tabs.Content.
+ */
 const TabsContent = forwardRef<
   ElementRef<typeof TabsPrimitive.Content>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.Content>

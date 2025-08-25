@@ -6,6 +6,9 @@ import {
   type ThHTMLAttributes,
 } from 'react';
 
+/**
+ * Table - Semantic table container with default styling.
+ */
 const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
     <table
@@ -17,6 +20,9 @@ const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
 );
 Table.displayName = 'Table';
 
+/**
+ * TableHeader - Wrapper for the thead element.
+ */
 const TableHeader = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
@@ -25,6 +31,9 @@ const TableHeader = forwardRef<
 ));
 TableHeader.displayName = 'TableHeader';
 
+/**
+ * TableBody - Wrapper for the tbody element.
+ */
 const TableBody = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
@@ -37,6 +46,9 @@ const TableBody = forwardRef<
 ));
 TableBody.displayName = 'TableBody';
 
+/**
+ * TableFooter - Wrapper for the tfoot element.
+ */
 const TableFooter = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
@@ -52,6 +64,9 @@ const TableFooter = forwardRef<
 ));
 TableFooter.displayName = 'TableFooter';
 
+/**
+ * TableRow - Styled tr element.
+ */
 const TableRow = forwardRef<
   HTMLTableRowElement,
   HTMLAttributes<HTMLTableRowElement>
@@ -67,6 +82,9 @@ const TableRow = forwardRef<
 ));
 TableRow.displayName = 'TableRow';
 
+/**
+ * TableHead - Styled th element.
+ */
 const TableHead = forwardRef<
   HTMLTableCellElement,
   ThHTMLAttributes<HTMLTableCellElement>
@@ -82,6 +100,9 @@ const TableHead = forwardRef<
 ));
 TableHead.displayName = 'TableHead';
 
+/**
+ * TableCell - Styled td element.
+ */
 const TableCell = forwardRef<
   HTMLTableCellElement,
   TdHTMLAttributes<HTMLTableCellElement>
@@ -94,6 +115,9 @@ const TableCell = forwardRef<
 ));
 TableCell.displayName = 'TableCell';
 
+/**
+ * TableCaption - Styled caption element.
+ */
 const TableCaption = forwardRef<
   HTMLTableCaptionElement,
   HTMLAttributes<HTMLTableCaptionElement>

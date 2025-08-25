@@ -1,8 +1,14 @@
 import * as React from 'react';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * CardProps - Native div attributes for the Card container.
+ */
 export type CardProps = React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Card - A surface component to group related content.
+ */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (
     <div
@@ -17,6 +23,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = 'Card';
 
+/**
+ * CardHeader - Top section typically containing the title and actions.
+ */
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -29,6 +38,9 @@ const CardHeader = React.forwardRef<
 ));
 CardHeader.displayName = 'CardHeader';
 
+/**
+ * CardTitle - Title area inside the header.
+ */
 const CardTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -44,6 +56,9 @@ const CardTitle = React.forwardRef<
 ));
 CardTitle.displayName = 'CardTitle';
 
+/**
+ * CardDescription - Secondary text under the title.
+ */
 const CardDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLSpanElement>
@@ -56,6 +71,9 @@ const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = 'CardDescription';
 
+/**
+ * CardContent - Main content area of the card.
+ */
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -68,6 +86,9 @@ const CardContent = React.forwardRef<
 ));
 CardContent.displayName = 'CardContent';
 
+/**
+ * CardFooter - Bottom area for actions or summary.
+ */
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>

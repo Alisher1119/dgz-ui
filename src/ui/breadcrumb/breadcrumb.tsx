@@ -4,12 +4,24 @@ import { MoreHorizontal } from 'lucide-react';
 import { RiArrowRightSLine } from '@remixicon/react';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Represents a single breadcrumb item used to build breadcrumb trails.
+ *
+ * @property {string} path - The URL or path to navigate to.
+ * @property {ReactNode} name - Display label for the breadcrumb item.
+ * @property {boolean} [isActive] - Marks the current page item.
+ */
 export interface BreadcrumbInterface {
   path: string;
   name: ReactNode;
   isActive?: boolean;
 }
 
+/**
+ * Root breadcrumb navigation component. Provides aria-label and forwards ref to a <nav> element.
+ *
+ * @component
+ */
 const Breadcrumb = React.forwardRef<
   HTMLElement,
   React.ComponentPropsWithoutRef<'nav'> & {
@@ -18,6 +30,11 @@ const Breadcrumb = React.forwardRef<
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
 Breadcrumb.displayName = 'Breadcrumb';
 
+/**
+ * Ordered list that lays out breadcrumb items.
+ *
+ * @component
+ */
 const BreadcrumbList = React.forwardRef<
   HTMLOListElement,
   React.ComponentPropsWithoutRef<'ol'>
@@ -30,6 +47,11 @@ const BreadcrumbList = React.forwardRef<
 ));
 BreadcrumbList.displayName = 'BreadcrumbList';
 
+/**
+ * Single breadcrumb list item container.
+ *
+ * @component
+ */
 const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<'li'>
@@ -42,6 +64,12 @@ const BreadcrumbItem = React.forwardRef<
 ));
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
+/**
+ * Non-clickable breadcrumb page indicator for the current route.
+ * Renders a span with aria-current="page".
+ *
+ * @component
+ */
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<'span'>
@@ -57,6 +85,10 @@ const BreadcrumbPage = React.forwardRef<
 ));
 BreadcrumbPage.displayName = 'BreadcrumbPage';
 
+/**
+ * Separator element displayed between breadcrumb items.
+ * Defaults to a right arrow icon when no children are provided.
+ */
 const BreadcrumbSeparator = ({
   children,
   className,
@@ -73,6 +105,9 @@ const BreadcrumbSeparator = ({
 );
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
+/**
+ * Ellipsis component to indicate collapsed breadcrumb items.
+ */
 const BreadcrumbEllipsis = ({
   className,
   ...props
