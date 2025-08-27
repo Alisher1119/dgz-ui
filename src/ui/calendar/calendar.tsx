@@ -27,11 +27,16 @@ export const DATE = 'DD.MM.YYYY';
  * Props for the Calendar component.
  * Extends react-day-picker base props in single selection mode with convenience props.
  *
- * @property {Date} [selectedFromDate] - Start of the highlighted range.
- * @property {Date} [selectedToDate] - End of the highlighted range.
- * @property {Date|string} [selected] - Currently selected date; when string, interpreted with `format`.
- * @property {(date: Date|string|null|undefined) => void} [onSelect] - Callback invoked on date selection; string when `format` is provided.
- * @property {string} [format] - dayjs format string to parse/format `selected` and emitted value.
+ * Notes:
+ * - When `format` is provided, the component accepts a `selected` value as a string in that format and emits a string to `onSelect`.
+ * - Without `format`, `selected` and `onSelect` use Date values.
+ * - `selectedFromDate` and `selectedToDate` are used only for visual range highlighting (they do not change selection mode).
+ *
+ * @property {Date} [selectedFromDate] - Start of the visually highlighted range (inclusive).
+ * @property {Date} [selectedToDate] - End of the visually highlighted range (inclusive).
+ * @property {Date|string} [selected] - Currently selected date. If a string, parsed/validated with `format`.
+ * @property {(date: Date|string|null|undefined) => void} [onSelect] - Invoked on date selection; string when `format` is set.
+ * @property {string} [format] - dayjs format string used to parse and format values.
  */
 export type CalendarProps = Omit<
   PropsBase & PropsSingle,
@@ -44,6 +49,10 @@ export type CalendarProps = Omit<
   format?: string;
 };
 
+/**
+ * Props for the internal MonthCaption control used by Calendar.
+ * @internal
+ */
 export interface MonthCaptionProps {
   calendarMonth: { date: Date };
   setMonth: (date: Date) => void;
@@ -162,9 +171,42 @@ const MonthCaption = ({ calendarMonth, setMonth }: MonthCaptionProps) => {
 
 /**
  * Calendar component built on react-day-picker with datagaze styles and helpers.
- * Supports single-date selection with optional formatted string values and visual range highlights.
  *
- * @component
+ * Features:
+ * - Single date selection mode (internally sets mode="single").
+ * - Optional formatted string I/O via `format` (uses dayjs).
+ * - Visual highlighting of a range via `selectedFromDate` and `selectedToDate`.
+ * - Custom month/year caption with quick selection.
+ *
+ * Accessibility:
+ * - Inherits keyboard navigation and ARIA from react-day-picker.
+ *
+ * Styling:
+ * - Tailwind classes merged via `twMerge` and `cn`.
+ * - You may override parts via the `className` and `classNames` props.
+ *
+ * @example
+ * // Date values
+ * <Calendar selected={new Date()} onSelect={(d) => console.log(d)} />
+ *
+ * @example
+ * // String values with format
+ * <Calendar
+ *   format={DATE}
+ *   selected={dayjs().format(DATE)}
+ *   onSelect={(value) => console.log('selected', value)}
+ * />
+ *
+ * @example
+ * // Visual range highlight
+ * <Calendar selectedFromDate={new Date(2025,0,1)} selectedToDate={new Date(2025,0,15)} />
+ *
+ * @param className
+ * @param classNames
+ * @param showOutsideDays
+ * @param selectedToDate
+ * @param selectedFromDate
+ * @param format
  * @param {CalendarProps} props - Calendar props.
  * @returns {JSX.Element}
  */
@@ -360,4 +402,7 @@ function Calendar({
   );
 }
 
+/**
+ * Exported Calendar component.
+ */
 export { Calendar };
