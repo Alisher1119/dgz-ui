@@ -1,5 +1,8 @@
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Skeleton - Placeholder element to indicate loading content.
+ */
 export function Skeleton({
   className,
   ...props

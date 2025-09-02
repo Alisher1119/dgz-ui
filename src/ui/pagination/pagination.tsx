@@ -3,6 +3,9 @@ import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 import { type ButtonProps, buttonVariants } from '../button';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Pagination - Navigation component for paginated content.
+ */
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     role="navigation"
@@ -13,6 +16,9 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
 );
 Pagination.displayName = 'Pagination';
 
+/**
+ * PaginationContent - Wrapper list for pagination items.
+ */
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<'ul'>
@@ -25,6 +31,9 @@ const PaginationContent = React.forwardRef<
 ));
 PaginationContent.displayName = 'PaginationContent';
 
+/**
+ * PaginationItem - List item wrapper.
+ */
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<'li'>
@@ -33,11 +42,19 @@ const PaginationItem = React.forwardRef<
 ));
 PaginationItem.displayName = 'PaginationItem';
 
+/**
+ * Props for PaginationLink.
+ * @property {boolean} [isActive] - Marks the current page.
+ * @property {'lg'|'default'|'sm'|'xs'|'icon'} [size] - Button size forwarded to Button variants.
+ */
 type PaginationLinkProps = {
   isActive?: boolean;
 } & Pick<ButtonProps, 'size'> &
   React.ComponentProps<'a'>;
 
+/**
+ * PaginationLink - A styled anchor used as a pagination control.
+ */
 const PaginationLink = ({
   className,
   isActive,
@@ -59,6 +76,9 @@ const PaginationLink = ({
 );
 PaginationLink.displayName = 'PaginationLink';
 
+/**
+ * PaginationPrevious - Button to navigate to previous page.
+ */
 const PaginationPrevious = ({
   className,
   ...props
@@ -74,6 +94,9 @@ const PaginationPrevious = ({
 );
 PaginationPrevious.displayName = 'PaginationPrevious';
 
+/**
+ * PaginationNext - Button to navigate to next page.
+ */
 const PaginationNext = ({
   className,
   ...props
@@ -89,6 +112,9 @@ const PaginationNext = ({
 );
 PaginationNext.displayName = 'PaginationNext';
 
+/**
+ * PaginationEllipsis - Non-interactive indicator for collapsed pages.
+ */
 const PaginationEllipsis = ({
   className,
   ...props

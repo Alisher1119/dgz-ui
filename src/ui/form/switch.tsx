@@ -2,10 +2,18 @@ import * as React from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Props for the Switch component. Extends Radix Switch Root props.
+ */
 export type SwitchProps = React.ComponentPropsWithoutRef<
   typeof SwitchPrimitives.Root
 >;
 
+/**
+ * Switch - A toggle control for binary options.
+ *
+ * @component
+ */
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>

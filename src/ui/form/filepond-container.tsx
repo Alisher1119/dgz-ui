@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import 'filepond/dist/filepond.min.css';
-import { FilePond, type FilePondProps } from 'react-filepond';
+import type { HTMLAttributes } from 'react';
 
-const FilePondContainer = styled.div<{ $invalid: boolean }>`
+const FilepondWrapper = styled.div<{ $invalid: boolean }>`
   .filepond {
     &--drop-label {
       label {
@@ -53,26 +52,31 @@ const FilePondContainer = styled.div<{ $invalid: boolean }>`
   }
 `;
 
-type FileUploadProps = FilePondProps & {
+/**
+ * Props for FilepondContainer component wrapper.
+ * Extends standard div HTML attributes.
+ *
+ * @property {'default' | 'failure'} [variant='default'] - Visual state; when set to 'failure', the inner FilePond drip/label uses destructive colors.
+ */
+type FilepondContainerProps = HTMLAttributes<HTMLDivElement> & {
   variant?: 'default' | 'failure';
-  containerClassName?: string;
 };
 
-function FileUpload({
+/**
+ * Styled wrapper for FilePond root container that adapts styles based on validation state.
+ *
+ * @component
+ * @param {FilepondContainerProps} props - Component props.
+ * @param {'default'|'failure'} [props.variant='default'] - Controls error visualization.
+ * @returns {JSX.Element}
+ */
+function FilepondContainer({
   variant = 'default',
-  containerClassName,
   ...props
-}: FileUploadProps) {
-  return (
-    <FilePondContainer
-      $invalid={variant === 'failure'}
-      className={containerClassName}
-    >
-      <FilePond credits={false} instantUpload={false} {...props} />
-    </FilePondContainer>
-  );
+}: FilepondContainerProps) {
+  return <FilepondWrapper $invalid={variant === 'failure'} {...props} />;
 }
 
-FileUpload.displayName = 'FileUpload';
+FilepondContainer.displayName = 'FilepondContainer';
 
-export { FileUpload, type FileUploadProps };
+export { FilepondContainer, type FilepondContainerProps };

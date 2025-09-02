@@ -6,6 +6,12 @@ import { cn } from '../../lib/utils.ts';
 import { Calendar } from './calendar.tsx';
 import { dayjs } from '../../lib/day.ts';
 
+/**
+ * DatePicker - Simple date picker composed from Button, Popover, and Calendar.
+ * Maintains its own local date state and displays formatted value.
+ *
+ * @component
+ */
 export function DatePicker() {
   const [date, setDate] = useState<Date | string | undefined>(new Date());
 

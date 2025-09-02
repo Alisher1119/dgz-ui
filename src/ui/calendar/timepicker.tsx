@@ -9,15 +9,27 @@ import { RiTimeLine } from '@remixicon/react';
 import { ReactSelect } from '../form';
 import { cn } from '../../lib/utils.ts';
 
+/** Hour format token used by TimePicker. */
 export const HOUR = 'HH';
+/** Minute format token used by TimePicker. */
 export const MINUTE = 'mm';
+/** Combined time format string (HH:mm). */
 export const TIME = `${HOUR}:${MINUTE}`;
 
+/** Internal time state used by the picker. */
 export interface TimeState {
   hour: string;
   minute: string;
 }
 
+/**
+ * Props for the TimePicker component.
+ * @property {string} [value] - Time in HH:MM format.
+ * @property {(time: string) => void} [onChange] - Called with new HH:MM on change.
+ * @property {boolean} [disabled=false] - Disables selection.
+ * @property {string} [className] - Additional classes for container.
+ * @property {ReactNode} [icon] - Optional leading icon.
+ */
 export interface TimePickerProps {
   value?: string;
   onChange?: (time: string) => void;
@@ -26,7 +38,11 @@ export interface TimePickerProps {
   icon?: ReactNode;
 }
 
-// Base TimePicker component that works with string format
+/**
+ * TimePicker - Hour/minute selector that emits time as HH:MM string.
+ *
+ * @component
+ */
 export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
   (
     {

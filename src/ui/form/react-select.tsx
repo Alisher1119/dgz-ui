@@ -10,16 +10,36 @@ import { twMerge } from 'tailwind-merge';
 import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 
+/**
+ * Option shape for ReactSelect component.
+ *
+ * @property {ReactNode} label - Rendered label.
+ * @property {string|number} value - Primitive value emitted on selection.
+ */
 export type Option = {
   label: ReactNode;
   value: string | number;
 };
 
+/**
+ * Helper to create a new option from free text.
+ * Lowercases and strips non-word characters for the value.
+ */
 const createOption = (label: string) => ({
   label,
   value: label.toLowerCase().replace(/\W/g, ''),
 });
 
+/**
+ * Props for ReactSelect component.
+ * Based on react-select CreatableProps but simplified to always accept Option[] for options.
+ *
+ * @property {Option[]} options - List of available options.
+ * @property {ReactNode} [label] - Optional label to render externally.
+ * @property {string} [containerClassName] - Extra classes for outer container.
+ * @property {boolean} [error] - When true, applies error styles.
+ * @property {boolean} [canAddItem=false] - If true, allows creating new options inline.
+ */
 export interface ReactSelectProps
   extends Omit<
     CreatableProps<
@@ -36,6 +56,13 @@ export interface ReactSelectProps
   canAddItem?: boolean;
 }
 
+/**
+ * Enhanced select input built on react-select with optional creatable mode and tailored styles.
+ *
+ * @component
+ * @param {ReactSelectProps} props - Props to configure behavior and appearance.
+ * @returns {JSX.Element}
+ */
 export const ReactSelect = ({
   options = [],
   label,

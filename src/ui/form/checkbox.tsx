@@ -4,10 +4,18 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { RiCheckLine, RiSubtractLine } from '@remixicon/react';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Props for the Checkbox component. Extends Radix Checkbox Root props.
+ */
 export type CheckboxProps = React.ComponentPropsWithoutRef<
   typeof CheckboxPrimitive.Root
 >;
 
+/**
+ * Checkbox - An accessible checkbox with indeterminate state support.
+ *
+ * @component
+ */
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps

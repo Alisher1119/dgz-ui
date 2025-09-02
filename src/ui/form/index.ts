@@ -1,6 +1,6 @@
 export * from './checkbox.tsx';
 export * from './input.tsx';
-export * from './file-upload.tsx';
+export * from './filepond-container.tsx';
 export * from './form.tsx';
 export * from './label.tsx';
 export * from './react-select.tsx';
@@ -8,3 +8,5 @@ export * from './switch.tsx';
 export * from './textarea.tsx';
 export * from './select.tsx';
 export * from './radio-group.tsx';
+export * from './html-editor.tsx';
+export * from './input-mask.tsx';

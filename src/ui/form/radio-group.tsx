@@ -3,10 +3,18 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Circle } from 'lucide-react';
 import { cn } from '../../lib/utils.ts';
 
+/**
+ * Props for the RadioGroup component.
+ */
 type RadioGroupProps = React.ComponentPropsWithoutRef<
   typeof RadioGroupPrimitive.Root
 >;
 
+/**
+ * RadioGroup - Group of radio inputs that allows selecting a single option.
+ *
+ * @component
+ */
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   RadioGroupProps
@@ -21,6 +29,9 @@ const RadioGroup = React.forwardRef<
 });
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
+/**
+ * RadioGroupItem - Individual radio option used within RadioGroup.
+ */
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
