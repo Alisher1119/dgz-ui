@@ -31,6 +31,7 @@ export default defineConfig({
           'src/ui/alert-dialog/index.ts'
         ),
         'avatar/index': resolve(__dirname, 'src/ui/avatar/index.ts'),
+        'accordion/index': resolve(__dirname, 'src/ui/accordion/index.ts'),
         'badge/index': resolve(__dirname, 'src/ui/badge/index.ts'),
         'breadcrumb/index': resolve(__dirname, 'src/ui/breadcrumb/index.ts'),
         'button/index': resolve(__dirname, 'src/ui/button/index.ts'),
