@@ -1,11 +1,11 @@
 name: Publish to npm
 
 on:
-  branches:
-    - main
   push:
+    branches:
+      - main
     tags:
-      - 'v*' # Runs only when you push a tag like v1.0.0
+      - 'v*'  # publish when a tag like v1.0.0 is pushed
 
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
