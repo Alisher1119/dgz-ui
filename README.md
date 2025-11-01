@@ -17,11 +17,11 @@ A modern, accessible, and customizable React component library built with TypeSc
 ## ⚡ Quick Start
 
 ```tsx
-import { Button, Badge, Avatar, AvatarImage, AvatarFallback } from "dgz-ui";
+import { Button, Badge, Avatar, AvatarImage, AvatarFallback } from 'dgz-ui';
 
 function App() {
   return (
-    <div className="p-8 space-y-4">
+    <div className="space-y-4 p-8">
       <Button>Hello World</Button>
       <Badge variant="secondary">New Feature</Badge>
       <Avatar>

@@ -4,30 +4,50 @@ import {
   useEffect,
   useMemo,
   useState,
-} from "react";
-import Select, { components, type GroupBase } from "react-select";
-import { twMerge } from "tailwind-merge";
-import { get } from "lodash";
-import CreatableSelect, { type CreatableProps } from "react-select/creatable";
+} from 'react';
+import Select, { components, type GroupBase } from 'react-select';
+import { twMerge } from 'tailwind-merge';
+import { get } from 'lodash';
+import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 
+/**
+ * Option shape for ReactSelect component.
+ *
+ * @property {ReactNode} label - Rendered label.
+ * @property {string|number} value - Primitive value emitted on selection.
+ */
 export type Option = {
   label: ReactNode;
   value: string | number;
 };
 
+/**
+ * Helper to create a new option from free text.
+ * Lowercases and strips non-word characters for the value.
+ */
 const createOption = (label: string) => ({
   label,
-  value: label.toLowerCase().replace(/\W/g, ""),
+  value: label.toLowerCase().replace(/\W/g, ''),
 });
 
+/**
+ * Props for ReactSelect component.
+ * Based on react-select CreatableProps but simplified to always accept Option[] for options.
+ *
+ * @property {Option[]} options - List of available options.
+ * @property {ReactNode} [label] - Optional label to render externally.
+ * @property {string} [containerClassName] - Extra classes for outer container.
+ * @property {boolean} [error] - When true, applies error styles.
+ * @property {boolean} [canAddItem=false] - If true, allows creating new options inline.
+ */
 export interface ReactSelectProps
   extends Omit<
     CreatableProps<
-      Option | Option["value"],
+      Option | Option['value'],
       boolean,
-      GroupBase<Option | Option["value"]>
+      GroupBase<Option | Option['value']>
     >,
-    "options"
+    'options'
   > {
   options: Option[];
   label?: ReactNode;
@@ -36,6 +56,13 @@ export interface ReactSelectProps
   canAddItem?: boolean;
 }
 
+/**
+ * Enhanced select input built on react-select with optional creatable mode and tailored styles.
+ *
+ * @component
+ * @param {ReactSelectProps} props - Props to configure behavior and appearance.
+ * @returns {JSX.Element}
+ */
 export const ReactSelect = ({
   options = [],
   label,
@@ -44,17 +71,17 @@ export const ReactSelect = ({
   containerClassName,
   className,
   onChange = () => {},
-  placeholder = "",
+  placeholder = '',
   canAddItem = false,
   ...computedProps
 }: ReactSelectProps) => {
   const [selectedValue, setSelectedValue] = useState<Option | Option[] | null>(
-    null,
+    null
   );
   const [computedOptions, setComputedOptions] = useState<Option[]>([]);
   const Component = useMemo(
     () => (canAddItem ? CreatableSelect : Select),
-    [canAddItem],
+    [canAddItem]
   );
 
   useEffect(() => {
@@ -62,11 +89,11 @@ export const ReactSelect = ({
 
     if (computedProps.value instanceof Array) {
       computedProps.value.forEach((value) => {
-        let tmpOption: Option | null = null;
+        let tmpOption: Option | null;
         if (
-          typeof value === "string" ||
-          typeof value === "number" ||
-          typeof value === "boolean"
+          typeof value === 'string' ||
+          typeof value === 'number' ||
+          typeof value === 'boolean'
         ) {
           tmpOption =
             computedOptions.find((option) => value == option.value) || null;
@@ -79,16 +106,15 @@ export const ReactSelect = ({
       });
       setSelectedValue(values);
     } else if (
-      typeof computedProps.value === "string" ||
-      typeof computedProps.value === "number" ||
-      typeof computedProps.value === "boolean"
+      typeof computedProps.value === 'string' ||
+      typeof computedProps.value === 'number'
     ) {
       setSelectedValue(
         computedOptions.find((option) => computedProps.value == option.value) ||
-          null,
+          null
       );
     } else {
-      setSelectedValue(computedProps.value as Option);
+      setSelectedValue(computedProps.value || null);
     }
   }, [JSON.stringify([computedProps.value, computedOptions])]);
 
@@ -98,7 +124,6 @@ export const ReactSelect = ({
 
   const handleAddItem = useCallback(
     (inputValue: string) => {
-      console.log(inputValue);
       if (inputValue) {
         const newOption = createOption(inputValue);
         setComputedOptions((prevOptions) => [newOption, ...prevOptions]);
@@ -115,7 +140,7 @@ export const ReactSelect = ({
         }, 500);
       }
     },
-    [JSON.stringify(options), selectedValue, canAddItem],
+    [computedProps.isMulti, selectedValue]
   );
 
   return (
@@ -129,9 +154,9 @@ export const ReactSelect = ({
               className={twMerge(
                 props.className,
                 className,
-                "!min-h-10 !rounded-lg !bg-transparent !border-border-alpha-strong !outline-none !ring-0 focus-within:!ring-2 focus-within:!ring-offset-bg focus-within:!ring-offset-2 focus-within:!ring-item-primary",
+                '!border-border-alpha-strong focus-within:!ring-offset-bg focus-within:!ring-item-primary !min-h-10 !rounded-lg !bg-transparent !ring-0 !outline-none focus-within:!ring-2 focus-within:!ring-offset-2',
                 error &&
-                  "focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive",
+                  'focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive'
               )}
             />
           );
@@ -140,7 +165,7 @@ export const ReactSelect = ({
           return (
             <components.Menu
               {...props}
-              className={twMerge([props.className, "!bg-bg-secondary"])}
+              className={twMerge([props.className, '!bg-bg-secondary'])}
             />
           );
         },
@@ -150,7 +175,7 @@ export const ReactSelect = ({
               {...props}
               className={twMerge([
                 props.className,
-                (props.isSelected || props.isFocused) && "!bg-bg",
+                (props.isSelected || props.isFocused) && '!bg-bg',
               ])}
             />
           );
@@ -161,8 +186,8 @@ export const ReactSelect = ({
               {...props}
               className={twMerge(
                 props.className,
-                "text-secondary text-body-sm-regular",
-                error && "!text-item-destructive",
+                'text-secondary text-body-sm-regular',
+                error && '!text-item-destructive'
               )}
             />
           );
@@ -173,7 +198,7 @@ export const ReactSelect = ({
               {...props}
               className={twMerge([
                 props.className,
-                "text-body-sm-regular !text-primary",
+                'text-body-sm-regular !text-primary',
               ])}
             />
           );
@@ -184,7 +209,7 @@ export const ReactSelect = ({
               {...props}
               className={twMerge([
                 props.className,
-                "!py-0 !rounded-md !bg-blue-100 !text-blue-700 border-blue-200 text-body-sm-regular",
+                'text-body-sm-regular !rounded-md border-blue-200 !bg-blue-100 !py-0 !text-blue-700',
               ])}
             />
           );
@@ -193,13 +218,13 @@ export const ReactSelect = ({
           return (
             <components.Input
               {...props}
-              className={twMerge([props.className, "!text-primary"])}
+              className={twMerge([props.className, '!text-primary'])}
             />
           );
         },
       }}
       placeholder={placeholder}
-      className={twMerge("w-full", className)}
+      className={twMerge('w-full', className)}
       classNamePrefix="selectform"
       isClearable={true}
       hideSelectedOptions={true}
@@ -210,13 +235,13 @@ export const ReactSelect = ({
         if (values instanceof Array) {
           onChange(
             values
-              .filter((item) => typeof item === "object")
+              .filter((item) => typeof item === 'object')
               .map((item: Option) => item.value),
-            actionMeta,
+            actionMeta
           );
           setSelectedValue(values as Option[]);
         } else {
-          onChange(get(values, "value", null), actionMeta);
+          onChange(get(values, 'value', null), actionMeta);
           setSelectedValue(values as Option);
         }
       }}

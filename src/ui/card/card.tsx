@@ -1,34 +1,46 @@
-import * as React from "react";
-import { cn } from "../../lib/utils.ts";
+import * as React from 'react';
+import { cn } from '../../lib/utils.ts';
 
+/**
+ * CardProps - Native div attributes for the Card container.
+ */
 export type CardProps = React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Card - A surface component to group related content.
+ */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        "rounded-4 border border-border-alpha-light shadow-xs bg-bg-background",
-        className,
+        'rounded-4 border-border-alpha-light bg-bg-background border shadow-xs',
+        className
       )}
       {...props}
     />
-  ),
+  )
 );
-Card.displayName = "Card";
+Card.displayName = 'Card';
 
+/**
+ * CardHeader - Top section typically containing the title and actions.
+ */
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-3", className)}
+    className={cn('flex flex-col space-y-1.5 p-3', className)}
     {...props}
   />
 ));
-CardHeader.displayName = "CardHeader";
+CardHeader.displayName = 'CardHeader';
 
+/**
+ * CardTitle - Title area inside the header.
+ */
 const CardTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -36,49 +48,58 @@ const CardTitle = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-body-md-medium items-center [&>svg]:size-5 [&>div>svg]:size-5 flex gap-2 justify-between",
-      className,
+      'text-body-md-medium flex items-center justify-between gap-2 [&>div>svg]:size-5 [&>svg]:size-5',
+      className
     )}
     {...props}
   />
 ));
-CardTitle.displayName = "CardTitle";
+CardTitle.displayName = 'CardTitle';
 
+/**
+ * CardDescription - Secondary text under the title.
+ */
 const CardDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLSpanElement>
 >(({ className, ...props }, ref) => (
   <span
     ref={ref}
-    className={cn("text-body-sm-regular text-secondary", className)}
+    className={cn('text-body-sm-regular text-secondary', className)}
     {...props}
   />
 ));
-CardDescription.displayName = "CardDescription";
+CardDescription.displayName = 'CardDescription';
 
+/**
+ * CardContent - Main content area of the card.
+ */
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("p-3 pt-0 text-body-sm-regular", className)}
+    className={cn('text-body-sm-regular p-3 pt-0', className)}
     {...props}
   />
 ));
-CardContent.displayName = "CardContent";
+CardContent.displayName = 'CardContent';
 
+/**
+ * CardFooter - Bottom area for actions or summary.
+ */
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-3 pt-0 text-body-sm-regular", className)}
+    className={cn('text-body-sm-regular flex items-center p-3 pt-0', className)}
     {...props}
   />
 ));
-CardFooter.displayName = "CardFooter";
+CardFooter.displayName = 'CardFooter';
 
 export {
   Card,

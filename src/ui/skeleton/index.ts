@@ -1,1 +1,1 @@
-export * from "./skeleton.tsx";
+export * from './skeleton.tsx';
