@@ -2,7 +2,7 @@ import { Calendar as CalendarIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 import { Button } from '../button';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 import { Calendar } from './calendar.tsx';
 import { dayjs } from '../../lib/day.ts';
 

@@ -1,4 +1,4 @@
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Skeleton - Placeholder element to indicate loading content.

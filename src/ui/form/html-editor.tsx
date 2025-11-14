@@ -3,7 +3,7 @@ import { type HTMLAttributes } from 'react';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Input style variants using CVA.

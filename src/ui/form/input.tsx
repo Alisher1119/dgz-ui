@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { RiEyeCloseLine, RiEyeLine } from '@remixicon/react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 import { Button } from '../button';
 
 /**

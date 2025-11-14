@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Sheet - Drawer-style dialog built on Radix Dialog primitives.

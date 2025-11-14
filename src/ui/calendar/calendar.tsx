@@ -16,7 +16,7 @@ import { twMerge } from 'tailwind-merge';
 import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { Button, buttonVariants } from '../button';
 
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 import { dayjs } from '../../lib/day.ts';
 /**
  * Default date format string used by the Calendar component with dayjs.

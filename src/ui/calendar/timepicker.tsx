@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { RiTimeLine } from '@remixicon/react';
 import { ReactSelect } from '../form';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /** Hour format token used by TimePicker. */
 export const HOUR = 'HH';

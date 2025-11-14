@@ -1,7 +1,7 @@
 import { IMaskInput, type IMaskInputProps } from 'react-imask';
 import { type InputProps, inputVariants } from './input.tsx';
 import { forwardRef } from 'react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Props for the MaskInput component.

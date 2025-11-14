@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import * as React from 'react';
 import { MoreHorizontal } from 'lucide-react';
 import { RiArrowRightSLine } from '@remixicon/react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Represents a single breadcrumb item used to build breadcrumb trails.

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Avatar size variants configuration using class-variance-authority.

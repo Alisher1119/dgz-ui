@@ -12,7 +12,7 @@ import {
   useFormContext,
   type UseFormRegister,
 } from 'react-hook-form';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 import { Label } from './label.tsx';
 import type { ReactNode } from 'react';
 

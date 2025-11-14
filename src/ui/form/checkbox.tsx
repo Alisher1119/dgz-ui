@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
 import { RiCheckLine, RiSubtractLine } from '@remixicon/react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib';
 
 /**
  * Props for the Checkbox component. Extends Radix Checkbox Root props.
