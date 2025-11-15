@@ -5,10 +5,22 @@ import {
   useMemo,
   useState,
 } from 'react';
-import Select, { components, type GroupBase } from 'react-select';
+import Select, {
+  components,
+  type ControlProps,
+  type GroupBase,
+  type InputProps,
+  type MenuListProps,
+  type MenuProps,
+  type MultiValueProps,
+  type OptionProps,
+  type PlaceholderProps,
+  type SingleValueProps,
+} from 'react-select';
 import { twMerge } from 'tailwind-merge';
 import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
+import { FixedSizeList as List } from 'react-window';
 
 /**
  * Option shape for ReactSelect component.
@@ -143,86 +155,149 @@ export const ReactSelect = ({
     [computedProps.isMulti, selectedValue]
   );
 
+  const memorizedComponents = useMemo(() => {
+    return {
+      Control: (
+        props: ControlProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.Control
+          {...props}
+          className={twMerge(
+            props.className,
+            className,
+            '!border-border-alpha-strong focus-within:!ring-offset-bg focus-within:!ring-item-primary !min-h-10 !rounded-lg !bg-transparent !ring-0 !outline-none focus-within:!ring-2 focus-within:!ring-offset-2',
+            error &&
+              'focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive'
+          )}
+        />
+      ),
+      Menu: (
+        props: MenuProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.Menu
+          {...props}
+          className={twMerge([props.className, '!bg-bg-secondary'])}
+        />
+      ),
+      Option: ({
+        ...props
+      }: OptionProps<
+        string | number | Option,
+        boolean,
+        GroupBase<string | number | Option>
+      >) => (
+        <components.Option
+          {...props}
+          className={twMerge([
+            props.className,
+            (props.isSelected || props.isFocused) && '!bg-bg',
+          ])}
+        />
+      ),
+      Placeholder: (
+        props: PlaceholderProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.Placeholder
+          {...props}
+          className={twMerge(
+            props.className,
+            'text-secondary text-body-sm-regular',
+            error && '!text-item-destructive'
+          )}
+        />
+      ),
+      SingleValue: (
+        props: SingleValueProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.SingleValue
+          {...props}
+          className={twMerge([
+            props.className,
+            'text-body-sm-regular !text-primary',
+          ])}
+        />
+      ),
+      MultiValue: (
+        props: MultiValueProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.MultiValue
+          {...props}
+          className={twMerge([
+            props.className,
+            'text-body-sm-regular !rounded-md border-blue-200 !bg-blue-100 !py-0 !text-blue-700',
+          ])}
+        />
+      ),
+      Input: (
+        props: InputProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => (
+        <components.Input
+          {...props}
+          className={twMerge([props.className, '!text-primary'])}
+        />
+      ),
+      MenuList: (
+        props: MenuListProps<
+          string | number | Option,
+          boolean,
+          GroupBase<string | number | Option>
+        >
+      ) => {
+        const ITEM_HEIGHT = 36;
+        const { children, maxHeight } = props;
+        const childrenArray = Array.isArray(children) ? children : [children];
+        const itemCount = childrenArray.length;
+        const height = Math.min(maxHeight ?? 300, itemCount * ITEM_HEIGHT);
+
+        return (
+          <components.MenuList
+            {...props}
+            className={twMerge([props.className, '!overflow-hidden !p-0'])}
+          >
+            <List
+              height={height}
+              itemCount={itemCount}
+              itemSize={ITEM_HEIGHT}
+              width="100%"
+            >
+              {({ index, style }) => (
+                <div style={style}>{childrenArray[index]}</div>
+              )}
+            </List>
+          </components.MenuList>
+        );
+      },
+    };
+  }, [className, error]);
+
   return (
     <Component
       onCreateOption={handleAddItem}
-      components={{
-        Control: ({ ...props }) => {
-          return (
-            <components.Control
-              {...props}
-              className={twMerge(
-                props.className,
-                className,
-                '!border-border-alpha-strong focus-within:!ring-offset-bg focus-within:!ring-item-primary !min-h-10 !rounded-lg !bg-transparent !ring-0 !outline-none focus-within:!ring-2 focus-within:!ring-offset-2',
-                error &&
-                  'focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive'
-              )}
-            />
-          );
-        },
-        Menu: ({ ...props }) => {
-          return (
-            <components.Menu
-              {...props}
-              className={twMerge([props.className, '!bg-bg-secondary'])}
-            />
-          );
-        },
-        Option: ({ ...props }) => {
-          return (
-            <components.Option
-              {...props}
-              className={twMerge([
-                props.className,
-                (props.isSelected || props.isFocused) && '!bg-bg',
-              ])}
-            />
-          );
-        },
-        Placeholder: ({ ...props }) => {
-          return (
-            <components.Placeholder
-              {...props}
-              className={twMerge(
-                props.className,
-                'text-secondary text-body-sm-regular',
-                error && '!text-item-destructive'
-              )}
-            />
-          );
-        },
-        SingleValue: ({ ...props }) => {
-          return (
-            <components.SingleValue
-              {...props}
-              className={twMerge([
-                props.className,
-                'text-body-sm-regular !text-primary',
-              ])}
-            />
-          );
-        },
-        MultiValue: ({ ...props }) => {
-          return (
-            <components.MultiValue
-              {...props}
-              className={twMerge([
-                props.className,
-                'text-body-sm-regular !rounded-md border-blue-200 !bg-blue-100 !py-0 !text-blue-700',
-              ])}
-            />
-          );
-        },
-        Input: ({ ...props }) => {
-          return (
-            <components.Input
-              {...props}
-              className={twMerge([props.className, '!text-primary'])}
-            />
-          );
-        },
-      }}
+      components={memorizedComponents}
       placeholder={placeholder}
       className={twMerge('w-full', className)}
       classNamePrefix="selectform"
