@@ -253,27 +253,6 @@ export type VirtualizedSelectProps = SelectProps & {
   options: Option[];
 };
 
-const VirtualizedSelect = ({
-  itemHeight = 35,
-  maxHeight = 300,
-  placeholder,
-  options,
-  ...props
-}: VirtualizedSelectProps) => {
-  return (
-    <Select {...props}>
-      <SelectTrigger className="w-full">
-        <SelectValue placeholder={placeholder} />
-      </SelectTrigger>
-      <VirtualizedSelectContent
-        itemHeight={itemHeight}
-        maxHeight={maxHeight}
-        options={options}
-      />
-    </Select>
-  );
-};
-
 export {
   Select,
   SelectGroup,
@@ -285,6 +264,5 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
-  VirtualizedSelect,
   VirtualizedSelectContent,
 };
