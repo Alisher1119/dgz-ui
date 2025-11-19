@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { type CSSProperties, useRef } from 'react';
+import type { SelectProps } from '@radix-ui/react-select';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '../../lib';
+import { FixedSizeList, FixedSizeList as List } from 'react-window';
+import type { Option } from './react-select.tsx';
 
 /**
  * Select primitives built on Radix Select for accessible dropdowns.
@@ -178,6 +182,98 @@ const SelectSeparator = React.forwardRef<
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
+export type VirtualizedSelectContentProps = Omit<
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,
+  'children'
+> & {
+  itemHeight?: number;
+  maxHeight?: number;
+  options: Option[];
+};
+
+const VirtualizedSelectContent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Content>,
+  VirtualizedSelectContentProps
+>(
+  (
+    {
+      className,
+      options,
+      position = 'popper',
+      itemHeight = 35,
+      maxHeight = 300,
+      ...props
+    },
+    ref
+  ) => {
+    const listRef = useRef<FixedSizeList>(null);
+    // const [selectedValue, setSelectedValue] = useState(null);
+    //
+    // useEffect(() => {
+    //   // Scroll to selected item when content opens
+    //   if (selectedValue && listRef.current && options) {
+    //     const index = options.findIndex((opt) => opt.value === selectedValue);
+    //     if (index !== -1) {
+    //       listRef.current?.scrollToItem(index, 'center');
+    //     }
+    //   }
+    // }, [selectedValue, options]);
+
+    const Row = ({ index, style }: { index: number; style: CSSProperties }) => {
+      const option = options[index];
+      return (
+        <div style={style}>
+          <SelectItem value={`${option.value}`}>{option.label}</SelectItem>
+        </div>
+      );
+    };
+
+    return (
+      <SelectContent ref={ref} {...props}>
+        <List
+          ref={listRef}
+          height={Math.min(maxHeight, options.length * itemHeight)}
+          itemCount={options.length}
+          itemSize={itemHeight}
+          width="100%"
+        >
+          {Row}
+        </List>
+      </SelectContent>
+    );
+  }
+);
+
+VirtualizedSelectContent.displayName = 'VirtualizedSelectContent';
+
+export type VirtualizedSelectProps = SelectProps & {
+  itemHeight?: number;
+  maxHeight?: number;
+  placeholder?: string;
+  options: Option[];
+};
+
+const VirtualizedSelect = ({
+  itemHeight = 35,
+  maxHeight = 300,
+  placeholder,
+  options,
+  ...props
+}: VirtualizedSelectProps) => {
+  return (
+    <Select {...props}>
+      <SelectTrigger className="w-full">
+        <SelectValue placeholder={placeholder} />
+      </SelectTrigger>
+      <VirtualizedSelectContent
+        itemHeight={itemHeight}
+        maxHeight={maxHeight}
+        options={options}
+      />
+    </Select>
+  );
+};
+
 export {
   Select,
   SelectGroup,
@@ -189,4 +285,6 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
+  VirtualizedSelect,
+  VirtualizedSelectContent,
 };

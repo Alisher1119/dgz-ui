@@ -10,7 +10,6 @@ import Select, {
   type ControlProps,
   type GroupBase,
   type InputProps,
-  type MenuListProps,
   type MenuProps,
   type MultiValueProps,
   type OptionProps,
@@ -20,7 +19,6 @@ import Select, {
 import { twMerge } from 'tailwind-merge';
 import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
-import { FixedSizeList as List } from 'react-window';
 
 /**
  * Option shape for ReactSelect component.
@@ -260,37 +258,6 @@ export const ReactSelect = ({
           className={twMerge([props.className, '!text-primary'])}
         />
       ),
-      MenuList: (
-        props: MenuListProps<
-          string | number | Option,
-          boolean,
-          GroupBase<string | number | Option>
-        >
-      ) => {
-        const ITEM_HEIGHT = 36;
-        const { children, maxHeight } = props;
-        const childrenArray = Array.isArray(children) ? children : [children];
-        const itemCount = childrenArray.length;
-        const height = Math.min(maxHeight ?? 300, itemCount * ITEM_HEIGHT);
-
-        return (
-          <components.MenuList
-            {...props}
-            className={twMerge([props.className, '!overflow-hidden !p-0'])}
-          >
-            <List
-              height={height}
-              itemCount={itemCount}
-              itemSize={ITEM_HEIGHT}
-              width="100%"
-            >
-              {({ index, style }) => (
-                <div style={style}>{childrenArray[index]}</div>
-              )}
-            </List>
-          </components.MenuList>
-        );
-      },
     };
   }, [className, error]);
 
