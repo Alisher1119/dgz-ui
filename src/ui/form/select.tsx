@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { type CSSProperties, useRef } from 'react';
-import type { SelectProps } from '@radix-ui/react-select';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '../../lib';
@@ -245,13 +244,6 @@ const VirtualizedSelectContent = React.forwardRef<
 );
 
 VirtualizedSelectContent.displayName = 'VirtualizedSelectContent';
-
-export type VirtualizedSelectProps = SelectProps & {
-  itemHeight?: number;
-  maxHeight?: number;
-  placeholder?: string;
-  options: Option[];
-};
 
 export {
   Select,
