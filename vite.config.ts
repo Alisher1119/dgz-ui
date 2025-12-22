@@ -50,6 +50,7 @@ export default defineConfig({
         'tab/index': resolve(__dirname, 'src/ui/tab/index.ts'),
         'table/index': resolve(__dirname, 'src/ui/table/index.ts'),
         'tooltip/index': resolve(__dirname, 'src/ui/tooltip/index.ts'),
+        'progress/index': resolve(__dirname, 'src/ui/progress/index.ts'),
       },
     },
     rollupOptions: {
