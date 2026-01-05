@@ -1,5 +1,11 @@
+import { TimePicker } from './ui/calendar';
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <TimePicker />
+    </>
+  );
 }
 
 export default App;

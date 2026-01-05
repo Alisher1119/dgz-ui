@@ -54,9 +54,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     },
     ref
   ) => {
-    // Parse the time value from string format
-    const parseTime = (timeValue?: string): TimeState => {
-      // If timeValue is a valid string in HH:MM format
+    const parseTime = (timeValue?: string): TimeState | undefined => {
       if (typeof timeValue === 'string') {
         const timeRegex = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/;
         const match = timeValue.match(timeRegex);
@@ -68,25 +66,20 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
         }
       }
 
-      // Default to current time if no valid value
-      const now = new Date();
-      return {
-        hour: now.getHours().toString().padStart(2, '0'),
-        minute: now.getMinutes().toString().padStart(2, '0'),
-      };
+      return;
     };
 
-    const { hour, minute } = parseTime(value);
-
     const [timeState, setTimeState] = useState<TimeState>({
-      hour,
-      minute,
+      hour: '',
+      minute: '',
     });
 
     // Update internal state when value prop changes
     useEffect(() => {
-      const { hour, minute } = parseTime(value);
-      setTimeState({ hour, minute });
+      const time = parseTime(value);
+      if (time) {
+        setTimeState(time);
+      }
     }, [value]);
 
     const handleSelectChange = (
@@ -133,6 +126,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
             value={timeState.hour}
             onChange={(opt) => handleSelectChange(`${opt}`, 'hour')}
             isDisabled={disabled}
+            placeholder={'HH'}
             menuPlacement={'auto'}
             className={'min-w-20'}
           />
@@ -144,6 +138,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
             value={timeState.minute}
             onChange={(opt) => handleSelectChange(`${opt}`, 'minute')}
             isDisabled={disabled}
+            placeholder={'mm'}
             menuPlacement={'auto'}
             className={'min-w-20'}
           />
