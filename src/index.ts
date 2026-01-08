@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Main entry point for the dgz-ui library.
+ * Exports all UI components and utility functions.
+ */
+
 export * from './ui/alert';
 export * from './ui/alert-dialog';
 export * from './ui/avatar';

@@ -8,8 +8,14 @@ import { buttonVariants } from '../button';
  */
 const AlertDialog = AlertDialogPrimitive.Root;
 
+/**
+ * Trigger that opens the dialog.
+ */
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
+/**
+ * Renders the dialog content in a portal to escape the parent container.
+ */
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 /**
