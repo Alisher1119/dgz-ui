@@ -208,6 +208,10 @@ const DropdownMenuShortcut = ({
 };
 DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 
+/**
+ * Props aggregation for components that wrap DropdownMenu primitives.
+ * Useful for high-level components needing to forward props to specific Dropdown parts.
+ */
 interface DropdownContainerProps {
   triggerProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuTrigger>;
   contentProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuContent>;

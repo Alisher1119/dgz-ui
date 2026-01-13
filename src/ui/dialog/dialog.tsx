@@ -135,6 +135,10 @@ const DialogDescription = React.forwardRef<
 ));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
+/**
+ * Props aggregation for components that wrap Dialog primitives.
+ * Useful for high-level components needing to forward props to specific Dialog parts.
+ */
 interface DialogContainerProps {
   triggerProps?: React.ComponentPropsWithoutRef<typeof DialogTrigger>;
   contentProps?: React.ComponentPropsWithoutRef<typeof DialogContent>;

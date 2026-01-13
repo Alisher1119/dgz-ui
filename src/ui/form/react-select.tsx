@@ -44,6 +44,7 @@ const createOption = (label: string) => ({
 /**
  * Props for ReactSelect component.
  * Based on react-select CreatableProps but simplified to always accept Option[] for options.
+ * Extends standard div props for the container.
  *
  * @property {Option[]} options - List of available options.
  * @property {ReactNode} [label] - Optional label to render externally.

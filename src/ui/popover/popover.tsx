@@ -31,6 +31,10 @@ const PopoverContent = React.forwardRef<
 ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
+/**
+ * Props aggregation for components that wrap Popover primitives.
+ * Useful for high-level components needing to forward props to specific Popover parts.
+ */
 interface PopoverContainerProps {
   triggerProps?: React.ComponentPropsWithoutRef<typeof PopoverTrigger>;
   contentProps?: React.ComponentPropsWithoutRef<typeof PopoverContent>;
