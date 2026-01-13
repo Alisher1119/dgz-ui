@@ -208,6 +208,18 @@ const DropdownMenuShortcut = ({
 };
 DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 
+interface DropdownContainerProps {
+  triggerProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuTrigger>;
+  contentProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuContent>;
+  menuItemProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuItem>;
+  subTriggerProps?: React.ComponentPropsWithoutRef<
+    typeof DropdownMenuSubTrigger
+  >;
+  subContentProps?: React.ComponentPropsWithoutRef<
+    typeof DropdownMenuSubContent
+  >;
+}
+
 export {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -224,4 +236,5 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
+  type DropdownContainerProps,
 };

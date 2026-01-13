@@ -1,4 +1,5 @@
 import {
+  type ComponentPropsWithoutRef,
   type ReactNode,
   useCallback,
   useEffect,
@@ -56,7 +57,8 @@ export interface ReactSelectProps
       Option | Option['value'],
       boolean,
       GroupBase<Option | Option['value']>
-    >,
+    > &
+      ComponentPropsWithoutRef<'div'>,
     'options'
   > {
   options: Option[];

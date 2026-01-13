@@ -31,4 +31,9 @@ const PopoverContent = React.forwardRef<
 ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverTrigger, PopoverContent };
+interface PopoverContainerProps {
+  triggerProps?: React.ComponentPropsWithoutRef<typeof PopoverTrigger>;
+  contentProps?: React.ComponentPropsWithoutRef<typeof PopoverContent>;
+}
+
+export { Popover, PopoverTrigger, PopoverContent, type PopoverContainerProps };

@@ -135,6 +135,12 @@ const DialogDescription = React.forwardRef<
 ));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
+interface DialogContainerProps {
+  triggerProps?: React.ComponentPropsWithoutRef<typeof DialogTrigger>;
+  contentProps?: React.ComponentPropsWithoutRef<typeof DialogContent>;
+  closeProps?: React.ComponentPropsWithoutRef<typeof DialogClose>;
+}
+
 export {
   Dialog,
   DialogPortal,
@@ -146,4 +152,5 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  type DialogContainerProps,
 };
