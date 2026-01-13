@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  type HTMLAttributes,
   type ReactNode,
   useEffect,
   useMemo,
@@ -30,7 +31,8 @@ export interface TimeState {
  * @property {string} [className] - Additional classes for container.
  * @property {ReactNode} [icon] - Optional leading icon.
  */
-export interface TimePickerProps {
+export interface TimePickerProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   onChange?: (time: string) => void;
   disabled?: boolean;
@@ -51,6 +53,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
       disabled = false,
       className,
       icon = <RiTimeLine className="size-5" />,
+      ...props
     },
     ref
   ) => {
@@ -117,7 +120,11 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     );
 
     return (
-      <div className={cn('flex items-center space-x-2', className)} ref={ref}>
+      <div
+        {...props}
+        className={cn('flex items-center space-x-2', className)}
+        ref={ref}
+      >
         {icon}
         <div className={cn('flex items-center space-x-2')}>
           <ReactSelect

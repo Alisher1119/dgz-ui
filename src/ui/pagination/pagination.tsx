@@ -5,6 +5,9 @@ import { cn } from '../../lib';
 
 /**
  * Pagination - Navigation component for paginated content.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination component.
  */
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
@@ -18,6 +21,9 @@ Pagination.displayName = 'Pagination';
 
 /**
  * PaginationContent - Wrapper list for pagination items.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination content component.
  */
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
@@ -33,6 +39,9 @@ PaginationContent.displayName = 'PaginationContent';
 
 /**
  * PaginationItem - List item wrapper.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination item component.
  */
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
@@ -54,6 +63,11 @@ type PaginationLinkProps = {
 
 /**
  * PaginationLink - A styled anchor used as a pagination control.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination link component.
+ * @param {boolean} [props.isActive] - Marks the current page.
+ * @param {string} [props.size] - The size of the pagination link.
  */
 const PaginationLink = ({
   className,
@@ -78,6 +92,9 @@ PaginationLink.displayName = 'PaginationLink';
 
 /**
  * PaginationPrevious - Button to navigate to previous page.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination previous component.
  */
 const PaginationPrevious = ({
   className,
@@ -96,6 +113,9 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 
 /**
  * PaginationNext - Button to navigate to next page.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination next component.
  */
 const PaginationNext = ({
   className,
@@ -114,6 +134,9 @@ PaginationNext.displayName = 'PaginationNext';
 
 /**
  * PaginationEllipsis - Non-interactive indicator for collapsed pages.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the pagination ellipsis component.
  */
 const PaginationEllipsis = ({
   className,

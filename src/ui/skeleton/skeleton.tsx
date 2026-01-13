@@ -2,6 +2,8 @@ import { cn } from '../../lib';
 
 /**
  * Skeleton - Placeholder element to indicate loading content.
+ * @param {string} [className] - Additional classes for the skeleton component.
+ * @param {React.HTMLAttributes<HTMLDivElement>} [props] - Additional HTML attributes for the skeleton component.
  */
 export function Skeleton({
   className,
