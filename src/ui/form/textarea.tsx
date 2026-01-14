@@ -14,6 +14,9 @@ export type TextareaProps = React.ComponentProps<'textarea'> &
  * Textarea - Multiline text input with Input variants styling.
  *
  * @component
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the textarea.
+ * @param {string} [props.variant] - The variant of the textarea.
  */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, variant, ...props }, ref) => {

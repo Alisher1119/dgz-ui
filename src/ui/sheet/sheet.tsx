@@ -7,6 +7,8 @@ import { cn } from '../../lib';
 
 /**
  * Sheet - Drawer-style dialog built on Radix Dialog primitives.
+ *
+ * @param {React.ComponentProps<typeof SheetPrimitive.Root>} props - Props for the component.
  */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
@@ -14,6 +16,8 @@ function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
 
 /**
  * SheetTrigger - Element that opens the Sheet when interacted with.
+ *
+ * @param {React.ComponentProps<typeof SheetPrimitive.Trigger>} props - Props for the component.
  */
 function SheetTrigger({
   ...props
@@ -23,6 +27,8 @@ function SheetTrigger({
 
 /**
  * SheetClose - Element that closes the Sheet.
+ *
+ * @param {React.ComponentProps<typeof SheetPrimitive.Close>} props - Props for the component.
  */
 function SheetClose({
   ...props
@@ -32,6 +38,8 @@ function SheetClose({
 
 /**
  * SheetPortal - Renders sheet content in a React Portal.
+ *
+ * @param {React.ComponentProps<typeof SheetPrimitive.Portal>} props - Props for the component.
  */
 function SheetPortal({
   ...props
@@ -41,6 +49,9 @@ function SheetPortal({
 
 /**
  * SheetOverlay - Full-screen overlay behind the Sheet content.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet overlay.
  */
 function SheetOverlay({
   className,
@@ -60,6 +71,11 @@ function SheetOverlay({
 
 /**
  * SheetContent - The sliding panel content. Configurable side.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet content.
+ * @param {React.ReactNode} [props.children] - The content to be rendered inside the sheet.
+ * @param {'top' | 'right' | 'bottom' | 'left'} [props.side='right'] - The side of the screen where the sheet will appear.
  */
 function SheetContent({
   className,
@@ -100,6 +116,9 @@ function SheetContent({
 
 /**
  * SheetHeader - Header area inside the Sheet.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet header.
  */
 function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
@@ -113,6 +132,9 @@ function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
 
 /**
  * SheetFooter - Footer area inside the Sheet.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet footer.
  */
 function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
@@ -126,6 +148,9 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
 
 /**
  * SheetTitle - Accessible title for the Sheet.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet title.
  */
 function SheetTitle({
   className,
@@ -145,6 +170,9 @@ function SheetTitle({
 
 /**
  * SheetDescription - Additional descriptive text for the Sheet.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the sheet description.
  */
 function SheetDescription({
   className,

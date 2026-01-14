@@ -11,6 +11,11 @@ const PopoverTrigger = PopoverPrimitive.Trigger;
 
 /**
  * PopoverContent - The floating panel that appears near the trigger.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the popover content.
+ * @param {'start' | 'center' | 'end'} [props.align='center'] - The alignment of the popover content relative to the trigger.
+ * @param {number} [props.sideOffset=4] - The distance between the trigger and the popover content.
  */
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,

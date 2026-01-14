@@ -6,11 +6,10 @@ import { cn } from '../../lib';
  * Progress component - Displays an indicator showing the completion progress of a task.
  * Built on Radix UI Progress primitive.
  *
- * @param className - Additional CSS classes.
- * @param value - The progress value (0-100).
- * @param children - Optional content overlaid on the progress bar.
- * @param props - Other props passed to the root element.
- * @returns {JSX.Element} The rendered Progress component.
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {number} [props.value] - The progress value (0-100).
+ * @param {React.ReactNode} [props.children] - Optional content overlaid on the progress bar.
  */
 function Progress({
   className,

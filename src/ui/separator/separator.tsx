@@ -4,6 +4,11 @@ import { cn } from '../../lib';
 
 /**
  * Separator - Visual divider for groups of content.
+ *
+ * @param {object} props - The properties for the component.
+ * @param {string} [props.className] - Additional classes for the separator.
+ * @param {'horizontal' | 'vertical'} [props.orientation='horizontal'] - The orientation of the separator.
+ * @param {boolean} [props.decorative=true] - Whether the separator is decorative or semantic.
  */
 const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
