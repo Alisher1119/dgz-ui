@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import type { HTMLAttributes } from 'react';
+import type { ElementDataType } from '../../types';
 
 const FilepondWrapper = styled.div<{ $invalid: boolean }>`
   .filepond {
@@ -58,9 +59,10 @@ const FilepondWrapper = styled.div<{ $invalid: boolean }>`
  *
  * @property {'default' | 'failure'} [variant='default'] - Visual state; when set to 'failure', the inner FilePond drip/label uses destructive colors.
  */
-type FilepondContainerProps = HTMLAttributes<HTMLDivElement> & {
-  variant?: 'default' | 'failure';
-};
+type FilepondContainerProps = HTMLAttributes<HTMLDivElement> &
+  ElementDataType & {
+    variant?: 'default' | 'failure';
+  };
 
 /**
  * Styled wrapper for FilePond root container that adapts styles based on validation state.

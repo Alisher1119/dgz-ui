@@ -27,5 +27,6 @@ export * from './ui/collapsible';
 
 // Util functions
 export * from './lib/utils.ts';
+export * from './types';
 
 import './index.css';

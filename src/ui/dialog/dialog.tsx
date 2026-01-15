@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
 import { cn } from '../../lib';
+import type { ElementDataType } from '../../types';
 
 /**
  * Dialog primitives for building modal dialogs.
@@ -140,9 +141,12 @@ DialogDescription.displayName = DialogPrimitive.Description.displayName;
  * Useful for high-level components needing to forward props to specific Dialog parts.
  */
 interface DialogContainerProps {
-  triggerProps?: React.ComponentPropsWithoutRef<typeof DialogTrigger>;
-  contentProps?: React.ComponentPropsWithoutRef<typeof DialogContent>;
-  closeProps?: React.ComponentPropsWithoutRef<typeof DialogClose>;
+  triggerProps?: React.ComponentPropsWithoutRef<typeof DialogTrigger> &
+    ElementDataType;
+  contentProps?: React.ComponentPropsWithoutRef<typeof DialogContent> &
+    ElementDataType;
+  closeProps?: React.ComponentPropsWithoutRef<typeof DialogClose> &
+    ElementDataType;
 }
 
 export {

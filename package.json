@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.3.16",
+  "version": "1.3.17",
   "type": "module",
   "files": [
     "dist"
@@ -147,6 +147,11 @@
     },
     "./utils": {
       "types": "./dist/types/lib/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./types": {
+      "types": "./dist/types/types/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
     },

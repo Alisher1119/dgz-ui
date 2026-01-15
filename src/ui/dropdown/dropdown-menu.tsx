@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 import { cn } from '../../lib';
+import type { ElementDataType } from '../../types';
 
 /**
  * Dropdown menu primitives for building contextual menus.
@@ -213,15 +214,20 @@ DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
  * Useful for high-level components needing to forward props to specific Dropdown parts.
  */
 interface DropdownContainerProps {
-  triggerProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuTrigger>;
-  contentProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuContent>;
-  menuItemProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuItem>;
+  triggerProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuTrigger> &
+    ElementDataType;
+  contentProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuContent> &
+    ElementDataType;
+  menuItemProps?: React.ComponentPropsWithoutRef<typeof DropdownMenuItem> &
+    ElementDataType;
   subTriggerProps?: React.ComponentPropsWithoutRef<
     typeof DropdownMenuSubTrigger
-  >;
+  > &
+    ElementDataType;
   subContentProps?: React.ComponentPropsWithoutRef<
     typeof DropdownMenuSubContent
-  >;
+  > &
+    ElementDataType;
 }
 
 export {

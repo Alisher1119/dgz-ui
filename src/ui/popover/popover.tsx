@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import { cn } from '../../lib';
+import type { ElementDataType } from '../../types';
 
 /**
  * Popover primitives for floating content triggered by another element.
@@ -41,8 +42,10 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
  * Useful for high-level components needing to forward props to specific Popover parts.
  */
 interface PopoverContainerProps {
-  triggerProps?: React.ComponentPropsWithoutRef<typeof PopoverTrigger>;
-  contentProps?: React.ComponentPropsWithoutRef<typeof PopoverContent>;
+  triggerProps?: React.ComponentPropsWithoutRef<typeof PopoverTrigger> &
+    ElementDataType;
+  contentProps?: React.ComponentPropsWithoutRef<typeof PopoverContent> &
+    ElementDataType;
 }
 
 export { Popover, PopoverTrigger, PopoverContent, type PopoverContainerProps };

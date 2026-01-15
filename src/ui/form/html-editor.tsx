@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib';
+import type { ElementDataType } from '../../types';
 
 /**
  * Input style variants using CVA.
@@ -51,7 +52,7 @@ const ReactQuillWrapper = styled.div`
  */
 type HtmlEditorProps = ReactQuill.ReactQuillProps &
   VariantProps<typeof editorVariants> & {
-    containerProps?: HTMLAttributes<HTMLDivElement>;
+    containerProps?: HTMLAttributes<HTMLDivElement> & ElementDataType;
   };
 
 /**
