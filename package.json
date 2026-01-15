@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.3.17",
+  "version": "1.3.18",
   "type": "module",
   "files": [
     "dist"
@@ -168,9 +168,6 @@
     "format:check": "prettier . --check",
     "lint": "eslint ./src --fix --max-warnings 50",
     "typecheck": "tsc --noEmit",
-    "publish:major": "npm version major && npm publish",
-    "publish:minor": "npm version minor && npm publish",
-    "publish:patch": "npm version patch && npm publish",
     "prepare": "husky"
   },
   "dependencies": {
@@ -248,7 +245,6 @@
     "vitest": "^3.1.4"
   },
   "peerDependencies": {
-    "dayjs": "^1.11.13",
     "react": "^19.1.2",
     "react-dom": "^19.1.2"
   }
