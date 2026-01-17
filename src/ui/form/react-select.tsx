@@ -1,5 +1,6 @@
 import {
   type ComponentPropsWithoutRef,
+  type JSX,
   type ReactNode,
   useCallback,
   useEffect,
@@ -58,8 +59,7 @@ export interface ReactSelectProps
       Option | Option['value'],
       boolean,
       GroupBase<Option | Option['value']>
-    > &
-      ComponentPropsWithoutRef<'div'>,
+    >,
     'options'
   > {
   options: Option[];
@@ -67,6 +67,7 @@ export interface ReactSelectProps
   containerClassName?: string;
   error?: boolean;
   canAddItem?: boolean;
+  containerProps?: ComponentPropsWithoutRef<'div'>;
 }
 
 /**
@@ -86,8 +87,9 @@ export const ReactSelect = ({
   onChange = () => {},
   placeholder = '',
   canAddItem = false,
+  containerProps,
   ...computedProps
-}: ReactSelectProps) => {
+}: ReactSelectProps): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<Option | Option[] | null>(
     null
   );
@@ -167,6 +169,7 @@ export const ReactSelect = ({
       ) => (
         <components.Control
           {...props}
+          {...containerProps}
           className={twMerge(
             props.className,
             className,
@@ -262,7 +265,7 @@ export const ReactSelect = ({
         />
       ),
     };
-  }, [className, error]);
+  }, [className, containerProps, error]);
 
   return (
     <Component
