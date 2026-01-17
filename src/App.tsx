@@ -1,4 +1,4 @@
-import { TimePicker } from './ui/calendar';
+import { ReactSelect } from './ui/form';
 
 /**
  * Root component of the application.
@@ -9,7 +9,12 @@ import { TimePicker } from './ui/calendar';
 function App() {
   return (
     <>
-      <TimePicker />
+      <ReactSelect
+        options={[]}
+        containerProps={{
+          'data-testid': '123123',
+        }}
+      />
     </>
   );
 }

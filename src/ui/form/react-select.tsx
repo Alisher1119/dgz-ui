@@ -50,7 +50,6 @@ const createOption = (label: string) => ({
  *
  * @property {Option[]} options - List of available options.
  * @property {ReactNode} [label] - Optional label to render externally.
- * @property {string} [containerClassName] - Extra classes for outer container.
  * @property {boolean} [error] - When true, applies error styles.
  * @property {boolean} [canAddItem=false] - If true, allows creating new options inline.
  */
@@ -65,7 +64,6 @@ export interface ReactSelectProps
   > {
   options: Option[];
   label?: ReactNode;
-  containerClassName?: string;
   error?: boolean;
   canAddItem?: boolean;
   containerProps?: ComponentPropsWithoutRef<'div'> & ElementDataType;
@@ -83,7 +81,6 @@ export const ReactSelect = ({
   label,
   required,
   error,
-  containerClassName,
   className,
   onChange = () => {},
   placeholder = '',
@@ -168,17 +165,18 @@ export const ReactSelect = ({
           GroupBase<string | number | Option>
         >
       ) => (
-        <components.Control
-          {...props}
-          {...containerProps}
-          className={twMerge(
-            props.className,
-            className,
-            '!border-border-alpha-strong focus-within:!ring-offset-bg focus-within:!ring-item-primary !min-h-10 !rounded-lg !bg-transparent !ring-0 !outline-none focus-within:!ring-2 focus-within:!ring-offset-2',
-            error &&
-              'focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive'
-          )}
-        />
+        <div {...containerProps}>
+          <components.Control
+            {...props}
+            className={twMerge(
+              props.className,
+              className,
+              '!border-border-alpha-strong focus-within:!ring-offset-bg focus-within:!ring-item-primary !min-h-10 !rounded-lg !bg-transparent !ring-0 !outline-none focus-within:!ring-2 focus-within:!ring-offset-2',
+              error &&
+                'focus-within:!ring-item-destructive placeholder:!text-item-destructive !border-item-destructive !text-item-destructive'
+            )}
+          />
+        </div>
       ),
       Menu: (
         props: MenuProps<
