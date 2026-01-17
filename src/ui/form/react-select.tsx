@@ -21,6 +21,7 @@ import Select, {
 import { twMerge } from 'tailwind-merge';
 import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
+import type { ElementDataType } from '../../types';
 
 /**
  * Option shape for ReactSelect component.
@@ -67,7 +68,7 @@ export interface ReactSelectProps
   containerClassName?: string;
   error?: boolean;
   canAddItem?: boolean;
-  containerProps?: ComponentPropsWithoutRef<'div'>;
+  containerProps?: ComponentPropsWithoutRef<'div'> & ElementDataType;
 }
 
 /**
