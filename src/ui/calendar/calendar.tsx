@@ -18,6 +18,7 @@ import { Button, buttonVariants } from '../button';
 
 import { cn } from '../../lib';
 import { dayjs } from '../../lib/day.ts';
+import { useTranslation } from 'react-i18next';
 /**
  * Default date format string used by the Calendar component with dayjs.
  */
@@ -63,6 +64,7 @@ export interface MonthCaptionProps {
  * Used internally by Calendar.
  */
 const MonthCaption = ({ calendarMonth, setMonth }: MonthCaptionProps) => {
+  const { t } = useTranslation();
   const currentDate = dayjs(calendarMonth.date);
   const [isMonthSelect, setIsMonthSelect] = useState(false);
   const [isYearSelect, setIsYearSelect] = useState(false);
@@ -92,14 +94,14 @@ const MonthCaption = ({ calendarMonth, setMonth }: MonthCaptionProps) => {
         className={'max-h-6 max-w-[60px]'}
         onClick={() => setIsMonthSelect(true)}
       >
-        {currentDate.format('MMM')}
+        {t(currentDate.format('MMM'))}
       </Button>
       {isMonthSelect && (
         <div
           className={'bg-bg absolute -inset-1 flex flex-col items-center gap-2'}
         >
           <div className={'flex items-center justify-between gap-2'}>
-            <span>Month</span>
+            <span>{t('Month')}</span>
           </div>
           <div className={'grid grid-cols-3 gap-2'}>
             {Array.from({ length: 12 }, (_, i) => (
@@ -109,7 +111,7 @@ const MonthCaption = ({ calendarMonth, setMonth }: MonthCaptionProps) => {
                 size={'sm'}
                 variant={i === currentDate.month() ? 'default' : 'secondary'}
               >
-                {dayjs().month(i).format('MMMM')}
+                {t(dayjs().month(i).format('MMMM'))}
               </Button>
             ))}
           </div>
@@ -133,7 +135,7 @@ const MonthCaption = ({ calendarMonth, setMonth }: MonthCaptionProps) => {
             >
               <RiArrowLeftSLine />
             </Button>
-            <span>Year</span>
+            <span>{t('Year')}</span>
             <Button
               size={'xs'}
               variant={'secondary'}
