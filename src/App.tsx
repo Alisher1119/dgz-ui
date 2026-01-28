@@ -1,4 +1,12 @@
-import { Checkbox, Input, Label, ReactSelect } from './ui/form';
+import {
+  Checkbox,
+  Input,
+  Label,
+  RadioGroup,
+  RadioGroupItem,
+  ReactSelect,
+} from './ui/form';
+import { TimePicker } from './ui/calendar';
 
 /**
  * Root component of the application.
@@ -20,6 +28,22 @@ function App() {
         <div className="space-y-1 leading-none">
           <Label>Checkbox</Label>
         </div>
+      </Label>
+      <Label>
+        <RadioGroup>
+          <Label>
+            <RadioGroupItem value={'1'} />
+            {123}
+          </Label>
+          <Label>
+            <RadioGroupItem value={'2'} />
+            {1234}
+          </Label>
+          <Label>
+            <RadioGroupItem value={'3'} />
+            {12345}
+          </Label>
+        </RadioGroup>
       </Label>
       <Input placeholder={'123'} />
       <ReactSelect
@@ -43,6 +67,7 @@ function App() {
           },
         ]}
       />
+      <TimePicker error={true} />
     </div>
   );
 }

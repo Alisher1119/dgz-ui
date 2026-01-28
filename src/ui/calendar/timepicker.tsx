@@ -38,6 +38,7 @@ export interface TimePickerProps
   disabled?: boolean;
   className?: string;
   icon?: ReactNode;
+  error?: boolean;
 }
 
 /**
@@ -52,6 +53,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
       onChange,
       disabled = false,
       className,
+      error,
       icon = <RiTimeLine className="size-5" />,
       ...props
     },
@@ -125,9 +127,10 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
         className={cn('flex items-center space-x-2', className)}
         ref={ref}
       >
-        {icon}
+        <div className={cn(error && 'text-destructive')}>{icon}</div>
         <div className={cn('flex items-center space-x-2')}>
           <ReactSelect
+            error={error}
             isClearable={false}
             options={hourOptions}
             value={timeState.hour}
@@ -140,6 +143,7 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
           <span className="text-lg">:</span>
 
           <ReactSelect
+            error={error}
             isClearable={false}
             options={minuteOptions}
             value={timeState.minute}
