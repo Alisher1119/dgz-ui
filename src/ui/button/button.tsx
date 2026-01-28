@@ -11,7 +11,12 @@ import { cn } from '../../lib';
  * @property {'lg' | 'default' | 'sm' | 'xs' | 'icon'} size - Controls the height, padding, and font size of the button.
  */
 export const buttonVariants = cva(
-  'inline-flex border border-border-alpha-strong items-center justify-center gap-2 whitespace-nowrap font-medium focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg focus:ring-item-primary-focus transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  cn(
+    'inline-flex border border-border-alpha-strong items-center justify-center gap-2 whitespace-nowrap font-medium',
+    '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+    'transition-colors disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+    'focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg focus:ring-item-primary-focus'
+  ),
   {
     variants: {
       variant: {

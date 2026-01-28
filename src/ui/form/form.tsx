@@ -27,7 +27,6 @@ export interface FormItemProps<TFieldValues extends FieldValues> {
   name?: FieldPath<TFieldValues>;
   rules?: RegisterOptions<TFieldValues, FieldPath<TFieldValues>>;
   label?: ReactNode;
-  helperText?: ReactNode;
   floatingError?: boolean;
 }
 
@@ -116,7 +115,7 @@ const FormItem = React.forwardRef<
     <FormItemContext.Provider value={{ id }}>
       <div
         ref={ref}
-        className={cn('relative space-y-2', className)}
+        className={cn('relative space-y-3', className)}
         {...props}
       />
     </FormItemContext.Provider>

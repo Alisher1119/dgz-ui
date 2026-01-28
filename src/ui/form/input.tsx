@@ -8,18 +8,20 @@ import { Button } from '../button';
 
 /**
  * Input style variants using CVA.
- * @property {'default'|'failure'|'success'} variant - Visual state of the input.
+ * @property {'default'|'failure'} variant - Visual state of the input.
  */
 const inputVariants = cva(
-  'flex h-10 w-full rounded-lg border border-border-alpha-strong px-3 py-2 dark:bg-transparent file:border-0 placeholder:text-secondary placeholder:text-body-sm-regular focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+  cn(
+    'h-10 w-full rounded-lg px-2.5 py-2 flex border border-border-alpha-strong',
+    'placeholder:text-secondary placeholder:text-body-sm-regular disabled:cursor-not-allowed disabled:opacity-50',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring '
+  ),
   {
     variants: {
       variant: {
         default: 'focus-visible:ring-item-primary',
         failure:
-          'focus-visible:ring-item-destructive bg-item-destructive-focus placeholder:text-item-destructive border-item-destructive text-destructive',
-        success:
-          'focus-visible:ring-success bg-success/20 placeholder:text-success/80 border-success text-success',
+          'focus-visible:ring-item-destructive placeholder:!text-item-destructive border-item-destructive text-destructive!',
       },
     },
     defaultVariants: {

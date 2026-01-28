@@ -216,8 +216,8 @@ export const ReactSelect = ({
           {...props}
           className={twMerge(
             props.className,
-            'text-secondary text-body-sm-regular',
-            error && '!text-item-destructive'
+            'text-secondary! text-body-sm-regular!',
+            error && 'text-item-destructive!'
           )}
         />
       ),
