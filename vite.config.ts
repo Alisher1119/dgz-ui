@@ -54,7 +54,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'i18next', 'react-i18next'],
+      external: ['react', 'react-dom', 'i18next', 'react-i18next', 'dayjs'],
       output: [
         {
           format: 'es',
