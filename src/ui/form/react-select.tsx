@@ -19,7 +19,6 @@ import Select, {
   type SingleValueProps,
 } from 'react-select';
 import { twMerge } from 'tailwind-merge';
-import { get } from 'lodash';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
 import type { ElementDataType } from '../../types';
 
@@ -288,7 +287,7 @@ export const ReactSelect = ({
           );
           setSelectedValue(values as Option[]);
         } else {
-          onChange(get(values, 'value', null), actionMeta);
+          onChange((values as Option)?.value || null, actionMeta);
           setSelectedValue(values as Option);
         }
       }}
