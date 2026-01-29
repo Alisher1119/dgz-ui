@@ -19,6 +19,7 @@ import { Button, buttonVariants } from '../button';
 import { cn } from '../../lib';
 import { dayjs } from '../../lib/day.ts';
 import { useTranslation } from 'react-i18next';
+
 /**
  * Default date format string used by the Calendar component with dayjs.
  */
@@ -221,6 +222,7 @@ function Calendar({
   format,
   ...props
 }: CalendarProps) {
+  const { t } = useTranslation();
   const [month, setMonth] = useState<Date>(dayjs().startOf('month').toDate());
 
   // Memoized weekday component
@@ -228,10 +230,12 @@ function Calendar({
     (props: Parameters<typeof Weekday>[0]) => (
       <Weekday
         {...props}
-        className={'text-body-xs-medium text-tertiary dark:text-primary'}
-      />
+        className={'text-body-xs-black text-tertiary dark:text-primary'}
+      >
+        {t(props.children as string)}
+      </Weekday>
     ),
-    []
+    [t]
   );
 
   const MemoizedMonthCaption = useCallback(

@@ -6,7 +6,7 @@ import {
   RadioGroupItem,
   ReactSelect,
 } from './ui/form';
-import { TimePicker } from './ui/calendar';
+import { Calendar, TimePicker } from './ui/calendar';
 
 /**
  * Root component of the application.
@@ -68,6 +68,9 @@ function App() {
         ]}
       />
       <TimePicker error={true} />
+      <div>
+        <Calendar mode={'single'} />
+      </div>
     </div>
   );
 }
