@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import type { HTMLAttributes } from 'react';
+import styled from 'styled-components';
 import type { ElementDataType } from '../../types';
 
 const FilepondWrapper = styled.div<{ $invalid: boolean }>`

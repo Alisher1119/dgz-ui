@@ -1,3 +1,4 @@
+import { Calendar, TimePicker } from './ui/calendar';
 import {
   Checkbox,
   Input,
@@ -6,7 +7,6 @@ import {
   RadioGroupItem,
   ReactSelect,
 } from './ui/form';
-import { Calendar, TimePicker } from './ui/calendar';
 
 /**
  * Root component of the application.

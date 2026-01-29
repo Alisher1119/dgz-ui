@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { type CSSProperties, useRef } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
-import { cn } from '../../lib';
+import * as React from 'react';
+import { type CSSProperties, useRef } from 'react';
 import { FixedSizeList, FixedSizeList as List } from 'react-window';
+import { cn } from '../../lib';
 import type { Option } from './react-select.tsx';
 
 /**
@@ -247,14 +247,14 @@ VirtualizedSelectContent.displayName = 'VirtualizedSelectContent';
 
 export {
   Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
   SelectContent,
-  SelectLabel,
+  SelectGroup,
   SelectItem,
-  SelectSeparator,
-  SelectScrollUpButton,
+  SelectLabel,
   SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
   VirtualizedSelectContent,
 };

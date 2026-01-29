@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { type HTMLAttributes } from 'react';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
-import { cva, type VariantProps } from 'class-variance-authority';
+import styled from 'styled-components';
 import { cn } from '../../lib';
 import type { ElementDataType } from '../../types';
 

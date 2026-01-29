@@ -1,7 +1,7 @@
 /// <reference types="vitest/config" />
-import { resolve } from 'path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dtsPlugin from 'vite-plugin-dts';
 
@@ -54,7 +54,17 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'i18next', 'react-i18next', 'dayjs'],
+      external: [
+        'react',
+        'react-dom',
+        'i18next',
+        'react-i18next',
+        'dayjs',
+        'lucide-react',
+        'react-hook-form',
+        'tailwindcss',
+        'tailwindcss-animate',
+      ],
       output: [
         {
           format: 'es',

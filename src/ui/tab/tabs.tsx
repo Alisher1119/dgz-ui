@@ -10,8 +10,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Button } from '../button';
 import { cn } from '../../lib';
+import { Button } from '../button';
 
 /**
  * Tabs root component from Radix UI.
@@ -244,4 +244,4 @@ const TabsContent = forwardRef<
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsContent, TabsList, TabsTrigger };

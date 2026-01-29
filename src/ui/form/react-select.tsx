@@ -18,8 +18,8 @@ import Select, {
   type PlaceholderProps,
   type SingleValueProps,
 } from 'react-select';
-import { twMerge } from 'tailwind-merge';
 import CreatableSelect, { type CreatableProps } from 'react-select/creatable';
+import { twMerge } from 'tailwind-merge';
 import type { ElementDataType } from '../../types';
 
 /**

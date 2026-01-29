@@ -1,3 +1,4 @@
+import { RiTimeLine } from '@remixicon/react';
 import {
   forwardRef,
   type HTMLAttributes,
@@ -6,9 +7,8 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { RiTimeLine } from '@remixicon/react';
-import { ReactSelect } from '../form';
 import { cn } from '../../lib';
+import { ReactSelect } from '../form';
 
 /** Hour format token used by TimePicker. */
 export const HOUR = 'HH';

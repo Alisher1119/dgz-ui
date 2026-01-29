@@ -1,5 +1,5 @@
-import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
+import * as React from 'react';
 import { cn } from '../../lib';
 import type { ElementDataType } from '../../types';
 
@@ -48,4 +48,4 @@ interface PopoverContainerProps {
     ElementDataType;
 }
 
-export { Popover, PopoverTrigger, PopoverContent, type PopoverContainerProps };
+export { Popover, PopoverContent, PopoverTrigger, type PopoverContainerProps };

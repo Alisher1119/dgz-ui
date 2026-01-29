@@ -1,3 +1,4 @@
+import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import {
   type ButtonHTMLAttributes,
   useCallback,
@@ -13,12 +14,11 @@ import {
   Weekday,
 } from 'react-day-picker';
 import { twMerge } from 'tailwind-merge';
-import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { Button, buttonVariants } from '../button';
 
+import { useTranslation } from 'react-i18next';
 import { cn } from '../../lib';
 import { dayjs } from '../../lib/day.ts';
-import { useTranslation } from 'react-i18next';
 
 /**
  * Default date format string used by the Calendar component with dayjs.

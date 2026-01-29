@@ -1,8 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
+import type { ReactNode } from 'react';
+import * as React from 'react';
 import {
   type Control,
   Controller,
@@ -16,7 +17,6 @@ import {
 } from 'react-hook-form';
 import { cn } from '../../lib';
 import { Label } from './label.tsx';
-import type { ReactNode } from 'react';
 
 /**
  * Common props for form field wrappers.
@@ -223,12 +223,12 @@ const FormMessage = React.forwardRef<
 FormMessage.displayName = 'FormMessage';
 
 export {
-  useFormField,
   Form,
-  FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
   FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField,
 };

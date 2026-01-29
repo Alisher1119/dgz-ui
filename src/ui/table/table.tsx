@@ -1,10 +1,10 @@
-import { cn } from '../../lib';
 import {
   forwardRef,
   type HTMLAttributes,
   type TdHTMLAttributes,
   type ThHTMLAttributes,
 } from 'react';
+import { cn } from '../../lib';
 
 /**
  * Table - Semantic table container with default styling.
@@ -132,11 +132,11 @@ TableCaption.displayName = 'TableCaption';
 
 export {
   Table,
-  TableHeader,
   TableBody,
+  TableCaption,
+  TableCell,
   TableFooter,
   TableHead,
+  TableHeader,
   TableRow,
-  TableCell,
-  TableCaption,
 };

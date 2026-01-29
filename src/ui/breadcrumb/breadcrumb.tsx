@@ -1,7 +1,7 @@
+import { RiArrowRightSLine } from '@remixicon/react';
+import { MoreHorizontal } from 'lucide-react';
 import type { ReactNode } from 'react';
 import * as React from 'react';
-import { MoreHorizontal } from 'lucide-react';
-import { RiArrowRightSLine } from '@remixicon/react';
 import { cn } from '../../lib';
 
 /**
@@ -126,9 +126,9 @@ BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 };
