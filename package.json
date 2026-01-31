@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
@@ -143,7 +143,7 @@
       "require": "./dist/progress/index.cjs.js"
     },
     "./utils": {
-      "types": "./dist/types/lib/index.d.ts",
+      "types": "./dist/types/utils/index.d.ts",
       "import": "./dist/utils/index.es.js",
       "require": "./dist/utils/index.cjs.js"
     },
@@ -230,7 +230,7 @@
         "./dist/types/ui/progress/index.d.ts"
       ],
       "utils": [
-        "./dist/types/lib/index.d.ts"
+        "./dist/types/utils/index.d.ts"
       ],
       "types": [
         "./dist/types/types/index.d.ts"
