@@ -42,7 +42,6 @@ const external = [
   'lucide-react',
   'react-hook-form',
   'tailwindcss',
-  'tailwindcss-animate',
 ];
 
 export default defineConfig({
