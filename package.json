@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
@@ -144,8 +144,8 @@
     },
     "./utils": {
       "types": "./dist/types/lib/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/utils/index.es.js",
+      "require": "./dist/utils/index.cjs.js"
     },
     "./types": {
       "types": "./dist/types/types/index.d.ts"
@@ -234,6 +234,9 @@
       ],
       "types": [
         "./dist/types/types/index.d.ts"
+      ],
+      "*": [
+        "./dist/types/ui/*/index.d.ts"
       ]
     }
   },
@@ -321,10 +324,10 @@
     "dayjs": "^1.11.19",
     "i18next": "^25.8.0",
     "lucide-react": "^0.563.0",
-    "react": "^19.0.1",
-    "react-dom": "^19.0.1",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
     "react-hook-form": "^7.71.1",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.0.0"
   },
   "peerDependenciesMeta": {
     "dayjs": {
@@ -341,7 +344,7 @@
     }
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   },
   "publishConfig": {
     "access": "public"
