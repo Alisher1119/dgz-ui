@@ -5,6 +5,46 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dtsPlugin from 'vite-plugin-dts';
 
+const entries = {
+  index: 'src/index.ts',
+  'alert/index': 'src/ui/alert/index.ts',
+  'alert-dialog/index': 'src/ui/alert-dialog/index.ts',
+  'avatar/index': 'src/ui/avatar/index.ts',
+  'accordion/index': 'src/ui/accordion/index.ts',
+  'badge/index': 'src/ui/badge/index.ts',
+  'breadcrumb/index': 'src/ui/breadcrumb/index.ts',
+  'button/index': 'src/ui/button/index.ts',
+  'card/index': 'src/ui/card/index.ts',
+  'calendar/index': 'src/ui/calendar/index.ts',
+  'collapsible/index': 'src/ui/collapsible/index.ts',
+  'dialog/index': 'src/ui/dialog/index.ts',
+  'dropdown/index': 'src/ui/dropdown/index.ts',
+  'form/index': 'src/ui/form/index.ts',
+  'pagination/index': 'src/ui/pagination/index.ts',
+  'popover/index': 'src/ui/popover/index.ts',
+  'scroll-area/index': 'src/ui/scroll-area/index.ts',
+  'separator/index': 'src/ui/separator/index.ts',
+  'sheet/index': 'src/ui/sheet/index.ts',
+  'skeleton/index': 'src/ui/skeleton/index.ts',
+  'tab/index': 'src/ui/tab/index.ts',
+  'table/index': 'src/ui/table/index.ts',
+  'tooltip/index': 'src/ui/tooltip/index.ts',
+  'progress/index': 'src/ui/progress/index.ts',
+};
+
+const external = [
+  'react',
+  'react-dom',
+  'react/jsx-runtime',
+  'i18next',
+  'react-i18next',
+  'dayjs',
+  'lucide-react',
+  'react-hook-form',
+  'tailwindcss',
+  'tailwindcss-animate',
+];
+
 export default defineConfig({
   plugins: [
     react(),
@@ -12,8 +52,8 @@ export default defineConfig({
     dtsPlugin({
       include: ['src/**/*'],
       exclude: ['src/**/*.test.*', 'src/**/*.spec.*'],
-      outDir: 'dist',
-      insertTypesEntry: true,
+      outDir: 'dist/types',
+      tsconfigPath: './tsconfig.json',
     }),
   ],
   test: {
@@ -22,59 +62,32 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
   },
   build: {
+    sourcemap: true,
+    minify: 'esbuild',
     lib: {
-      entry: {
-        index: resolve(__dirname, 'src/index.ts'),
-        'alert/index': resolve(__dirname, 'src/ui/alert/index.ts'),
-        'alert-dialog/index': resolve(
-          __dirname,
-          'src/ui/alert-dialog/index.ts'
-        ),
-        'avatar/index': resolve(__dirname, 'src/ui/avatar/index.ts'),
-        'accordion/index': resolve(__dirname, 'src/ui/accordion/index.ts'),
-        'badge/index': resolve(__dirname, 'src/ui/badge/index.ts'),
-        'breadcrumb/index': resolve(__dirname, 'src/ui/breadcrumb/index.ts'),
-        'button/index': resolve(__dirname, 'src/ui/button/index.ts'),
-        'card/index': resolve(__dirname, 'src/ui/card/index.ts'),
-        'calendar/index': resolve(__dirname, 'src/ui/calendar/index.ts'),
-        'collapsible/index': resolve(__dirname, 'src/ui/collapsible/index.ts'),
-        'dialog/index': resolve(__dirname, 'src/ui/dialog/index.ts'),
-        'dropdown/index': resolve(__dirname, 'src/ui/dropdown/index.ts'),
-        'form/index': resolve(__dirname, 'src/ui/form/index.ts'),
-        'pagination/index': resolve(__dirname, 'src/ui/pagination/index.ts'),
-        'popover/index': resolve(__dirname, 'src/ui/popover/index.ts'),
-        'scroll-area/index': resolve(__dirname, 'src/ui/scroll-area/index.ts'),
-        'separator/index': resolve(__dirname, 'src/ui/separator/index.ts'),
-        'sheet/index': resolve(__dirname, 'src/ui/sheet/index.ts'),
-        'skeleton/index': resolve(__dirname, 'src/ui/skeleton/index.ts'),
-        'tab/index': resolve(__dirname, 'src/ui/tab/index.ts'),
-        'table/index': resolve(__dirname, 'src/ui/table/index.ts'),
-        'tooltip/index': resolve(__dirname, 'src/ui/tooltip/index.ts'),
-        'progress/index': resolve(__dirname, 'src/ui/progress/index.ts'),
-      },
+      entry: Object.fromEntries(
+        Object.entries(entries).map(([key, value]) => [
+          key,
+          resolve(__dirname, value),
+        ])
+      ),
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'i18next',
-        'react-i18next',
-        'dayjs',
-        'lucide-react',
-        'react-hook-form',
-        'tailwindcss',
-        'tailwindcss-animate',
-      ],
+      external: (id) =>
+        external.some((ext) => id === ext || id.startsWith(`${ext}/`)),
       output: [
         {
           format: 'es',
           dir: 'dist',
           entryFileNames: '[name].es.js',
+          chunkFileNames: 'chunks/[name]-[hash].es.js',
         },
         {
           format: 'cjs',
           dir: 'dist',
-          entryFileNames: '[name].umd.js',
+          entryFileNames: '[name].cjs.js',
+          chunkFileNames: 'chunks/[name]-[hash].cjs.js',
+          interop: 'auto',
         },
       ],
     },
