@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
@@ -150,11 +150,93 @@
     "./types": {
       "types": "./dist/types/types/index.d.ts"
     },
-    "./styles.css": "./dist/style.css"
+    "./styles.css": "./dist/styles.css"
   },
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types/index.d.ts"
+      ],
+      "accordion": [
+        "./dist/types/ui/accordion/index.d.ts"
+      ],
+      "alert": [
+        "./dist/types/ui/alert/index.d.ts"
+      ],
+      "alert-dialog": [
+        "./dist/types/ui/alert-dialog/index.d.ts"
+      ],
+      "avatar": [
+        "./dist/types/ui/avatar/index.d.ts"
+      ],
+      "badge": [
+        "./dist/types/ui/badge/index.d.ts"
+      ],
+      "breadcrumb": [
+        "./dist/types/ui/breadcrumb/index.d.ts"
+      ],
+      "button": [
+        "./dist/types/ui/button/index.d.ts"
+      ],
+      "card": [
+        "./dist/types/ui/card/index.d.ts"
+      ],
+      "calendar": [
+        "./dist/types/ui/calendar/index.d.ts"
+      ],
+      "collapsible": [
+        "./dist/types/ui/collapsible/index.d.ts"
+      ],
+      "dialog": [
+        "./dist/types/ui/dialog/index.d.ts"
+      ],
+      "dropdown": [
+        "./dist/types/ui/dropdown/index.d.ts"
+      ],
+      "form": [
+        "./dist/types/ui/form/index.d.ts"
+      ],
+      "pagination": [
+        "./dist/types/ui/pagination/index.d.ts"
+      ],
+      "popover": [
+        "./dist/types/ui/popover/index.d.ts"
+      ],
+      "scroll-area": [
+        "./dist/types/ui/scroll-area/index.d.ts"
+      ],
+      "separator": [
+        "./dist/types/ui/separator/index.d.ts"
+      ],
+      "sheet": [
+        "./dist/types/ui/sheet/index.d.ts"
+      ],
+      "skeleton": [
+        "./dist/types/ui/skeleton/index.d.ts"
+      ],
+      "tab": [
+        "./dist/types/ui/tab/index.d.ts"
+      ],
+      "table": [
+        "./dist/types/ui/table/index.d.ts"
+      ],
+      "tooltip": [
+        "./dist/types/ui/tooltip/index.d.ts"
+      ],
+      "progress": [
+        "./dist/types/ui/progress/index.d.ts"
+      ],
+      "utils": [
+        "./dist/types/lib/index.d.ts"
+      ],
+      "types": [
+        "./dist/types/types/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
@@ -236,13 +318,13 @@
     "vitest": "^3.1.4"
   },
   "peerDependencies": {
-    "dayjs": "^1.11.13",
-    "i18next": "^25.7.4",
+    "dayjs": "^1.11.19",
+    "i18next": "^25.8.0",
     "lucide-react": "^0.563.0",
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
     "react-hook-form": "^7.71.1",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.1.18"
   },
   "peerDependenciesMeta": {
     "dayjs": {
