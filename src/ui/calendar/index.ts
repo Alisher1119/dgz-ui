@@ -1,3 +1,3 @@
-export * from './calendar.tsx';
-export * from './datepicker.tsx';
-export * from './timepicker.tsx';
+export * from './calendar';
+export * from './datepicker';
+export * from './timepicker';

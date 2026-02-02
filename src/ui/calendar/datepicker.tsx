@@ -1,10 +1,10 @@
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib';
-import { dayjs } from '../../lib/day.ts';
+import { dayjs } from '../../lib/day';
 import { Button } from '../button';
 import { Popover, PopoverContent, PopoverTrigger } from '../popover';
-import { Calendar } from './calendar.tsx';
+import { Calendar } from './calendar';
 
 /**
  * DatePicker - Simple date picker composed from Button, Popover, and Calendar.

@@ -26,7 +26,7 @@ export * from './ui/table';
 export * from './ui/tooltip';
 
 // Util functions
-export * from './lib/utils.ts';
-export * from './types/element-data.type.ts';
+export * from './lib/utils';
+export * from './types/element-data.type';
 
 import './index.css';

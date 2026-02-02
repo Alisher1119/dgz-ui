@@ -16,7 +16,7 @@ import {
   type UseFormRegister,
 } from 'react-hook-form';
 import { cn } from '../../lib';
-import { Label } from './label.tsx';
+import { Label } from './label';
 
 /**
  * Common props for form field wrappers.

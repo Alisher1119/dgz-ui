@@ -1,1 +1,1 @@
-export * from './element-data.type.ts';
+export * from './element-data.type';

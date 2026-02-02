@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib';
-import { inputVariants } from './input.tsx';
+import { inputVariants } from './input';
 
 /**
  * Props for the Textarea component.

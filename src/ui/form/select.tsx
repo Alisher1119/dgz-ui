@@ -4,7 +4,7 @@ import * as React from 'react';
 import { type CSSProperties, useRef } from 'react';
 import { FixedSizeList, FixedSizeList as List } from 'react-window';
 import { cn } from '../../lib';
-import type { Option } from './react-select.tsx';
+import type { Option } from './react-select';
 
 /**
  * Select primitives built on Radix Select for accessible dropdowns.

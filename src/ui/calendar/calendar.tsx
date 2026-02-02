@@ -18,7 +18,7 @@ import { Button, buttonVariants } from '../button';
 
 import { useTranslation } from 'react-i18next';
 import { cn } from '../../lib';
-import { dayjs } from '../../lib/day.ts';
+import { dayjs } from '../../lib/day';
 
 /**
  * Default date format string used by the Calendar component with dayjs.
