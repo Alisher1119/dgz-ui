@@ -15,6 +15,7 @@ const uiComponents = [
   'button',
   'card',
   'calendar',
+  'carousel',
   'collapsible',
   'dialog',
   'dropdown',

@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
@@ -71,6 +71,11 @@
       "types": "./dist/types/ui/calendar/index.d.ts",
       "import": "./dist/calendar/index.es.js",
       "require": "./dist/calendar/index.cjs.js"
+    },
+    "./carousel": {
+      "types": "./dist/types/ui/carousel/index.d.ts",
+      "import": "./dist/carousel/index.es.js",
+      "require": "./dist/carousel/index.cjs.js"
     },
     "./collapsible": {
       "types": "./dist/types/ui/collapsible/index.d.ts",
@@ -187,6 +192,9 @@
       "calendar": [
         "./dist/types/ui/calendar/index.d.ts"
       ],
+      "carousel": [
+        "./dist/types/ui/carousel/index.d.ts"
+      ],
       "collapsible": [
         "./dist/types/ui/collapsible/index.d.ts"
       ],
@@ -280,6 +288,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
+    "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.563.0",
     "react-day-picker": "^9.7.0",
     "react-hook-form": "^7.71.1",
