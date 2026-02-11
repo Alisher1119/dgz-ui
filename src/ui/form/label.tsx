@@ -14,7 +14,7 @@ const labelVariants = cva(
 
 /**
  * Label - Accessible form label built on Radix Label.
- *
+ * @returns {JSX.Element} The rendered Label component.
  * @component
  */
 const Label = React.forwardRef<

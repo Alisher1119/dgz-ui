@@ -12,7 +12,7 @@ type RadioGroupProps = React.ComponentPropsWithoutRef<
 
 /**
  * RadioGroup - Group of radio inputs that allows selecting a single option.
- *
+ * @returns {JSX.Element} The rendered RadioGroup component.
  * @component
  */
 const RadioGroup = React.forwardRef<
@@ -31,6 +31,7 @@ RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 /**
  * RadioGroupItem - Individual radio option used within RadioGroup.
+ * @returns {JSX.Element} The rendered RadioGroupItem component.
  */
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,

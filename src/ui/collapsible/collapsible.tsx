@@ -4,6 +4,7 @@ import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 
 /**
  * Collapsible - Wrapper over Radix Collapsible.Root for show/hide sections.
+ * @returns {JSX.Element} The rendered Collapsible component.
  */
 function Collapsible({
   ...props
@@ -13,6 +14,7 @@ function Collapsible({
 
 /**
  * CollapsibleTrigger - Control used to toggle the collapsible section.
+ * @returns {JSX.Element} The rendered CollapsibleTrigger component.
  */
 function CollapsibleTrigger({
   ...props
@@ -27,6 +29,7 @@ function CollapsibleTrigger({
 
 /**
  * CollapsibleContent - The collapsible content region.
+ * @returns {JSX.Element} The rendered CollapsibleContent component.
  */
 function CollapsibleContent({
   ...props

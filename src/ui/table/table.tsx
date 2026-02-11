@@ -8,6 +8,7 @@ import { cn } from '../../lib';
 
 /**
  * Table - Semantic table container with default styling.
+ * @returns {JSX.Element} The rendered Table component.
  */
 const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
@@ -22,6 +23,7 @@ Table.displayName = 'Table';
 
 /**
  * TableHeader - Wrapper for the thead element.
+ * @returns {JSX.Element} The rendered TableHeader component.
  */
 const TableHeader = forwardRef<
   HTMLTableSectionElement,
@@ -33,6 +35,7 @@ TableHeader.displayName = 'TableHeader';
 
 /**
  * TableBody - Wrapper for the tbody element.
+ * @returns {JSX.Element} The rendered TableBody component.
  */
 const TableBody = forwardRef<
   HTMLTableSectionElement,
@@ -48,6 +51,7 @@ TableBody.displayName = 'TableBody';
 
 /**
  * TableFooter - Wrapper for the tfoot element.
+ * @returns {JSX.Element} The rendered TableFooter component.
  */
 const TableFooter = forwardRef<
   HTMLTableSectionElement,
@@ -66,6 +70,7 @@ TableFooter.displayName = 'TableFooter';
 
 /**
  * TableRow - Styled tr element.
+ * @returns {JSX.Element} The rendered TableRow component.
  */
 const TableRow = forwardRef<
   HTMLTableRowElement,
@@ -84,6 +89,7 @@ TableRow.displayName = 'TableRow';
 
 /**
  * TableHead - Styled th element.
+ * @returns {JSX.Element} The rendered TableHead component.
  */
 const TableHead = forwardRef<
   HTMLTableCellElement,
@@ -102,6 +108,7 @@ TableHead.displayName = 'TableHead';
 
 /**
  * TableCell - Styled td element.
+ * @returns {JSX.Element} The rendered TableCell component.
  */
 const TableCell = forwardRef<
   HTMLTableCellElement,
@@ -117,6 +124,7 @@ TableCell.displayName = 'TableCell';
 
 /**
  * TableCaption - Styled caption element.
+ * @returns {JSX.Element} The rendered TableCaption component.
  */
 const TableCaption = forwardRef<
   HTMLTableCaptionElement,

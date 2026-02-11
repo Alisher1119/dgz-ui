@@ -4,6 +4,8 @@ import { cn } from '../../lib';
 
 /**
  * Props for the Switch component. Extends Radix Switch Root props.
+ * @property {boolean} [checked] - The checked state of the switch.
+ * @property {boolean} [disabled] - If true, the switch will be disabled.
  */
 export type SwitchProps = React.ComponentPropsWithoutRef<
   typeof SwitchPrimitives.Root
@@ -11,7 +13,7 @@ export type SwitchProps = React.ComponentPropsWithoutRef<
 
 /**
  * Switch - A toggle control for binary options.
- *
+ * @returns {JSX.Element} The rendered Switch component.
  * @component
  */
 const Switch = React.forwardRef<

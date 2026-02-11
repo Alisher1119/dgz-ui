@@ -11,6 +11,13 @@ type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
 type CarouselPlugin = UseCarouselParameters[1];
 
+/**
+ * @typedef {object} CarouselProps
+ * @property {CarouselOptions} [opts] - Options for the Embla Carousel.
+ * @property {CarouselPlugin} [plugins] - Plugins for the Embla Carousel.
+ * @property {'horizontal' | 'vertical'} [orientation='horizontal'] - The orientation of the carousel.
+ * @property {(api: CarouselApi) => void} [setApi] - Callback to get the Embla Carousel API.
+ */
 type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
@@ -18,6 +25,15 @@ type CarouselProps = {
   setApi?: (api: CarouselApi) => void;
 };
 
+/**
+ * @typedef {object} CarouselContextProps
+ * @property {ReturnType<typeof useEmblaCarousel>[0]} carouselRef - The ref for the carousel container.
+ * @property {ReturnType<typeof useEmblaCarousel>[1]} api - The Embla Carousel API instance.
+ * @property {() => void} scrollPrev - Function to scroll to the previous slide.
+ * @property {() => void} scrollNext - Function to scroll to the next slide.
+ * @property {boolean} canScrollPrev - Indicates if there is a previous slide to scroll to.
+ * @property {boolean} canScrollNext - Indicates if there is a next slide to scroll to.
+ */
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
   api: ReturnType<typeof useEmblaCarousel>[1];
@@ -29,6 +45,11 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
+/**
+ * Custom hook to access the Carousel context.
+ * @returns {CarouselContextProps} The carousel context.
+ * @throws {Error} if used outside of a Carousel component.
+ */
 function useCarousel() {
   const context = React.useContext(CarouselContext);
 
@@ -39,6 +60,18 @@ function useCarousel() {
   return context;
 }
 
+/**
+ * A flexible and extensible carousel component built with Embla Carousel.
+ * @augments {React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & CarouselProps & React.RefAttributes<HTMLDivElement>>}
+ * @param {object} props - The props for the Carousel component.
+ * @param {'horizontal' | 'vertical'} [props.orientation='horizontal'] - The orientation of the carousel.
+ * @param {CarouselOptions} [props.opts] - Options for the Embla Carousel.
+ * @param {(api: CarouselApi) => void} [props.setApi] - Callback to get the Embla Carousel API.
+ * @param {CarouselPlugin} [props.plugins] - Plugins for the Embla Carousel.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {React.ReactNode} [props.children] - The child elements to be rendered within the carousel.
+ * @returns {JSX.Element} The Carousel component.
+ */
 const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
@@ -147,6 +180,14 @@ const Carousel = React.forwardRef<
 );
 Carousel.displayName = 'Carousel';
 
+/**
+ * Renders the content of the carousel.
+ * @augments {React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>}
+ * @param {object} props - The props for the CarouselContent component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {React.ReactNode} [props.children] - The child elements (CarouselItems) to be rendered.
+ * @returns {JSX.Element} The CarouselContent component.
+ */
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -169,6 +210,14 @@ const CarouselContent = React.forwardRef<
 });
 CarouselContent.displayName = 'CarouselContent';
 
+/**
+ * Represents an individual item or slide within the CarouselContent.
+ * @augments {React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>}
+ * @param {object} props - The props for the CarouselItem component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {React.ReactNode} [props.children] - The content of the carousel item.
+ * @returns {JSX.Element} The CarouselItem component.
+ */
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -191,6 +240,15 @@ const CarouselItem = React.forwardRef<
 });
 CarouselItem.displayName = 'CarouselItem';
 
+/**
+ * Navigation button for the carousel to go to the previous slide.
+ * @augments {React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>}
+ * @param {object} props - The props for the CarouselPrevious component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'} [props.variant='outline'] - The visual style of the button.
+ * @param {'default' | 'sm' | 'lg' | 'icon'} [props.size='icon'] - The size of the button.
+ * @returns {JSX.Element} The CarouselPrevious component.
+ */
 const CarouselPrevious = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size = 'icon', ...props }, ref) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
@@ -219,6 +277,15 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 CarouselPrevious.displayName = 'CarouselPrevious';
 
+/**
+ * Navigation button for the carousel to go to the next slide.
+ * @augments {React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>}
+ * @param {object} props - The props for the CarouselNext component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'} [props.variant='outline'] - The visual style of the button.
+ * @param {'default' | 'sm' | 'lg' | 'icon'} [props.size='icon'] - The size of the button.
+ * @returns {JSX.Element} The CarouselNext component.
+ */
 const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size = 'icon', ...props }, ref) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();

@@ -20,6 +20,7 @@ const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 /**
  * AlertDialogOverlay - Background overlay for the alert dialog.
+ * @returns {JSX.Element} The rendered AlertDialogOverlay component.
  */
 const AlertDialogOverlay = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
@@ -38,6 +39,7 @@ AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
 /**
  * AlertDialogContent - Modal content container for the alert dialog.
+ * @returns {JSX.Element} The rendered AlertDialogContent component.
  */
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
@@ -59,6 +61,7 @@ AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
 /**
  * AlertDialogHeader - Container for the dialog header.
+ * @returns {JSX.Element} The rendered AlertDialogHeader component.
  */
 const AlertDialogHeader = ({
   className,
@@ -76,6 +79,7 @@ AlertDialogHeader.displayName = 'AlertDialogHeader';
 
 /**
  * AlertDialogFooter - Container for footer actions.
+ * @returns {JSX.Element} The rendered AlertDialogFooter component.
  */
 const AlertDialogFooter = ({
   className,
@@ -87,6 +91,7 @@ AlertDialogFooter.displayName = 'AlertDialogFooter';
 
 /**
  * AlertDialogTitle - Accessible title for the alert dialog.
+ * @returns {JSX.Element} The rendered AlertDialogTitle component.
  */
 const AlertDialogTitle = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Title>,
@@ -102,6 +107,7 @@ AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
 
 /**
  * AlertDialogDescription - Additional descriptive text.
+ * @returns {JSX.Element} The rendered AlertDialogDescription component.
  */
 const AlertDialogDescription = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Description>,
@@ -118,6 +124,7 @@ AlertDialogDescription.displayName =
 
 /**
  * AlertDialogAction - Confirm action button.
+ * @returns {JSX.Element} The rendered AlertDialogAction component.
  */
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
@@ -133,6 +140,7 @@ AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 
 /**
  * AlertDialogCancel - Cancel action button.
+ * @returns {JSX.Element} The rendered AlertDialogCancel component.
  */
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,

@@ -19,7 +19,7 @@ export interface BreadcrumbInterface {
 
 /**
  * Root breadcrumb navigation component. Provides aria-label and forwards ref to a <nav> element.
- *
+ * @returns {JSX.Element} The rendered Breadcrumb component.
  * @component
  */
 const Breadcrumb = React.forwardRef<
@@ -32,7 +32,7 @@ Breadcrumb.displayName = 'Breadcrumb';
 
 /**
  * Ordered list that lays out breadcrumb items.
- *
+ * @returns {JSX.Element} The rendered BreadcrumbList component.
  * @component
  */
 const BreadcrumbList = React.forwardRef<
@@ -49,7 +49,7 @@ BreadcrumbList.displayName = 'BreadcrumbList';
 
 /**
  * Single breadcrumb list item container.
- *
+ * @returns {JSX.Element} The rendered BreadcrumbItem component.
  * @component
  */
 const BreadcrumbItem = React.forwardRef<
@@ -67,7 +67,7 @@ BreadcrumbItem.displayName = 'BreadcrumbItem';
 /**
  * Non-clickable breadcrumb page indicator for the current route.
  * Renders a span with aria-current="page".
- *
+ * @returns {JSX.Element} The rendered BreadcrumbPage component.
  * @component
  */
 const BreadcrumbPage = React.forwardRef<
@@ -88,6 +88,7 @@ BreadcrumbPage.displayName = 'BreadcrumbPage';
 /**
  * Separator element displayed between breadcrumb items.
  * Defaults to a right arrow icon when no children are provided.
+ * @returns {JSX.Element} The rendered BreadcrumbSeparator component.
  */
 const BreadcrumbSeparator = ({
   children,
@@ -107,6 +108,7 @@ BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
 
 /**
  * Ellipsis component to indicate collapsed breadcrumb items.
+ * @returns {JSX.Element} The rendered BreadcrumbEllipsis component.
  */
 const BreadcrumbEllipsis = ({
   className,
@@ -122,7 +124,7 @@ const BreadcrumbEllipsis = ({
     <span className="sr-only">More</span>
   </span>
 );
-BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
+BreadcrumbEllipsis.displayName = 'BreadcrumbEllipsis';
 
 export {
   Breadcrumb,

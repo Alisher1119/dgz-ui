@@ -4,7 +4,7 @@ import { cn } from '../../lib';
 
 /**
  * ScrollArea - Container providing custom scrollbars for overflowing content.
- *
+ * @returns {JSX.Element} The rendered ScrollArea component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the scroll area.
  * @param {React.ReactNode} [props.children] - The content to be rendered inside the scroll area.
@@ -29,7 +29,7 @@ ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
 /**
  * ScrollBar - Styled scrollbar that adapts to orientation.
- *
+ * @returns {JSX.Element} The rendered ScrollBar component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the scrollbar.
  * @param {'vertical' | 'horizontal'} [props.orientation='vertical'] - The orientation of the scrollbar.

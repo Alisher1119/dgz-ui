@@ -17,6 +17,7 @@ export type TextareaProps = React.ComponentProps<'textarea'> &
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the textarea.
  * @param {string} [props.variant] - The variant of the textarea.
+ * @returns {JSX.Element} The rendered Textarea component.
  */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, variant, ...props }, ref) => {

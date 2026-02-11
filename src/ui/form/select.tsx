@@ -8,6 +8,24 @@ import type { Option } from './react-select';
 
 /**
  * Select primitives built on Radix Select for accessible dropdowns.
+ * @example
+ * ```tsx
+ * <Select>
+ *   <SelectTrigger className="w-[180px]">
+ *     <SelectValue placeholder="Select a fruit" />
+ *   </SelectTrigger>
+ *   <SelectContent>
+ *     <SelectGroup>
+ *       <SelectLabel>Fruits</SelectLabel>
+ *       <SelectItem value="apple">Apple</SelectItem>
+ *       <SelectItem value="banana">Banana</SelectItem>
+ *       <SelectItem value="blueberry">Blueberry</SelectItem>
+ *       <SelectItem value="grapes">Grapes</SelectItem>
+ *       <SelectItem value="pineapple">Pineapple</SelectItem>
+ *     </SelectGroup>
+ *   </SelectContent>
+ * </Select>
+ * ```
  */
 const Select = SelectPrimitive.Root;
 
@@ -26,6 +44,13 @@ export type SelectTriggerProps = React.ComponentPropsWithoutRef<
 
 /**
  * SelectTrigger - The trigger button for the Select.
+ * @returns {JSX.Element} The rendered SelectTrigger component.
+ * @example
+ * ```tsx
+ * <SelectTrigger className="w-[180px]">
+ *   <SelectValue placeholder="Select a fruit" />
+ * </SelectTrigger>
+ * ```
  */
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -51,6 +76,7 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 /**
  * SelectScrollUpButton - Scrolls the Select viewport up.
+ * @returns {JSX.Element} The rendered SelectScrollUpButton component.
  */
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
@@ -71,6 +97,7 @@ SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 /**
  * SelectScrollDownButton - Scrolls the Select viewport down.
+ * @returns {JSX.Element} The rendered SelectScrollDownButton component.
  */
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
@@ -92,6 +119,7 @@ SelectScrollDownButton.displayName =
 
 /**
  * SelectContent - Popup container for Select options.
+ * @returns {JSX.Element} The rendered SelectContent component.
  */
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -127,6 +155,7 @@ SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 /**
  * SelectLabel - Label for a group of Select items.
+ * @returns {JSX.Element} The rendered SelectLabel component.
  */
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
@@ -142,6 +171,7 @@ SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 /**
  * SelectItem - A single option row within the Select.
+ * @returns {JSX.Element} The rendered SelectItem component.
  */
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
@@ -168,6 +198,7 @@ SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 /**
  * SelectSeparator - Visual separator within the list of Select options.
+ * @returns {JSX.Element} The rendered SelectSeparator component.
  */
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
@@ -190,6 +221,18 @@ export type VirtualizedSelectContentProps = Omit<
   options: Option[];
 };
 
+/**
+ * VirtualizedSelectContent - A virtualized popup container for Select options, optimized for large lists.
+ * Uses `react-window` for efficient rendering.
+ * @augments {React.ForwardRefExoticComponent<Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>, 'children'> & {itemHeight?: number;maxHeight?: number;options: Option[];} & React.RefAttributes<HTMLDivElement>>}
+ * @param {object} props - The props for the VirtualizedSelectContent component.
+ * @param {string} [props.className] - Additional CSS classes.
+ * @param {Option[]} props.options - The array of options to display in the select.
+ * @param {'popper' | 'item-aligned'} [props.position='popper'] - The positioning strategy for the content.
+ * @param {number} [props.itemHeight=35] - The height of each item in the virtualized list.
+ * @param {number} [props.maxHeight=300] - The maximum height of the virtualized list.
+ * @returns {JSX.Element} The rendered VirtualizedSelectContent component.
+ */
 const VirtualizedSelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   VirtualizedSelectContentProps

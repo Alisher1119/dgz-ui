@@ -67,7 +67,7 @@ export interface TabsListProps
 /**
  * Displays a list of tab triggers with optional segmented, line, and scrollable variants.
  * When scrollable, left/right buttons appear when content overflows.
- *
+ * @returns {JSX.Element} The rendered TabsList component.
  * @component
  */
 const TabsList = forwardRef<
@@ -207,6 +207,7 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 /**
  * A single tab trigger/button.
  * Forwards refs to Radix Tabs.Trigger.
+ * @returns {JSX.Element} The rendered TabsTrigger component.
  */
 const TabsTrigger = forwardRef<
   ElementRef<typeof TabsPrimitive.Trigger>,
@@ -228,6 +229,7 @@ TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 /**
  * Content panel associated with a TabsTrigger.
  * Forwards refs to Radix Tabs.Content.
+ * @returns {JSX.Element} The rendered TabsContent component.
  */
 const TabsContent = forwardRef<
   ElementRef<typeof TabsPrimitive.Content>,

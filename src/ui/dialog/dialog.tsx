@@ -18,6 +18,7 @@ const DialogClose = DialogPrimitive.Close;
 
 /**
  * Full-screen overlay that appears behind the dialog content.
+ * @returns {JSX.Element} The rendered DialogOverlay component.
  */
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
@@ -37,11 +38,15 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 export type DialogContentProps = React.ComponentPropsWithoutRef<
   typeof DialogPrimitive.Content
 > & {
+  /**
+   * If true, a close button will be rendered inside the dialog content.
+   */
   hasCloseButton?: true;
 };
 
 /**
  * The main dialog content container positioned in the viewport center.
+ * @returns {JSX.Element} The rendered DialogContent component.
  */
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -71,6 +76,7 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 /**
  * Container for dialog header content (title, actions).
+ * @returns {JSX.Element} The rendered DialogHeader component.
  */
 const DialogHeader = ({
   className,
@@ -88,6 +94,7 @@ DialogHeader.displayName = 'DialogHeader';
 
 /**
  * Container for dialog footer actions.
+ * @returns {JSX.Element} The rendered DialogFooter component.
  */
 const DialogFooter = ({
   className,
@@ -105,6 +112,7 @@ DialogFooter.displayName = 'DialogFooter';
 
 /**
  * DialogTitle - The accessible dialog title.
+ * @returns {JSX.Element} The rendered DialogTitle component.
  */
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -123,6 +131,7 @@ DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
 /**
  * DialogDescription - Additional descriptive text for the dialog.
+ * @returns {JSX.Element} The rendered DialogDescription component.
  */
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
@@ -139,6 +148,13 @@ DialogDescription.displayName = DialogPrimitive.Description.displayName;
 /**
  * Props aggregation for components that wrap Dialog primitives.
  * Useful for high-level components needing to forward props to specific Dialog parts.
+ */
+/**
+ * Props aggregation for components that wrap Dialog primitives.
+ * Useful for high-level components needing to forward props to specific Dialog parts.
+ * @property {React.ComponentPropsWithoutRef<typeof DialogTrigger> & ElementDataType} [triggerProps] - Props for the DialogTrigger component.
+ * @property {React.ComponentPropsWithoutRef<typeof DialogContent> & ElementDataType} [contentProps] - Props for the DialogContent component.
+ * @property {React.ComponentPropsWithoutRef<typeof DialogClose> & ElementDataType} [closeProps] - Props for the DialogClose component.
  */
 interface DialogContainerProps {
   triggerProps?: React.ComponentPropsWithoutRef<typeof DialogTrigger> &

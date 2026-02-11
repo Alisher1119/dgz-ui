@@ -5,7 +5,7 @@ import { type ButtonProps, buttonVariants } from '../button';
 
 /**
  * Pagination - Navigation component for paginated content.
- *
+ * @returns {JSX.Element} The rendered Pagination component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination component.
  */
@@ -21,7 +21,7 @@ Pagination.displayName = 'Pagination';
 
 /**
  * PaginationContent - Wrapper list for pagination items.
- *
+ * @returns {JSX.Element} The rendered PaginationContent component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination content component.
  */
@@ -39,7 +39,7 @@ PaginationContent.displayName = 'PaginationContent';
 
 /**
  * PaginationItem - List item wrapper.
- *
+ * @returns {JSX.Element} The rendered PaginationItem component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination item component.
  */
@@ -63,7 +63,7 @@ type PaginationLinkProps = {
 
 /**
  * PaginationLink - A styled anchor used as a pagination control.
- *
+ * @returns {JSX.Element} The rendered PaginationLink component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination link component.
  * @param {boolean} [props.isActive] - Marks the current page.
@@ -92,7 +92,7 @@ PaginationLink.displayName = 'PaginationLink';
 
 /**
  * PaginationPrevious - Button to navigate to previous page.
- *
+ * @returns {JSX.Element} The rendered PaginationPrevious component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination previous component.
  */
@@ -113,7 +113,7 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 
 /**
  * PaginationNext - Button to navigate to next page.
- *
+ * @returns {JSX.Element} The rendered PaginationNext component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination next component.
  */
@@ -134,7 +134,7 @@ PaginationNext.displayName = 'PaginationNext';
 
 /**
  * PaginationEllipsis - Non-interactive indicator for collapsed pages.
- *
+ * @returns {JSX.Element} The rendered PaginationEllipsis component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the pagination ellipsis component.
  */

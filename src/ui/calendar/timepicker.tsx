@@ -17,7 +17,10 @@ export const MINUTE = 'mm';
 /** Combined time format string (HH:mm). */
 export const TIME = `${HOUR}:${MINUTE}`;
 
-/** Internal time state used by the picker. */
+/** Internal time state used by the picker.
+ * @property {string} hour - The hour value (HH).
+ * @property {string} minute - The minute value (mm).
+ */
 export interface TimeState {
   hour: string;
   minute: string;
@@ -43,7 +46,7 @@ export interface TimePickerProps
 
 /**
  * TimePicker - Hour/minute selector that emits time as HH:MM string.
- *
+ * @returns {JSX.Element} The rendered TimePicker component.
  * @component
  */
 export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(

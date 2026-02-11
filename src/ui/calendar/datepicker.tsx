@@ -9,7 +9,7 @@ import { Calendar } from './calendar';
 /**
  * DatePicker - Simple date picker composed from Button, Popover, and Calendar.
  * Maintains its own local date state and displays formatted value.
- *
+ * @returns {JSX.Element} The rendered DatePicker component.
  * @component
  */
 export function DatePicker() {

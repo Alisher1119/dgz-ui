@@ -9,6 +9,11 @@ import { Button } from '../button';
 /**
  * Input style variants using CVA.
  * @property {'default'|'failure'} variant - Visual state of the input.
+ * @example
+ * ```tsx
+ * <Input variant="default" />
+ * <Input variant="failure" />
+ * ```
  */
 const inputVariants = cva(
   cn(
@@ -32,6 +37,9 @@ const inputVariants = cva(
 
 /**
  * Props for the Input component.
+ * @property {string} [className] - Additional CSS classes for the input.
+ * @property {string} [type='text'] - The type of the input (e.g., 'text', 'password', 'email').
+ * @property {'default'|'failure'} [variant='default'] - Visual state of the input, mapping to `inputVariants`.
  */
 export interface InputProps
   extends React.ComponentProps<'input'>,
@@ -39,6 +47,11 @@ export interface InputProps
 
 /**
  * Input - Text input with optional password visibility toggle.
+ * @returns {JSX.Element} The rendered Input component.
+ * @example
+ * ```tsx
+ * <Input placeholder="Enter your name" />
+ * ```
  */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, variant, ...props }, ref) => {

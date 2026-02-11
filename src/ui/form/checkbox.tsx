@@ -6,6 +6,8 @@ import { cn } from '../../lib';
 
 /**
  * Props for the Checkbox component. Extends Radix Checkbox Root props.
+ * @property {boolean | 'indeterminate'} [checked] - The checked state of the checkbox.
+ * @property {boolean} [disabled] - If true, the checkbox will be disabled.
  */
 export type CheckboxProps = React.ComponentPropsWithoutRef<
   typeof CheckboxPrimitive.Root
@@ -13,7 +15,7 @@ export type CheckboxProps = React.ComponentPropsWithoutRef<
 
 /**
  * Checkbox - An accessible checkbox with indeterminate state support.
- *
+ * @returns {JSX.Element} The rendered Checkbox component.
  * @component
  */
 const Checkbox = React.forwardRef<

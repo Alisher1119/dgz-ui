@@ -4,7 +4,7 @@ import { cn } from '../../lib';
 
 /**
  * Separator - Visual divider for groups of content.
- *
+ * @returns {JSX.Element} The rendered Separator component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the separator.
  * @param {'horizontal' | 'vertical'} [props.orientation='horizontal'] - The orientation of the separator.

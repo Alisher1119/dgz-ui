@@ -15,6 +15,7 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
 
 /**
  * TooltipContent - The floating label content for tooltips.
+ * @returns {JSX.Element} The rendered TooltipContent component.
  */
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,

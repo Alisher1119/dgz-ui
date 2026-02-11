@@ -12,7 +12,7 @@ const PopoverTrigger = PopoverPrimitive.Trigger;
 
 /**
  * PopoverContent - The floating panel that appears near the trigger.
- *
+ * @returns {JSX.Element} The rendered PopoverContent component.
  * @param {object} props - The properties for the component.
  * @param {string} [props.className] - Additional classes for the popover content.
  * @param {'start' | 'center' | 'end'} [props.align='center'] - The alignment of the popover content relative to the trigger.
@@ -40,6 +40,8 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 /**
  * Props aggregation for components that wrap Popover primitives.
  * Useful for high-level components needing to forward props to specific Popover parts.
+ * @property {React.ComponentPropsWithoutRef<typeof PopoverTrigger> & ElementDataType} [triggerProps] - Props for the PopoverTrigger component.
+ * @property {React.ComponentPropsWithoutRef<typeof PopoverContent> & ElementDataType} [contentProps] - Props for the PopoverContent component.
  */
 interface PopoverContainerProps {
   triggerProps?: React.ComponentPropsWithoutRef<typeof PopoverTrigger> &
