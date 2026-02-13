@@ -1,5 +1,6 @@
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { cn } from '../../lib';
 import { dayjs } from '../../lib/day';
 import { Button } from '../button';
@@ -13,6 +14,7 @@ import { Calendar } from './calendar';
  * @component
  */
 export function DatePicker() {
+  const { t } = useTranslation();
   const [date, setDate] = useState<Date | string | undefined>(new Date());
 
   return (
@@ -26,7 +28,11 @@ export function DatePicker() {
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? dayjs(date).format('DD-MM-YYYY') : <span>Pick a date</span>}
+          {date ? (
+            dayjs(date).format('DD-MM-YYYY')
+          ) : (
+            <span>{t('Pick a date')}</span>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
