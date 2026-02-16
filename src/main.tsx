@@ -1,4 +1,3 @@
-import 'dgz-ui/dist/dgz-ui.css';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';

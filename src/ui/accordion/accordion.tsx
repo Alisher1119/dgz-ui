@@ -13,13 +13,15 @@ import { cn } from '../../lib';
  * Accessibility:
  * - Behaves according to the underlying Radix primitive, which follows WAI-ARIA practices.
  *
- * Example:
+ * @example
+ * ```tsx
  * <Accordion type="single" collapsible defaultValue="item-1">
  *   <AccordionItem value="item-1">
  *     <AccordionTrigger>Title</AccordionTrigger>
  *     <AccordionContent>Body</AccordionContent>
  *   </AccordionItem>
  * </Accordion>
+ * ```
  *
  * @param props - All props supported by `@radix-ui/react-accordion` Root component.
  * @returns The Accordion root element.
