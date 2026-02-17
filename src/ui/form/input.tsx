@@ -19,7 +19,7 @@ const inputVariants = cva(
   cn(
     'h-10 w-full rounded-lg px-2.5 py-2 flex border border-border-alpha-strong',
     'placeholder:text-secondary placeholder:text-body-sm-regular disabled:cursor-not-allowed disabled:opacity-50',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring '
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-bg focus-visible:ring-offset-2 focus-visible:ring-ring'
   ),
   {
     variants: {

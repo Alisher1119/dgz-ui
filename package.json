@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
@@ -267,6 +267,9 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
+  "overrides": {
+    "quill": "2.0.2"
+  },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -297,7 +300,7 @@
     "react-dom": "^19.2.4",
     "react-hook-form": "^7.71.1",
     "react-imask": "^7.6.1",
-    "react-quill-new": "^3.7.0",
+    "react-quill-new": "^3.8.3",
     "react-select": "^5.10.1",
     "react-window": "^1.8.11",
     "styled-components": "^6.1.18",

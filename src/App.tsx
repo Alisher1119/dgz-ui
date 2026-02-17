@@ -1,6 +1,7 @@
 import { Calendar, TimePicker } from './ui/calendar';
 import {
   Checkbox,
+  HtmlEditor,
   Input,
   Label,
   RadioGroup,
@@ -70,6 +71,9 @@ function App() {
       <TimePicker error={true} />
       <div>
         <Calendar mode={'single'} />
+      </div>
+      <div>
+        <HtmlEditor placeholder={'Test text'} />
       </div>
     </div>
   );

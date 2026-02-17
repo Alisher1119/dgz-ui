@@ -2,24 +2,33 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { type HTMLAttributes } from 'react';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
-import styled from 'styled-components';
 import { cn } from '../../lib';
 import type { ElementDataType } from '../../types';
 
 /**
  * Input style variants using CVA.
  * @property {'default'|'failure'|'success'} variant - Visual state of the input.
- */
-const editorVariants = cva(
-  'w-full rounded-lg border border-border-alpha-strong dark:bg-transparent file:border-0 placeholder:text-secondary placeholder:text-body-sm-regular focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-bg focus-within:ring-offset-2 focus-within:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+ */ const editorVariants = cva(
+  cn(
+    'quill-editor w-full rounded-lg bg-transparent transition-all',
+    'border border-border-alpha-strong [&_.ql-toolbar]:bg-muted/50 [&_.ql-editor.ql-blank::before]:text-body-sm-light',
+    'focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-bg focus-within:ring-offset-2 focus-within:ring-offset-background',
+    'disabled:cursor-not-allowed disabled:opacity-50'
+  ),
+  // Base classes: added 'quill-editor' to trigger global styles
+
   {
     variants: {
       variant: {
-        default: 'focus-within:ring-item-primary',
-        failure:
-          'focus-within:ring-item-destructive bg-item-destructive-focus placeholder:text-item-destructive border-item-destructive text-destructive',
-        success:
-          'focus-within:ring-success bg-success/20 placeholder:text-success/80 border-success text-success',
+        default: [
+          'focus-within:ring-ring focus-within:ring-item-primary',
+          '[&_.ql-editor.ql-blank::before]:text-secondary!',
+        ],
+        failure: [
+          'border-destructive text-destructive',
+          'focus-within:ring-destructive',
+          '[&_.ql-editor.ql-blank::before]:text-destructive/60!',
+        ],
       },
     },
     defaultVariants: {
@@ -27,21 +36,6 @@ const editorVariants = cva(
     },
   }
 );
-
-const ReactQuillWrapper = styled.div`
-  .quill {
-    .ql {
-      &-toolbar {
-        border: none;
-      }
-
-      &-editor,
-      &-container {
-        min-height: 120px;
-        border: none;
-      }
-    }
-`;
 
 /**
  * Props for the HtmlEditor component.
@@ -62,6 +56,9 @@ type HtmlEditorProps = ReactQuill.ReactQuillProps &
  * to ReactQuill. Use the `variant` prop to indicate success/failure states.
  *
  * @component
+ * @param containerProps
+ * @param className
+ * @param variant
  * @param {HtmlEditorProps} props - Component props.
  */
 function HtmlEditor({
@@ -71,12 +68,12 @@ function HtmlEditor({
   ...props
 }: HtmlEditorProps) {
   return (
-    <ReactQuillWrapper
+    <div
       {...containerProps}
-      className={cn(editorVariants({ variant }), 'block h-auto p-0', className)}
+      className={cn(editorVariants({ variant }), 'block p-0', className)}
     >
       <ReactQuill theme="snow" {...props} />
-    </ReactQuillWrapper>
+    </div>
   );
 }
 

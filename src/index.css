@@ -528,3 +528,14 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+
+@layer components {
+  .quill .ql-toolbar {
+    @apply border-none!;
+  }
+
+  .quill .ql-container,
+  .quill .ql-editor {
+    @apply min-h-30 border-none!;
+  }
+}
