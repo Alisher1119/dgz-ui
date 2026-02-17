@@ -1,6 +1,6 @@
 {
   "name": "dgz-ui",
-  "version": "1.4.13",
+  "version": "1.4.14",
   "description": "Custom ui library using React.js, Shadcn/ui, TailwindCSS, Typescript",
   "keywords": [
     "shadcn/ui",
