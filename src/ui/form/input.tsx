@@ -79,7 +79,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             size={'icon'}
             variant={'tertiary'}
             className={
-              'absolute top-1 right-1 size-8 cursor-pointer rounded-md p-2 !ring-0 !ring-offset-0'
+              'absolute top-1 right-1 size-8 cursor-pointer rounded-md p-2 ring-0! ring-offset-0!'
             }
             onClick={() => {
               setShowPassword(!showPassword);

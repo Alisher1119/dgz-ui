@@ -8,7 +8,13 @@ import {
   useState,
 } from 'react';
 import { cn } from '../../lib';
-import { ReactSelect } from '../form';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../form';
 
 /** Hour format token used by TimePicker. */
 export const HOUR = 'HH';
@@ -51,15 +57,7 @@ export interface TimePickerProps
  */
 export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
   (
-    {
-      value,
-      onChange,
-      disabled = false,
-      className,
-      error,
-      icon = <RiTimeLine className="size-5" />,
-      ...props
-    },
+    { value, onChange, disabled = false, className, error, icon, ...props },
     ref
   ) => {
     const parseTime = (timeValue?: string): TimeState | undefined => {
@@ -127,36 +125,60 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(
     return (
       <div
         {...props}
-        className={cn('flex items-center space-x-2', className)}
+        className={cn('flex items-center gap-2', className)}
         ref={ref}
       >
-        <div className={cn(error && 'text-destructive')}>{icon}</div>
-        <div className={cn('flex items-center space-x-2')}>
-          <ReactSelect
-            error={error}
-            isClearable={false}
-            options={hourOptions}
-            value={timeState.hour}
-            onChange={(opt) => handleSelectChange(`${opt}`, 'hour')}
-            isDisabled={disabled}
-            placeholder={'HH'}
-            menuPlacement={'auto'}
-            className={'min-w-20'}
-          />
-          <span className="text-lg">:</span>
+        <span
+          className={cn(
+            'shrink-0 [&>svg]:size-5',
+            error && '[&>svg]:text-item-destructive'
+          )}
+        >
+          {icon ? icon : <RiTimeLine />}
+        </span>
 
-          <ReactSelect
-            error={error}
-            isClearable={false}
-            options={minuteOptions}
-            value={timeState.minute}
-            onChange={(opt) => handleSelectChange(`${opt}`, 'minute')}
-            isDisabled={disabled}
-            placeholder={'mm'}
-            menuPlacement={'auto'}
-            className={'min-w-20'}
-          />
-        </div>
+        <Select
+          onValueChange={(opt) => handleSelectChange(`${opt}`, 'hour')}
+          value={timeState.hour}
+          disabled={disabled}
+        >
+          <SelectTrigger
+            className={'grow'}
+            variant={error ? 'failure' : 'default'}
+          >
+            <SelectValue placeholder={'HH'}>{timeState.hour}</SelectValue>
+          </SelectTrigger>
+          <SelectContent className={'max-h-96 max-w-10'}>
+            {hourOptions.map((item) => (
+              <SelectItem value={item.value} key={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <span className={cn('text-lg', error && 'text-item-destructive')}>
+          :
+        </span>
+
+        <Select
+          onValueChange={(opt) => handleSelectChange(`${opt}`, 'minute')}
+          value={timeState.minute}
+          disabled={disabled}
+        >
+          <SelectTrigger
+            className={'grow'}
+            variant={error ? 'failure' : 'default'}
+          >
+            <SelectValue placeholder={'mm'}>{timeState.minute}</SelectValue>
+          </SelectTrigger>
+          <SelectContent className={'max-h-96 max-w-10'}>
+            {minuteOptions.map((item) => (
+              <SelectItem value={item.value} key={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
     );
   }

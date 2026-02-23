@@ -7,6 +7,10 @@ import {
   RadioGroup,
   RadioGroupItem,
   ReactSelect,
+  Select,
+  SelectTrigger,
+  SelectValue,
+  VirtualizedSelectContent,
 } from './ui/form';
 
 /**
@@ -68,6 +72,31 @@ function App() {
           },
         ]}
       />
+      <Select>
+        <SelectTrigger>
+          <SelectValue placeholder={'123'} />
+        </SelectTrigger>
+        <VirtualizedSelectContent
+          options={[
+            {
+              label: '1',
+              value: '1',
+            },
+            {
+              label: '2',
+              value: '2',
+            },
+            {
+              label: '3',
+              value: '3',
+            },
+            {
+              label: '4',
+              value: '5',
+            },
+          ]}
+        />
+      </Select>
       <TimePicker error={true} />
       <div>
         <Calendar mode={'single'} />

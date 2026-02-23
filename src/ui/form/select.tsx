@@ -59,9 +59,10 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'border-border ring-offset-background placeholder:text-muted-foreground focus:ring-offset-none focus:ring-primary flex h-10 w-full items-center justify-between rounded-md border bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-offset-transparent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-transparent [&>span]:line-clamp-1',
+      'border-border-alpha-strong focus:ring-primary data-placeholder:[&>span]:text-body-sm-regular! flex h-10 w-full items-center justify-between rounded-lg border px-3 py-2 focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      'focus:ring-offset-bg data-placeholder:[&>span]:text-secondary/70 focus:ring-item-primary focus:ring-2 focus:ring-offset-2',
       variant === 'failure' &&
-        'focus:ring-destructive hover:bg-destructive/20 bg-destructive/20 border-destructive !text-destructive',
+        'focus:ring-destructive border-destructive text-destructive! data-placeholder:[&>span]:text-destructive',
       className
     )}
     {...props}
@@ -90,7 +91,7 @@ const SelectScrollUpButton = React.forwardRef<
     )}
     {...props}
   >
-    <ChevronUp className="h-4 w-4" />
+    <ChevronUp className="size-4" />
   </SelectPrimitive.ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
